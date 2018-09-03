@@ -1,0 +1,807 @@
+\documentclass{report}
+\title{git-notes}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+
+
+\begin{document}
+\maketitle
+\pagenumbering{gobble}
+\tableofcontents
+
+\chapter{Help}
+\pagenumbering{arabic}
+
+\section{CLI}
+\begin{verbatim}
+git <command> -h
+\end{verbatim}
+
+
+
+\chapter{Architecture}
+\begin{itemize}
+	\item working directory\\
+           the 'visible' part which lets do modification
+		\begin{itemize}
+			\item \textbf{staging index}\\
+				'waiting area' - mediates between working area and local repo. Initially in sync with the repo, 
+				but allows to store changes done in working area and then to send the changes to local repo 'in-one-go'\\
+				Can be behind the repo after some new content has been fetched.
+	
+			\item \textbf{stashing area}\\
+			'a pocket', intended to store changes that haven't been commited. useful when we need to switch a branch, but the changes are not ready to commit yet.
+		\end{itemize}
+
+	\item local repo	
+	this is a project tree stored locally. Two pointers operate on it:
+\begin{itemize}
+\item \textbf{HEAD}\\
+points to the commit which copy is present in the working directory
+\item \textbf{remote\_repo/remote\_branch}\\
+usually 'origin/master' - points to the last commit fetched from a remote repo 
+\end{itemize}
+
+\item remote repo
+\end{itemize}
+
+\chapter{Configuration}
+\section{config ranges}
+\begin{itemize}
+\item System
+\begin{lstlisting}
+git config --system
+\end{lstlisting}
+
+\item User
+\begin{lstlisting}
+git config --global
+\end{lstlisting}
+
+\item Project
+\begin{lstlisting}
+git config
+\end{lstlisting}
+
+\item edit examples
+\begin{lstlisting}
+git config --global user.email "abc@mail.com"
+git config --global core.editor "vim"
+\end{lstlisting}
+\end{itemize}
+
+\section{configurable properties}
+\begin{itemize}
+
+\item user
+\begin{itemize}
+\item \begin{verbatim}
+user.name=
+\end{verbatim}
+\item \begin{verbatim}
+user.email=
+\end{verbatim}
+\end{itemize}
+
+\item core
+\begin{itemize}
+\item \begin{verbatim}
+core.editor=
+\end{verbatim}
+\item \begin{verbatim}
+core.excludesfile=
+\end{verbatim}
+\end{itemize}
+
+\item color\begin{verbatim}
+color.ui=
+\end{verbatim}
+
+\item remote URLs\\
+look at 'Remote' chapter, 'Managing URLs' section
+
+\end{itemize}
+
+\section{config listing}
+\begin{itemize}
+\item all
+\begin{lstlisting}
+git config --list
+\end{lstlisting}
+
+\item specific
+\begin{lstlisting}
+git config user.email
+\end{lstlisting}
+\end{itemize}
+
+\section{customised prompt}
+\subsection*{UNIX-like}
+\begin{quote}
+\begin{verbatim}
+export PS1='\W$(__git_ps1 "($s)") > '
+\end{verbatim}
+add it to .bashrc (.bash\_profile):
+\begin{lstlisting}
+# uncomment current prompt export if exist
+# export PS1="some_user"
+....
+# add at the end of the script
+export PS!='\W$(__git_ps1 "($s)") > '
+
+\end{lstlisting}
+\end{quote}
+
+\subsection*{Windows}
+\begin{quote}
+similar format should be preconfigured. to get exact the same:
+\begin{verbatim}
+export PS1='\W$(__git_profile "(%s)") > '
+\end{verbatim}
+save as \textbf{.bash\_profile} in \textbf{/Users/current\_user} dir
+\end{quote}
+
+\section{aliases}
+\begin{verbatim}
+git config --<scope> alias.<abbreviation> original_command
+\end{verbatim}
+put original command between double quotes if it contains space(s)
+
+
+\chapter{Common Tasks}
+\section{diff}
+\begin{itemize}
+\item \begin{verbatim}
+git diff <file_name>
+\end{verbatim}
+compares \textcolor{red}{\textbf{working}} directory against \textcolor{red}{\textbf{staging}} area - for each file, on line-by-line basis
+\item \begin{verbatim}
+git diff --staged <file_name> (OBSOLETE: git diff --cached)
+\end{verbatim}
+compares \textcolor{red}{\textbf{staging}} against \textcolor{red}{\textbf{repository}}
+
+\item \begin{verbatim}
+git diff <SHA>
+\end{verbatim}
+compares state in a particular commit wit the current state in a working dir
+
+\item \begin{verbatim}
+git diff <SHA>..<SHA>\end{verbatim}
+compares two particular commits
+
+\item use switches to change the way the differences are displayed
+\begin{lstlisting}
+git diff --color-words <file_name>
+\end{lstlisting}
+\end{itemize}
+
+\section{show}
+\begin{quote}
+For commits it shows the log message and textual diff. It also presents the merge commit in a special format as produced by git diff-tree --cc. (git doc, \url{https://git-scm.com/docs/git-show} )
+\end{quote}
+
+\section{delete}
+\begin{itemize}
+\item \begin{verbatim}
+git rm file_name
+\end{verbatim}
+if present - removes definitely the file from working directory (it doesn't go to the trash bin)\\
+stages 'delete' operation
+\end{itemize}
+
+\section{rename/move}
+\begin{itemize}
+\item \begin{verbatim}
+git mv old_name new_name
+\end{verbatim} 
+\end{itemize}
+
+\section{commit}
+\begin{itemize}
+\item \begin{verbatim}
+commit -a
+\end{verbatim}
+combines 'add' and 'commit'. Ignores deleted and new files.
+\end{itemize}
+
+\section{undo}
+\begin{itemize}
+\item in \textbf{working directory}
+\begin{itemize}
+\item\begin{verbatim}
+git checkout <commit_SHA> <branch_name> <file_name>
+\end{verbatim}
+
+\item \begin{verbatim}
+git checkout -- file_name
+\end{verbatim} 
+to redo to the same state as at the pointer in repository
+
+\item \begin{verbatim}
+git checkout file_name
+\end{verbatim}
+branch name not required if it is current one and there is no branch with the same name as the file
+
+\item \begin{verbatim}
+git checkout SHA_number <branch_name> <file_name>
+\end{verbatim}
+sets both \textcolor{red}{\textbf{working directory}} and \textcolor{red}{\textbf{stage area}} to the state in a particular commit identified by SHA
+
+\item \begin{verbatim}
+ git revert SHA_number
+\end{verbatim}
+reverts all changes done in a particular commit - updates working directory and makes \textcolor{red}{\textbf{new commit}} (this can be switched out) whith those reverted changes. \textbf{revert} is for simple changes, \textbf{merge} for complex. 
+\begin{itemize}
+\item \begin{verbatim}
+git revert SHA_number --in
+\end{verbatim}
+doesn't make commit. allows to append further modification to next commit
+\end{itemize}
+
+\item \begin{verbatim}
+git reset ...
+\end{verbatim}
+look at 'reset' subsection
+\end{itemize}
+
+\item in \textbf{staging area}
+\begin{verbatim}
+git reset HEAD <file_name>
+\end{verbatim}
+removes all changes when no file provided. look 'reset' section for more about reset.
+
+\item in \textbf{repository}
+\begin{verbatim}
+git commit --amend <-m "...">
+\end{verbatim}
+only \textcolor{red}{\textbf{last commit}} editable! it appends staged changes to current commit, the message can be changed as well
+\end{itemize}
+
+\section{git reset HEAD ...}
+\begin{quotation}
+'Rewind' - sets the head on a particular commit; consecutive commits and logs becomes invisible. They can be accessed only by their SHA.
+\end{quotation}
+\begin{itemize}
+\item \begin{verbatim}
+git reset --soft ...
+\end{verbatim}
+sets pointer to new position, makes no changes to working dir and index (staging area)
+
+\item \begin{verbatim}
+git reset ..., git reset --mixed ...
+\end{verbatim}
+default mode. sets the pointer; sets staging index to match repository at the pointer. working directory stays intact
+
+\item \begin{verbatim}
+git reset --hard
+\end{verbatim}
+sets the pointer; sets both working dir and staging index to match repository at the pointer. later changes, commits, are lost
+\end{itemize}
+
+\section{HEAD in detached mode}
+This means that the HEAD pointer is on some particular commit \textbf{outside} any branch. It could've happen after particular commit was checked out using its SHA1. To attach back \textbf{checkout} any branch.
+
+\section{untracked files - delete}
+\begin{itemize}
+\item \begin{verbatim}
+git clean -n
+\end{verbatim}
+tests, which files will be deleted
+\item \begin{verbatim}
+git clean -f
+\end{verbatim}
+destructive command - permanently removes untracked files
+\end{itemize}
+
+\section{.gitignore}
+\begin{itemize}
+\item syntax
+\begin{verbatim}
+* ? [abc] [a-c1-6] !
+\end{verbatim}
+\# starts a comment line; blank lines are ignored
+
+\item project scope of ignore
+\begin{quote}
+create and edit .gitignore (without extention) in the repository root
+\end{quote}
+
+\item per-user ignore
+\begin{verbatim}
+git config --global core.excludesfile <file_path>
+\end{verbatim}
+to tell where .gitignore file is, the edit the file. typical filepath:
+\begin{verbatim}
+~/.gitignore_global  <- Linux
+/Users/user_name/.gitignore  <- Windows
+\end{verbatim}
+\end{itemize}
+
+\section{untracking files}
+\begin{quote}
+to stop tracking the  file by staging index:
+\begin{verbatim}
+git rm --cached <file_name>
+\end{verbatim}
+then add the file to \textbf{.gitignore} in order to prevent git to ask to add the file in the future.\\
+the file is still kept in \textcolor{red}{\textbf{working dir}} and \textcolor{red}{\textbf{repository}}, but it isn't tracked for further changes by staging index
+\end{quote}
+
+\section{referencing ancestor commits}
+\begin{quote}
+for instance from HEAD:
+\begin{verbatim}
+HEAD~ = HEAD~1 = HEAD^
+HEAD~2 = HEAD^^
+HEAD~3 = HEAD^^^
+\end{verbatim}
+\end{quote}
+
+\section{content listing}
+\begin{quote}
+\begin{verbatim}
+git ls-tree <tree-ish(es)>
+\end{verbatim}
+tree-ish - branch (last commit), SHA, tag, dir
+\end{quote}
+
+\section{git log}
+\begin{itemize}
+
+\item my preferred
+\begin{verbatim}
+git log --online --graph --all --decorate
+\end{verbatim}
+
+\item short
+\begin{verbatim}
+git log --oneline
+\end{verbatim}
+
+\item tree of branches
+\begin{verbatim}
+git log --graph
+\end{verbatim}
+
+\item detailed
+\begin{verbatim}
+git log -p
+\end{verbatim}
+shows changes as shown by \textbf{diff}  command
+
+\item particular tree-ish in detail
+\begin{verbatim}
+git show <tree-ish>
+\end{verbatim}
+shows:
+\begin{itemize}
+\item \textbf{content} of files, directories
+\item particular \textbf{commits} like by "log -p"
+\end{itemize}
+
+\item time
+\begin{verbatim}
+git log --since=".." --until="..."
+\end{verbatim}
+
+\item some popular:
+\begin{verbatim}
+git log --grep="...."
+git log --author="..."
+\end{verbatim}
+
+\item more at git help 
+
+\end{itemize}
+
+\section{stashing}
+\begin{itemize}
+\item saving in stash
+\begin{verbatim}
+git stash save "some message"
+\end{verbatim}
+like \textbf{git reset --hard HEAD}, but changes are stashed
+
+\item listing a stash 
+\begin{verbatim}
+git stash list
+\end{verbatim}
+\textcolor{red}{\textbf{stash@\{0\}}}: \textless branch\_name\textgreater: ".." - stash reference
+
+\item showing changes saved in stash
+\begin{verbatim}
+git stash show -p <stash_ref>
+\end{verbatim}
+Shows what changes this stash would apply\\
+\textbf{stash is not bound to any commit. can be taken from one working dir and aplied to some other working dir}
+
+\item applying changes from stash
+\begin{verbatim}
+git stash pop
+git stash apply
+\end{verbatim}
+apply changes to current working dir;\\
+\textbf{pop} drops stash, \textbf{apply} allows multiple use
+
+\item removing from stash
+\begin{itemize}
+\item \begin{verbatim}
+git stash drop stash@{id}
+\end{verbatim}
+
+\item \begin{verbatim}
+git stash clear
+\end{verbatim}
+removes all
+
+\end{itemize}
+\end{itemize}
+
+\chapter{Branches}
+
+\section{new branch}
+\begin{itemize}
+
+\item \begin{verbatim}
+git branch branch_name
+\end{verbatim}
+\textcolor{red}{\textbf{git branch...}} creates new branch
+
+\item \begin{verbatim}
+git checkout -b branch_name
+\end{verbatim}
+\textcolor{red}{\textbf{git checkout -b...}} creates new branch and switches to it
+ 
+\end{itemize}
+
+\section{delete}
+\begin{quote}
+Must not be current branch
+\begin{itemize}
+\item \begin{verbatim}
+git branch -d branch_name
+\end{verbatim}
+works for \textcolor{red}{\textbf{fully merged}} branches only
+
+\item \begin{verbatim}
+git branch -D branch_name
+\end{verbatim}
+works for \textcolor{red}{\textbf{unmerged}} branches, too
+\end{itemize}
+
+\end{quote}
+
+
+\section{list of branches}
+\begin{itemize}
+\item \begin{verbatim}
+git branch
+\end{verbatim}
+lists \textbf{local} branches
+
+\item \begin{verbatim}
+git branch -r
+\end{verbatim}
+lists \textbf{remote} branches
+
+\item \begin{verbatim}
+git branch -a
+\end{verbatim}
+lists \textbf{all} branches (local + remote)
+\end{itemize}
+
+\section{switching a branch}
+\begin{quote}
+\begin{verbatim}
+git checkout branch_name
+\end{verbatim}
+\begin{itemize}
+\item \textit{'swapping context'}
+\item working dir should be \textit{clean} - all modifications should be committed, stashed or discarded
+\end{itemize}
+\end{quote}
+
+\section{rename}
+\begin{quote}
+\begin{verbatim}
+git branch -m old_name new_name
+\end{verbatim}
+\textcolor{red}{\textbf{-m}! Not \textbf{-mv}!}
+\end{quote}
+
+\section{merging}
+\subsection{merge}
+
+\begin{enumerate}
+\item ensure this is a destination branch
+\item ensure the working directory is clean
+\item \begin{verbatim}
+git merge <source_branch>
+\end{verbatim}
+\end{enumerate}
+
+\begin{itemize}
+\item 
+\begin{verbatim}
+git branch --merged
+\end{verbatim}
+returns a list of fully incorporated branches - they can be merged \textcolor{red}{\textbf{fast-forward (ff-merge)}}
+
+\item \begin{verbatim}
+git merge --no-ff <branch_name>
+\end{verbatim}
+created merge commit even if it is ff-merge
+
+\item \begin{verbatim}
+git merge --ff-only <branch_name>
+\end{verbatim}
+merges only if ff-merge is possible; aborts otherwise
+
+\end{itemize}
+
+\subsection{resolving conflicts}
+\begin{itemize}
+\item abort
+\begin{verbatim}
+git merge --abort
+\end{verbatim}
+
+\item resolve manually
+\begin{itemize}
+\item open files, find conflict spots, manually fix them; useful:
+\begin{verbatim}
+git show <object>
+\end{verbatim}
+, and put SHA1 as an object; look section 2.2
+\item stage modified files
+\item commit
+\begin{itemize}
+\item this is merge commit - merge completed!
+\item message unnecessary
+\end{itemize}
+\end{itemize}
+
+\item resolving using tools
+\begin{quote}
+\begin{verbatim}
+git mergetool --tool=...
+\end{verbatim}
+type \textbf{git mergetool} to get list of available/recommended tools; a tool can be added to the config file
+\end{quote}
+
+\end{itemize}
+
+\chapter{Remotes}
+\section{origin/master}
+\begin{itemize}
+\item this is a pointer to last fetched commit.
+\item need to be in sync with local and remote master before push:
+\begin{itemize}
+\item fetch (or pull) to sync with a remote
+\item merge locally to resolve conflicts and sync locally (master and origin/master pointing to the same commit)
+\item repeat fetch+merge (or pull) until all conflicts are resolved and all syncs established; this makes ff-merge of remote master and master/origin possible
+
+\end{itemize}
+\end{itemize}
+
+\section{Managing URLs}
+\subsection{list}
+\begin{quote}
+\begin{itemize}
+
+\item \begin{verbatim}
+git remote
+\end{verbatim} 
+returns remote identifiers
+
+\item \begin{verbatim}
+git remote -v
+\end{verbatim}
+detail info including URLs
+
+\end{itemize}
+\end{quote}
+
+\subsection{add}
+\begin{quote}
+\begin{verbatim}
+git remote add <remote_name> <URL>
+\end{verbatim}
+it's a convention to call primary remote \textcolor{red}{\textbf{origin}}.\\
+\begin{itemize}
+\item https URL:
+\begin{verbatim}
+https://github.com/<user_name>/<repo_name>.git
+\end{verbatim}
+
+\item ssh URL:
+\begin{verbatim}
+git@github.com:<user_name>:<repo_name>.git
+\end{verbatim}
+\end{itemize}
+\end{quote}
+
+\subsection{remove}
+\begin{quote}
+\begin{verbatim}
+git remote -rm <remote_name>
+\end{verbatim}
+\begin{quote}
+remote name as listed by
+\begin{verbatim}
+git remote -v
+\end{verbatim}
+\end{quote}
+\end{quote}
+
+\section{Collaboration}
+\subsection{create local and remote repositories}
+\subsubsection{remote repo from local one}
+
+\begin{enumerate}
+\item \begin{verbatim}
+git init
+\end{verbatim}
+in the root dir of a project
+\item \begin{verbatim}
+git remote add <remote_repo_name> <URL>
+\end{verbatim}
+look at Remotes $\rightarrow$ add
+, sec. 4.2.2
+\item \begin{verbatim}
+git push -u origin master
+\end{verbatim}
+pushes local content to remote repo; -u makes local and remote branches in sync; look at Remotes $\rightarrow$ send
+\end{enumerate}
+
+\subsubsection{clone remote repo to local repo}
+\begin{itemize}
+\item \begin{verbatim}
+git clone <remote_URL>
+\end{verbatim}
+\begin{itemize}
+
+\item creates local folder using remote repo name
+
+\item clones remote project to the folder
+\end{itemize}
+
+\item \begin{verbatim}
+git clone <remote_URL> <folder_name>
+\end{verbatim}
+
+\begin{itemize}
+\item creates local folder with the specified name
+
+\item clones remote project to the folder
+\end{itemize}
+\end{itemize}
+
+\subsection{send}
+It works only if ff-merge is possible on the remote side. \\
+Look at Remote $\rightarrow$ origin/master.
+\begin{itemize}
+\item \begin{verbatim}
+git push <remote_repo> <remote_branch>
+\end{verbatim}
+usually:
+\begin{verbatim}
+git push origin master
+\end{verbatim}
+or
+\begin{verbatim}
+git push
+\end{verbatim}
+if current branch is tracked
+
+\item
+\begin{verbatim}
+git push -u ...
+\end{verbatim}
+also sets a local branch to track a remote
+
+\end{itemize}
+
+\subsection{receive}
+\begin{itemize}
+\item \begin{verbatim} git fetch + git merge
+\end{verbatim}
+\begin{itemize} 
+\item merge works exactly the same as for any other merge
+\item \begin{verbatim}
+git pull
+\end{verbatim}
+does exactly the same if ff-merge is possible (no conflicts)
+\end{itemize}
+
+\item \begin{verbatim}
+git fetch <remote_name>
+\end{verbatim}
+\begin{itemize}
+\item we can omit remote name if there's one remote only
+\item Non-destructive!
+\item updates origin/master, synchronises with remote repo
+\item origin/master doesn't reflect current state of a remote repo, it's only a copy of the last fetched state.
+\item fetch doesn't do any changes neither to local repo, nor staging area, nor local working dir
+
+\end{itemize}
+
+\item merge with origin/master the same way as with any other branch
+\begin{itemize}
+\item \begin{verbatim}
+git show origin/master
+\end{verbatim}
+shows what was fetched
+\item \begin{verbatim}
+git diff master..master/origin
+\end{verbatim}
+shows changes to apply locally
+
+\end{itemize}
+
+\end{itemize}
+
+\subsection{remote branches}
+\begin{itemize}
+\item list
+\begin{itemize}
+
+\item \begin{verbatim}
+git branch -r
+\end{verbatim}
+remote only
+
+\item \begin{verbatim}
+git branch -a
+\end{verbatim}
+ all
+\end{itemize}
+
+\item create
+\begin{verbatim}
+git branch local_branch_name remote_name/remote_branch_name
+git checkout -b local_branch_name remote_name/remote_branch_name
+\end{verbatim}
+\begin{itemize}
+\item creates local and remote branch at the same time
+\item make the local one tracked and in sync with the remote one
+\item \textbf{git checkout -b...} also switches to this new branch 
+\end{itemize}
+
+\item delete
+\begin{quote}
+\begin{verbatim}
+git push origin --delete remote_branch_name
+\end{verbatim}
+or (older version)
+\begin{verbatim}
+git push origin :remote_branch_name
+\end{verbatim}
+(push 'nothing' to a remote branch)
+\end{quote}
+
+\end{itemize}
+
+\chapter{GitHub}
+\section{help}
+
+\begin{itemize}
+
+\item GitHub doc:\\
+\url{file:///D:/IT/version%20control/git/web/GitHub%20Help.htm}
+
+\item Short github tutorials:\\
+\url{file:///D:/IT/version%20control/git/web/GitHub%20Guides.htm}
+
+\item Customizing GitHub Pages
+\url{https://help.github.com/categories/customizing-github-pages/}
+\end{itemize}
+
+\section{GitHub pages}
+To create and host web pages based on GitHub repos:\\
+\url{https://guides.github.com/features/pages/}
+
+\end{document}

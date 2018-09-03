@@ -1,0 +1,58 @@
+\contentsline {part}{I\hspace {1em}POM}{}{part.1}
+\contentsline {chapter}{\numberline {1}Overview, Content}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Build Life-Cycles, Phases, Goals}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Dependencies and Repositories}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Build Plugins}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}Build Profiles}{1}{section.1.4}
+\contentsline {chapter}{\numberline {2}POM Syntax}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}Elements}{2}{section.2.1}
+\contentsline {section}{\numberline {2.2}Example}{3}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}modelVersion}{4}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}groupId}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}artifactId}{4}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}version}{4}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}packaging}{4}{subsection.2.2.5}
+\contentsline {chapter}{\numberline {3}Inheritance}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Overview}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Effective POM}{5}{section.3.2}
+\contentsline {part}{II\hspace {1em}Setting Files}{6}{part.2}
+\contentsline {chapter}{\numberline {4}Overview}{7}{chapter.4}
+\contentsline {part}{III\hspace {1em}Executing Maven}{8}{part.3}
+\contentsline {chapter}{\numberline {5}phase}{9}{chapter.5}
+\contentsline {chapter}{\numberline {6}goal}{10}{chapter.6}
+\contentsline {part}{IV\hspace {1em}Maven Directory Structure}{11}{part.4}
+\contentsline {chapter}{\numberline {7}Standard Directory Structure}{12}{chapter.7}
+\contentsline {part}{V\hspace {1em}Dependency Management}{13}{part.5}
+\contentsline {chapter}{\numberline {8}Overview}{14}{chapter.8}
+\contentsline {chapter}{\numberline {9}Syntax}{15}{chapter.9}
+\contentsline {section}{\numberline {9.1}Elements}{15}{section.9.1}
+\contentsline {section}{\numberline {9.2}Example}{15}{section.9.2}
+\contentsline {chapter}{\numberline {10}External Dependencies}{17}{chapter.10}
+\contentsline {section}{\numberline {10.1}Syntax Example}{17}{section.10.1}
+\contentsline {chapter}{\numberline {11}Snapshot Dependencies}{18}{chapter.11}
+\contentsline {part}{VI\hspace {1em}Maven Repositories}{19}{part.6}
+\contentsline {chapter}{\numberline {12}Overview}{20}{chapter.12}
+\contentsline {chapter}{\numberline {13}Local Repository}{21}{chapter.13}
+\contentsline {chapter}{\numberline {14}Central Repository}{22}{chapter.14}
+\contentsline {chapter}{\numberline {15}Remote Repository}{23}{chapter.15}
+\contentsline {part}{VII\hspace {1em}Build Life-Cycles, Phases, Goals}{24}{part.7}
+\contentsline {chapter}{\numberline {16}Build Life-Cycles}{25}{chapter.16}
+\contentsline {paragraph}{default}{25}{section*.2}
+\contentsline {paragraph}{clean}{25}{section*.3}
+\contentsline {paragraph}{site}{25}{section*.4}
+\contentsline {part}{VIII\hspace {1em}IDE Support}{26}{part.8}
+\contentsline {chapter}{\numberline {17}Eclipse}{27}{chapter.17}
+\contentsline {section}{\numberline {17.1}Creating a Simple Project}{27}{section.17.1}
+\contentsline {part}{IX\hspace {1em}Appendix}{28}{part.9}
+\contentsline {chapter}{\numberline {18}Commands}{29}{chapter.18}
+\contentsline {section}{\numberline {18.1}Executing Maven}{29}{section.18.1}
+\contentsline {subsection}{\numberline {18.1.1}phase}{29}{subsection.18.1.1}
+\contentsline {subsection}{\numberline {18.1.2}goal}{29}{subsection.18.1.2}
+\contentsline {section}{\numberline {18.2}Version}{29}{section.18.2}
+\contentsline {section}{\numberline {18.3}Effective POM}{29}{section.18.3}
+\contentsline {section}{\numberline {18.4}Clean Up}{29}{section.18.4}
+\contentsline {chapter}{\numberline {19}Vocabulary}{30}{chapter.19}
+\contentsline {section}{\numberline {19.1}P}{30}{section.19.1}
+\contentsline {subsection}{\numberline {19.1.1}POM}{30}{subsection.19.1.1}
+\contentsline {chapter}{\numberline {20}Resources}{31}{chapter.20}
+\contentsline {section}{\numberline {20.1}Web}{31}{section.20.1}

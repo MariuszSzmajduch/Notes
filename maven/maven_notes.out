@@ -1,0 +1,55 @@
+\BOOKMARK [-1][-]{part.1}{I POM}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Overview, Content}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Build Life-Cycles, Phases, Goals}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Dependencies and Repositories}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Build Plugins}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Build Profiles}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{POM Syntax}{part.1}% 7
+\BOOKMARK [1][-]{section.2.1}{Elements}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.2}{Example}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.2.1}{modelVersion}{section.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.2.2}{groupId}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.3}{artifactId}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.4}{version}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.5}{packaging}{section.2.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Inheritance}{part.1}% 15
+\BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Effective POM}{chapter.3}% 17
+\BOOKMARK [-1][-]{part.2}{II Setting Files}{}% 18
+\BOOKMARK [0][-]{chapter.4}{Overview}{part.2}% 19
+\BOOKMARK [-1][-]{part.3}{III Executing Maven}{}% 20
+\BOOKMARK [0][-]{chapter.5}{phase}{part.3}% 21
+\BOOKMARK [0][-]{chapter.6}{goal}{part.3}% 22
+\BOOKMARK [-1][-]{part.4}{IV Maven Directory Structure}{}% 23
+\BOOKMARK [0][-]{chapter.7}{Standard Directory Structure}{part.4}% 24
+\BOOKMARK [-1][-]{part.5}{V Dependency Management}{}% 25
+\BOOKMARK [0][-]{chapter.8}{Overview}{part.5}% 26
+\BOOKMARK [0][-]{chapter.9}{Syntax}{part.5}% 27
+\BOOKMARK [1][-]{section.9.1}{Elements}{chapter.9}% 28
+\BOOKMARK [1][-]{section.9.2}{Example}{chapter.9}% 29
+\BOOKMARK [0][-]{chapter.10}{External Dependencies}{part.5}% 30
+\BOOKMARK [1][-]{section.10.1}{Syntax Example}{chapter.10}% 31
+\BOOKMARK [0][-]{chapter.11}{Snapshot Dependencies}{part.5}% 32
+\BOOKMARK [-1][-]{part.6}{VI Maven Repositories}{}% 33
+\BOOKMARK [0][-]{chapter.12}{Overview}{part.6}% 34
+\BOOKMARK [0][-]{chapter.13}{Local Repository}{part.6}% 35
+\BOOKMARK [0][-]{chapter.14}{Central Repository}{part.6}% 36
+\BOOKMARK [0][-]{chapter.15}{Remote Repository}{part.6}% 37
+\BOOKMARK [-1][-]{part.7}{VII Build Life-Cycles, Phases, Goals}{}% 38
+\BOOKMARK [0][-]{chapter.16}{Build Life-Cycles}{part.7}% 39
+\BOOKMARK [-1][-]{part.8}{VIII IDE Support}{}% 40
+\BOOKMARK [0][-]{chapter.17}{Eclipse}{part.8}% 41
+\BOOKMARK [1][-]{section.17.1}{Creating a Simple Project}{chapter.17}% 42
+\BOOKMARK [-1][-]{part.9}{IX Appendix}{}% 43
+\BOOKMARK [0][-]{chapter.18}{Commands}{part.9}% 44
+\BOOKMARK [1][-]{section.18.1}{Executing Maven}{chapter.18}% 45
+\BOOKMARK [2][-]{subsection.18.1.1}{phase}{section.18.1}% 46
+\BOOKMARK [2][-]{subsection.18.1.2}{goal}{section.18.1}% 47
+\BOOKMARK [1][-]{section.18.2}{Version}{chapter.18}% 48
+\BOOKMARK [1][-]{section.18.3}{Effective POM}{chapter.18}% 49
+\BOOKMARK [1][-]{section.18.4}{Clean Up}{chapter.18}% 50
+\BOOKMARK [0][-]{chapter.19}{Vocabulary}{part.9}% 51
+\BOOKMARK [1][-]{section.19.1}{P}{chapter.19}% 52
+\BOOKMARK [2][-]{subsection.19.1.1}{POM}{section.19.1}% 53
+\BOOKMARK [0][-]{chapter.20}{Resources}{part.9}% 54
+\BOOKMARK [1][-]{section.20.1}{Web}{chapter.20}% 55

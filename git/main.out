@@ -1,0 +1,48 @@
+\BOOKMARK [0][-]{chapter.1}{Help}{}% 1
+\BOOKMARK [1][-]{section.1.1}{CLI}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{Architecture}{}% 3
+\BOOKMARK [0][-]{chapter.3}{Configuration}{}% 4
+\BOOKMARK [1][-]{section.3.1}{config ranges}{chapter.3}% 5
+\BOOKMARK [1][-]{section.3.2}{configurable properties}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.3}{config listing}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.4}{customised prompt}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.5}{aliases}{chapter.3}% 9
+\BOOKMARK [0][-]{chapter.4}{Common Tasks}{}% 10
+\BOOKMARK [1][-]{section.4.1}{diff}{chapter.4}% 11
+\BOOKMARK [1][-]{section.4.2}{show}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.3}{delete}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.4}{rename/move}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.5}{commit}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.6}{undo}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.7}{git reset HEAD ...}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.8}{HEAD in detached mode}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.9}{untracked files - delete}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.10}{.gitignore}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.11}{untracking files}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.12}{referencing ancestor commits}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.13}{content listing}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.14}{git log}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.15}{stashing}{chapter.4}% 25
+\BOOKMARK [0][-]{chapter.5}{Branches}{}% 26
+\BOOKMARK [1][-]{section.5.1}{new branch}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.2}{delete}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.3}{list of branches}{chapter.5}% 29
+\BOOKMARK [1][-]{section.5.4}{switching a branch}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.5}{rename}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.6}{merging}{chapter.5}% 32
+\BOOKMARK [2][-]{subsection.5.6.1}{merge}{section.5.6}% 33
+\BOOKMARK [2][-]{subsection.5.6.2}{resolving conflicts}{section.5.6}% 34
+\BOOKMARK [0][-]{chapter.6}{Remotes}{}% 35
+\BOOKMARK [1][-]{section.6.1}{origin/master}{chapter.6}% 36
+\BOOKMARK [1][-]{section.6.2}{Managing URLs}{chapter.6}% 37
+\BOOKMARK [2][-]{subsection.6.2.1}{list}{section.6.2}% 38
+\BOOKMARK [2][-]{subsection.6.2.2}{add}{section.6.2}% 39
+\BOOKMARK [2][-]{subsection.6.2.3}{remove}{section.6.2}% 40
+\BOOKMARK [1][-]{section.6.3}{Collaboration}{chapter.6}% 41
+\BOOKMARK [2][-]{subsection.6.3.1}{create local and remote repositories}{section.6.3}% 42
+\BOOKMARK [2][-]{subsection.6.3.2}{send}{section.6.3}% 43
+\BOOKMARK [2][-]{subsection.6.3.3}{receive}{section.6.3}% 44
+\BOOKMARK [2][-]{subsection.6.3.4}{remote branches}{section.6.3}% 45
+\BOOKMARK [0][-]{chapter.7}{GitHub}{}% 46
+\BOOKMARK [1][-]{section.7.1}{help}{chapter.7}% 47
+\BOOKMARK [1][-]{section.7.2}{GitHub pages}{chapter.7}% 48
