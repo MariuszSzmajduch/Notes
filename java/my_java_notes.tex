@@ -1,0 +1,2843 @@
+\documentclass{report}
+\title{java-notes}
+
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{hyperref}
+
+\begin{document}
+\pagenumbering{gobble}
+\tableofcontents
+
+
+
+
+\part{Intro}
+\pagenumbering{arabic}
+
+
+
+\chapter{TODOs}
+
+\section{Readings}
+\begin{itemize}
+	\item  notes for reference type conversions, using a chapter in 'java in nutshell'
+	\item Thinking Java, IO, Passing Objects.Clonning
+	\item \textit{Java 8 Lambdas} continue from 'Chapter 7'
+	\item \textit{Java Pocket guide} continue from  'Chapter 10'
+	\item https://www.ibm.com/developerworks/learn/java/index.html
+  	\item \href{http://www.javapractices.com/home/HomeAction.do;jsessionid=30B15108A7091DF24625AA7794107BE8} 
+      {javapractices.com}
+      
+	\item UML Distilled textbook by Martin Fowler 
+	\item \url{http://agilemodeling.com/artifacts/crcModel.htm}
+	\item  Check Absolute Java chapter 8, binding.
+	\item \textit{Test-Driven Development} by Kent Beck
+	\item \textit{Growing Object-Oriented Software, Guided by Tests} by Steve Freeman and Nat Pryce 
+\end{itemize}
+
+
+\section{Research Topics and Tasks}
+\begin{itemize}
+	\item add examples to 'primitive type optimisation'
+	\item more about copy constructor, examples \& make notes (under constructors ot referencetypes.clonning?)
+	\item format spacing starting from Basic.Switch\_Statement
+	\item review implemented setters to add error-checks. Add setters when such error checks are reasonable,
+	for instance to avoid negative ages, sizes, etc.
+	\item investigate IntStream.peek()
+	\item investigate further application of 'characteristic' parameter of Collectors.of() - 
+    custom collector
+	\item investigate StringJoiner library class
+	\item investigate streamSupplier, streamSupplier.get()
+	\item IntStream and Arrays.stream(), difference
+	\item fix 'placeholder indicators in Time-Date chapter(Library Classes
+	\item laboratory06,  FirsFit class - return does not terminate forEach loop! why? Is it possible to escape a stream prematurely?
+	\item what is better - summaryStatistics or Collectors single value methods (like averagingInt(), averagingDouble())?
+	\item Optional class...
+	\item what application it can be for java reflection?
+	\item end-of-file indications
+	\item exceptions combined with streaming. if possible to implement - turn back to laboratory 06, streamed version.
+	\item generics in 'getting started'
+	\item check try-with-resources in Java 
+	\item Coder’s assertion that the annotated method or constructor body doesn’t perform \textbf{unsafe ??} operations on its varargs parameter.
+	\item Questions, lecture 08:
+	\item private interface methods
+	\item find more about static initialisers
+	\item serialisation and copy constructor. Why it might be better than cloning?
+	\item hashCode() override when eqauls() overidden. put in reference.comparison section
+	\item scanner... ongoing
+	\begin{itemize}
+		\item look at links inside 'Question About Scanner Class and nextInt(), nextLine(), and next() Methods (Beginning Java forum at coderanch' on HDD
+		\item look at link to stackoverflow in 'Problem with .nextLine() in Java. | Treehouse Community'
+		\item study Pattern class docs
+	\end{itemize}
+
+	\item why inner classes (also lambda) require external local values  to be immutable (final in java)
+	\item  optional as a replacement for null, p. 55 - 56 in 'Java8 Lambdas' book; applications
+	\item some operations are more expensive on ordered colections...???
+	\item documentation for minBy and maxBy (\textit{Collectors} library),another method in that class, implementations in real codes
+	\item Entry, entrySet() in javadoc
+	\item check signature of Arrays.parallelSort, Arrays.parallelSetAll, 
+    Arrays.parallelPrefix, and update 'DataParalelism'Arrays'
+	\item factory methods in concurrent context
+	\item why forced autoboxing/unboxing is not recommended
+	\item check recommendation to use final variables on \textit{javapractices}, lec.4
+	\item  testing, JUnit, tutorial, apply to existing codes
+	\item difference between import and static import... ongoing
+\end{itemize}
+
+
+
+\chapter{Resources}
+Notes based on:
+\begin{itemize}
+	\item UoG java labs classes
+	\item books
+	\begin{itemize}
+		\item \textit{Java 8 Lambdas}, R. Warburton
+		\item \textit{Java Pocket Guide},  R. Liguori, P. Liguori
+		\item \textit{Effective Java,} 2nd Edition, J. Bloch
+		\item \textit{Absolute java}, 5th Edition, W. Savitch
+		\item \textit{Java in a Nutshell}, 6th Edition , B. J. Evans, D. Flanagan
+		item \textit{Abstraction in java, Ultimate Guide}, H. Hamill
+		\item \textit{Thinking in Java}, B Eckel
+	\end{itemize}
+
+\end{itemize}
+
+
+
+
+\part{Basics}
+\pagenumbering{arabic}
+
+
+
+\chapter{Overview}
+
+\begin{itemize}
+\item object oriented
+
+\item platform-neutral (due to JVM), \textit{'write-once-run-anywhere'} philosophy
+\item \textbf{.java} (source code) $\rightarrow$ \textbf{.class} (bytecode) $\rightarrow$ (executable)
+
+\item statically typed (determined in compile-time)
+\end{itemize}
+
+
+
+\chapter{Identifiers}
+\begin{itemize}
+\item starts with letters or underscores
+\item composed of letters, underscores or numbers
+\item informal naming conventions:
+\begin{itemize}
+\item initial capital letter for \textbf{classes, interfaces, enums, annotation} names. interfaces should be \textbf{adjectives}.
+\item all-CAPS for \textbf{constant identifiers}
+\item all lower letters for \textbf{packages modules}. Modules names should be the inverse internet domain name.
+\item initial lower case for other identifiers
+\item camel-case for multi-word identifiers
+\end{itemize}
+\end{itemize}
+
+
+\section{Informal Single-Letter Local Variables Naming}
+\begin{itemize}
+	\item \textbf{b}, byte
+	\item \textbf{i, j, k}, integer
+	\item \textbf{l}, long
+	\item \textbf{f}, float
+	\item \textbf{d}, double
+	\item \textbf{c}, character
+	\item  \textbf{s}, String
+	\item \textbf{o}, Object
+	\item \textbf{e}, exception
+\end{itemize}
+
+
+\section{Scope Rules}
+Block - part of code enclosed by a pair of corresponding curly brackets. Rules:
+\begin{itemize}
+\item A local variable is in scope from the point if its declaration to the end of the enclosing block.
+\item Method parameters are valid until the end of the method.
+\item iteration variables declared in a for-loop initializer are in scope until the end of the loop body.
+\end{itemize}
+
+\subsection{Name Conflicts.}
+No two variables of the same scope and the same type can share the same identifier. However, variables in nested scope shadow the variable with the same identifier and type from enclosing scope. For instance, if global variable and local variable have the same identifier and type, then the value of local variable is used in local scope.
+\begin{verbatim}
+class MyClass{
+    int a = 1;
+    
+    void print(){
+        int a = 2;
+        System.out.println(a);
+    }
+}
+\end{verbatim}
+displays '2'.
+
+
+
+\chapter{Modifiers}
+
+
+\section{Access Modifiers}
+Those modifiers specify where \textbf{fields} can be \textbf{accessed from}, where \textbf{methods} can be \textbf{called from}.
+\begin{itemize}
+	\item \textbf{public} - any class
+	\item \textbf{protected} - package \& subclasses, 
+	\item \textbf{default} - \textit{package protected}, package only
+	\item \textbf{private} - the same class only
+\end{itemize}
+
+
+\section{Recommendation on How to  Use Access Modifiers}
+It is safe to start with restrictive access level and then to relax it. \textbf{The opposite
+approach can break some existing code}.
+
+\subsection{public}
+Only for \textbf{methods} and \textbf{constants} that form \textbf{part of public API}.
+
+\subsection{protected}
+For members that are supposed to be used outside of the package.
+\begin{itemize}
+	\item \textbf{documment them!}
+	\item \textbf{don't change them!} It can break the external code.
+\end{itemize} 
+
+
+\section{Other modifiers}
+\begin{itemize}
+	\item abstract, static, final, default
+	\item native - to merge C and C++ with java (method declaration without body)
+	\item strictfp - floating-point arithmetic as defiind by IEEE
+	\item synchronized - one thread at the time allowed (thread-safe)
+	\item transient - this data member is not serialised when a class is serialised
+	\item volatile - multithreading: no caching, last actual value (from registers)
+\end{itemize}
+
+
+
+\chapter{Primitive Types}
+Since java is statically typed language types must be:
+\begin{itemize}
+\item declared:
+\begin{verbatim}
+int var;
+\end{verbatim}
+\item ...then initialised with a value before use:
+\begin{verbatim}
+var = 5;
+\end{verbatim}
+\item It can be done in one go:
+\begin{verbatim}
+int var = 5;
+\end{verbatim}
+\end{itemize}
+
+
+\section{List of Types}
+\begin{itemize}
+	\item integer values
+	\begin{itemize}
+		\item expressed as decimals, octals \textcolor{red}{0..}, hex-decimals \textcolor{red}{0x..}, binaries \textcolor{red}{0b1001101..}
+		\item byte $\rightarrow$ short $\rightarrow$ int $\rightarrow$ long \textcolor{red}{..L}
+		\item 8-bit $\rightarrow$ 64-bit
+	\end{itemize}
+	
+	\item floating point values
+	\begin{itemize}
+		\item float, 32-bit, \textcolor{red}{0,0F, 0,0f}
+		\item double, 64-bit, \textcolor{red}{0,0D, 0,0d}
+		\item \textbf{\textcolor{red}{fractional part not reqiured when type suffix is applied}}
+	\end{itemize}
+	
+	\item boolean, 1-bit flag
+	\item char, 16-bit (2 bytes) Unicode values
+\end{itemize}
+
+
+\section{Conversion}
+Specification:\\
+\url{https://docs.oracle.com/javase/specs/jls/se9/html/jls-5.html}\\
+\par
+Implicit conversion - generally widening conversions, where little or no information is lost. Examples - byte to short, int to double, int to long.\\
+Narrowing conversion - requires use of explicit cast operator. This conversion is done by truncation of excessive bits. Therefore, it can cause loss  of information:
+\begin{itemize}
+\item Conversion of integer values:
+\begin{verbatim}
+int a = 1025;
+byte b = (byte)a;
+\end{verbatim}
+In the example above '1' is assigned to 'b'\\
+- '0000..10 0000 0001' is truncated to '0000 0001'.
+\item Float to integer conversion:
+\end{itemize}
+
+
+\section{Primitive Type Specialisation (from java8)}
+The use of boxed numbers creates overheads:
+\begin{itemize}
+	\item memory overhead, object require additional metadata to be stored in heap
+	\item time overhead (for memory allocation)
+\end{itemize}
+
+\subsection*{Naming Conventions}
+\begin{itemize}
+	\item interface \textbf{return} type is primitive $\rightarrow$ To\textit{Type}Function\\
+	\textit{ToIntFunction, ToLongFunction..}
+	\item \textbf{parameter} type is primitivenction $\rightarrow$ \textit{Type}Function\\
+	\textit{IntFunction, LongFunction..}
+	\item \textbf{higher-order function} using primitive type $\rightarrow$ \textit{Function}To\textit{Type}\\
+	\textit{MapToLong..}
+	\item \textbf{streams} $\rightarrow$ look 'Aggregate Operations/Specialised Primitive Types'
+\end{itemize}
+
+
+
+\chapter{Reference Types}
+\begin{quotation}
+	'Reference types hold references to objects and provide a means to access those objects stored somewhere in memory. The memory locations are irrelevant to programmers. All reference types are a subclass of type java.lang.Object.'
+\end{quotation}
+
+
+\section{List of Reference Types}
+\begin{itemize}
+	\item classes
+	\item interfaces
+	\item enumerations
+	\item arrays
+	\item annotations
+\end{itemize}
+
+
+\section{Reference vs Primitive Types}
+\begin{tabular}{l || l | l}
+	& Reference Type & Primitive Type \\
+	\hline
+	amount & \textbf{unlimited}, user defined & boolean and numeric only \\
+	\hline
+	memory content & \textbf{references} to data & \textbf{actual} data \\
+	\hline
+	multivariables & all variables that holds  & all variables hold \textbf{a copy} \\
+	& \textbf{the same reference} point & of primitive data value. \\
+	& \textbf{the same} object & a modification to data\\
+	& &stored   in one variable \\
+	& & \textbf{doesn't affect} the values \\
+	& & stored in another variables \\
+	\hline
+	as a method  & \textbf{by reference}& \textbf{by value}  \\
+	parameter & the object they point to&original values are  \\
+	& \textbf{can be modified}  & \textbf{unaffected} \\
+	\hline
+\end{tabular}
+
+
+\section{Default Values}
+they are the values assigned implicitly to not initialised variables.
+
+\subsection{Objects}
+
+\subsection*{Instance Variables}
+They are the variables defined at class level. \textbf{They have a value of null when not initialised}.
+
+\subsection*{Local Variables}
+When not initialised, they have \textbf{no value at all, not even null value!}.
+Actually, they are assigned a NaN bit pattern at binary level not a garbage value,
+as it is commonly believed.
+
+\subsection{Arrays}
+Default values depends on array's elements type:
+\begin{itemize}
+	\item \textbf{reference types} - \textbf{\textcolor{red}{null}}
+	\item \textbf{primitive numerical types} - \textbf{\textcolor{red}{0}}
+\end{itemize}
+
+\section{Object Instantiation}
+
+\subsection{Class Loading}
+\begin{itemize}
+	\item Classloader finds and loads the class from which an object is to instantiate. It also loads the class when there is an attempt to use a static member of the class.
+	\item Classloader goes upward the inheritance tree and loads all classes yet not loaded.
+\end{itemize}
+
+\subsection{Static Initialsation}
+It starts in the class highest in the inheritance tree. Then initialisation continous going downward the tree.
+
+\subsection{Class Variables Initialisation}
+They are set to their default values
+\begin{itemize}
+	\item primitive type variables are set to 0, 0.0, false respectively
+	\item reference type variables are set to \textbf{null}
+\end{itemize}
+
+\subsection{Constructor Calls}
+It follows the procedure described in Constructor/'Constructor Chaining'.
+
+
+\section{Cloning}
+\subsection{Overview}
+The most common usage is when we need to manipulate an object and the original object must stay intact. For instance we want to make 
+the original object \textbf{immutable} - \textit{read-only}.
+
+All classes inherites \textbf{clone()} method from \textit{Object} class. In order to avoid default cloneability the method is \textbf{protected} - can be used 
+only within the package and by subclasses. As an example, most classes in java standard library don't override \textbf{clone()}, they inherit its protectd version.
+That's why we can't call clone() on an object of \textit{Integer} type.
+
+There are two options - shallow and deep cloning. Default option of clonning is the \textbf{shallow clonning} - only the 'surface' of the cloned object is new created,
+however both objects share those fields, which are of reference type. This is necessery because there is no guarantee, that those  are \textit{cloneable}.
+There is no programmatical support in Java for \textbf{deep clonning} - \textbf{all fields of reference types all the way downward are also cloned}. Deep clonning
+must be implemented manually.
+
+\subsection{Switching Cloneability}
+\subsubsection{Turning ON}
+In order to expose clone() in the public API we need:
+\begin{itemize}
+	\item implement \textbf{Cloneable} interface
+	\item override inherited \textit{\textbf{clone()}}
+	\begin{itemize}
+		\item extend its visibility to \textbf{public}
+		\item call \textbf{\textit{super.clone()}} within
+		\begin{itemize}
+			\item surround it with \textit{try-catch} and catch \textbf{CloneNotSupportedException}
+			\item \textbf{cast} the return from \textit{super.clone()} to the destination type
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\textbf{Once a class is made \textit{cloneable}, everyting what derives from the class is also cloneable} - the public visibility of clone() can't
+be reduced.
+
+\subsubsection{clone() Overriding}
+The simplest way:
+\begin{verbatim}
+public T clone(){
+    try{
+        return  (T)super.clone();
+    } catch (CloneNotSupportedException cnse) {}
+}
+\end{verbatim}
+
+\subsubsection{The Purpose of Cloneable Interface}
+This is an empty interface, there is no method inside. The interface works as a kind of flag - it indicates that the class is intendent to be cloneable.
+This is checked when super method in Object class is invoked.\textbf{Object.clone()} tests whether Cloneable is implemented or not. If not -
+it throws \textbf{CloneNotSupportedException}.
+
+\subsection{Shallow Cloning}
+Is done by \textbf{clone()} method. \textbf{Cast is mandatory} - clone() returns an object of \textbf{Object} type.
+Can throw \textbf{ClonenotSupportedException}. \\
+As a result of shallow cloning new object is created, with the same values of primitive types and copies of reference types. \textbf{Copies of the objects referred to by those references are not done}, they point to the same objects as original object.
+
+\subsection{Deep Cloning}
+Not supported by Java API, programmer must provide a copying method. Additionally to shallow cloning it makes recursively copies of objects that are referred by reference variables.
+
+\subsection{Serialisation and Copy Constructor}
+An alternative approach to cloning. TODO..
+
+
+\chapter{Arrays}
+
+
+\section{Permitted Element types}
+\begin{itemize}
+	\item primitive types
+	\item reference types
+	\item \textbf{\textcolor{red}{structered types are not allowed!}}
+	\begin{quote}
+		Arrays reserve fixed memory size. Collections require dynamic memory size defined in runtime.
+		Therefore defining an array of Collection type causes an error. 
+	\end{quote}
+\end{itemize}
+
+
+\section{Definition, Instantiation, Initialisation}
+\subsection{Definition}
+\begin{verbatim}
+<T>[] arrName;
+\end{verbatim}
+Specifies:
+\begin{itemize}
+	\item elements' type
+	\item variable identifier
+\end{itemize}
+
+\subsection{Instantiation}
+\begin{verbatim}
+array = new <T>[size];
+\end{verbatim}
+Assignes memory space to the array acording to its elements' size and number.
+Can be combined together with a definition:
+\begin{verbatim}
+<T>[] array = new <T>[size];
+\end{verbatim} 
+
+\subsection{Initialisation}
+Arrays are initialised with default values during instantiation \textbf{\textcolor{red}{in runtime}}:
+\begin{itemize}
+	\item \textbf{0} for \textbf{numerical primitive types}
+	\item \textbf{null} for \textbf{reference types}.
+\end{itemize}
+
+Options to assign custom values:
+\subsubsection{Manually}
+\begin{itemize}
+	\item using \textbf{loops}
+	
+	\item using \textbf{literals (\textcolor{red}{surrounded with curly braces, size is ommitted!})}
+	\begin{verbatim}
+	int[] array = new int[]{1, 2, 3, 4};
+	or
+	int[] array = {1, 2, 3, 4};
+	\end{verbatim}
+	
+	\item \textbf{copying existing array using clone()}. It creates a shallow copy -
+	equal values for primitive types, copy of references for reference types, not copy of objects!
+	This combines definition, initialisation and instantiatin in one-go:
+	\begin{verbatim}
+	int[] array = (int)anotherArray.clone()
+	\end{verbatim}
+	
+	\item using \textbf{System.arraycopy(...)}:
+	\begin{verbatim}
+	System.arraycopy(src, idx, trget, idx, numberOfElements);
+	\end{verbatim}
+	
+	\item using streams. Example below
+		\begin{verbatim}
+	int[] intArray = IntStream.of(intArray)
+	    .mapToInt(i -> 44)
+	    .toArray()
+    .clone();
+\end{verbatim}
+\end{itemize}
+
+
+\section{Anonymous Arrays}
+Arrays can be instantiated anonymously, inline, as an expression.
+Example:
+\begin{verbatim}
+System.out.println("This is a string array: " +
+                  new String[]{"first item", "second item")});
+\end{verbatim}
+
+
+\section{Converting a List to an Array}
+
+\subsection{list.toArray()}
+Returns \textbf{Object[]}. Any attempt to cast to some other type will cause that an exeption will be thrown.
+
+\subsection{list.toArray(T[])}
+Example:
+\begin{verbatim}
+void makeArray(ArrayList<String> as){
+  String[] array = as.toArray(new String[0]);
+}
+\end{verbatim}
+
+Following documentation - toArray(T[]) specifies a type of returned array and returns the array is big enough. Otherwise the method creates the array with the proper size.
+So, we can:
+\begin{itemize}
+	\item invoke the method with an array with \textbf{size equal to 0} - new array is always created.
+	\item invoke with the array with the \textbf{size equal to the size of converted list}:
+	\begin{verbatim}
+	void makeArray(ArrayList<String> as){
+	    String[] array = new String[as.size()];
+	    as.toArray(array);
+	}
+	\end{verbatim}
+\end{itemize}
+
+\subsection{list.stream().toArray(T{}::new);}
+
+
+\section{Type Conversion}
+Arrays of primitive types are \textbf{invariant} - an attempt to cast raises compile error. Reference type conversion is allowed.
+
+
+
+\chapter{if/else}
+
+
+\section{Nested if's problem}
+If curly brackets are missing then the rule is that \textbf{'else'} statement is connected with \textbf{the nearest 'if' statement}.
+\textbf{\textcolor{red}{The indentation is ognored!}}:
+\begin{verbatim}
+if(cond1) print("first);
+     if(cond2) print("second");
+else print("else");
+\end{verbatim}
+'else' is printed when \textbf{cond2} in nested \textbf{if} is \textbf{false}.
+
+
+\section{else if}
+\begin{verbatim}
+if cond1
+else if cond2
+\end{verbatim}
+is equivalent to:
+\begin{verbatim}
+if cond1...
+else {
+     if cond2....
+}
+\end{verbatim}
+
+
+
+\chapter{Switch Statement}
+\begin{verbatim}
+switch(some){
+  case x:
+    do-sth;
+    break; \\ control flows to the next case when there's no break 
+  case y:
+    do-sth;
+    ....
+  \\ optionally
+  default:
+    do-sth;
+    break;
+}
+\end{verbatim}
+The use of 'default' makes a code less error prone.
+
+\chapter{Labels}
+We use them in order to exit from a nested loop more than one level up. The label marks the loop to exit.
+\begin{verbatim}
+exitHere
+while{
+	while{
+		break exitHere;
+	}
+} // the break exits here.
+\end{verbatim}
+Works in the same way for \textit{continue};
+ 
+\chapter{Text-based User Input}
+\section{Program Arguments}
+\begin{itemize}
+\item program input argument
+\begin{verbatim}
+public static void main (String[] args){
+	String a = args[0];
+    String b = args[1];
+    ...
+}
+\end{verbatim}
+
+\section{Using an Object of Scanner Class}
+\item using scanner - \url{https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html}
+\end{itemize}
+
+
+\subsection{Conversions}
+\subsubsection{Widening}
+\begin{itemize}
+	\item convertion to \textbf{parent} class
+	\item \textbf{always legall}
+	\item \textbf{no explicit cast} is necessary
+\end{itemize}
+
+\subsubsection{Narrowing}
+\begin{itemize}
+     \item From more general to more specific type, from superclass to subclass.
+     \item \textbf{explcit cast is mandatory!}
+     \item illegal conversion throws \textbf{ClassCastException}
+     \item may result in loss of data/precision
+ \end{itemize}
+
+\subsection{Comparison Objects}
+\subsubsection{Using Equality operators}
+Compares \textbf{references!} Return true only when references are the same - point to \textbf{the same object}.
+
+\subsubsection{Using equals()}
+Inherited from Object class, By default it uses \textbf{== }for comparison. Really useful when overridden.\textbf{hashCode() }should be overridden, too, for compatibility reasons (if it is expected to use a collection tat uses hash functions, HashMap, HashSet, etc).
+
+\subsection{Comparing String Objects}
+The rules are similar - \textbf{equality operators} compare references and \textbf{equals()} compares values character-wise. 
+Therefore, the result depends on how the string object was created.
+
+\subsubsection{Strings Created from Literals}
+A reference points to a string object taken from pool. All String objects initialised with the same literal point to the same String object in the pool.
+Therefore \textbf{in opposite to common belief} comparison using equality operator returns \textbf{true} each time when underlying character string is the same, because the references 
+are the same, as well as the object they point to. \\
+Obviously \textbf{equaks()} returns \textbf{true}, too.
+
+\subsubsection{String Object Created Using 'new' Operator}
+Therefore the rules are exactly the same as for any other object - equality operators ompare references, check, whether or not they point to the same string object. equals() compers underlying character string.
+
+\subsection{Copying}
+Two options:
+\begin{itemize}
+	\item to copy a reference
+	\item to create a copy of an object (\textbf{cloning}).
+\end{itemize}
+
+\subsubsection{Copying a Reference}
+New reference to the same object is created. Any change applied to an object using one reference is to see when the object is accessed by another reference.
+
+
+
+\chapter{Constructors}
+\begin{quotation}
+	'Classes implicitly have a no-argument constructor if no explicit constructor is present. (..) if a constructor with arguments is added, there will be no no-argument constructor unless it is manually added.' (\textit{Java Guide})
+\end{quotation}
+
+
+\section{Constructor Chaining}
+\textbf{Constructors are not inherited. They are chained instead!}//
+Parent class constructor can be called within subclass constructor by using \textbf{super(..)} keyword. As parent class variables are initialised when parent constructor is called,
+this call is always done, whether explicitly or implicitly. Also another constructor can be called from within another constructor of the same class using \textbf{this().}
+\begin{itemize}
+	\item \textbf{(super() or this()) must be the first statement in the constructor.}
+	\item \textbf{this() and super(..) in the same constructor are not allowed.}
+	\item If there is not an explicit call to the constructor of the superclass, an automatic call to the no-argument constructor of the superclass is made.
+	Therefore:
+	\begin{itemize}
+		\item there should be always \textbf{an explicit call to superclass constructor}
+		\item \textbf{no-arg constructor should be always present unless the class is final - not intended to be extended.}
+		\item otherwise \textbf{an error may be raised}.
+	\end{itemize}
+\end{itemize}
+
+
+\section{Practices}
+
+\subsection{Define no-arg Constructor when a Constructor Taking Arguments Is Present }
+	Always put no-arg constructor definition when there is at least one constructor taking argument.
+	The minimum - a constructor with no body. It just creates an object and initialises instant variables with default values:
+	\begin{verbatim}
+	public myClass();
+	\end{verbatim}
+    
+	Otherwise:
+	\begin{itemize}
+		\item \textbf{variable instantiation}:
+			\begin{verbatim}
+myClass mc = new myClass();
+		      \end{verbatim}
+              
+		raises an error. \textbf{Implicit no-arg constructor is not present}, it is implicitly created only when \textbf{no other constructor is present}.
+		
+		\item \textbf{implicit call to superclass constructor} will cause an error.
+	\end{itemize}
+	
+\subsection{Never Call Overridable Method from within a Constructor}
+This method may call a variable, which is initialised within child constructor, but parent constructor is called implicitly first, and child method is called from within this parent constructor - ERROR! See OOP.Inheritance.Pitfalls.Constructor\_calls\_an\_overridable\_method.
+
+
+
+\chapter{this}
+Common uses:
+\begin{itemize}
+	\item to refer to current object
+	\item to pass a reference of current object as a method argument
+	\item to call a constructor from within another constructor in the same class.
+	\item \textbf{this() and super(..) in the same constructor is not allowed.}
+\end{itemize}
+
+
+
+\chapter{super}
+Refers to superclass. Snatx:
+\begin{verbatim}
+super.superClassMember
+\end{verbatim}
+Common usage:
+\begin{itemize}
+	\item to call superclass constructor from within subclass constructor. \textbf{This must be the first statement in the constructor.}
+	\item to call \textbf{overridden} superclass methods from within a subclass method. \textbf{Only overridden methods can be called in this way!}
+	\item \textbf{this() and super(..) in the same constructor is not allowed.}
+\end{itemize}
+
+
+\section{super.a() vs. ((\textless T\textgreater)this).a()}
+Using super we refer to \textbf{the most immediately} implementation of overridden method. Using cast we can refer to \textbf{any implementation }
+of overridden method up in the inheritance tree.
+
+
+\chapter{Exceptions}
+\section{Types}
+\begin{itemize}
+	\item RuntimeExceptions - \textbf{unchecked}, fi:
+	\begin{itemize}
+		\item null-pointers
+		\item out-of-bounds
+		\item divide-by-zero
+		\item system resources exhaustion
+	\end{itemize}
+	\item \textbf{checked} Exception - must be handled:
+	\begin{itemize}
+		\item by \textit{throws} in a method signature (\textbf{propagates to a caller})
+		\item caught by \textit{try}, \textit{try-catch(-finally}), \textit{try-with} 
+	\end{itemize}
+	\item errors
+\end{itemize}
+
+\section{Try Blocks}
+\textcolor{blue}{
+	\begin{itemize}
+		\item \textit{try} block requires:
+			\begin{itemize}
+				\item \textbf{catch} block, or
+				\item \textbf{finally} block, or
+				\item that the \textbf{method throws the exception}
+			\end{itemize}
+		\item \textit{finally} 
+		\begin{itemize}
+			\item is commonly used to cleanup resources - Scanner, (Buffered)Reader, etc
+			\item an exception thrown in \textit{finally} clause \textbf{must be always handled!} Propagation is prohibited.
+		\end{itemize}
+		\item \textit{catch} blocks should handle exceptions ordered from the \textbf{most} specific to the \textbf{most }general.
+		\item \textit{try-with-resources} removes the need for \textbf{finally} block. The resources must implement \textbf{AutoCloseable}.
+	\end{itemize}
+}
+
+\begin{verbatim}
+AutoCloseable ac = new AutoCloseable(..);
+try(ac){
+  ac.read(...)
+}
+\end{verbatim}
+Autocloseable examples:
+\begin{itemize}
+	\item FileWriter
+	\item FileReader
+	\item BufferedReader
+\end{itemize}
+
+\section{Important Points}
+\textcolor{red}{\textbf{
+		\begin{itemize}
+			\item All types of exceptions can be caught! - checked, unchecked, errors.
+			\item Exceptions are objects!
+			\item catch clause should never be empty - it hides thrown exceptions making debuging harder.
+			\item exception acronym is a common naming convention
+		\end{itemize}
+	}}
+
+\section{Catch or Declare Rule}
+Exceptions that might be trown by a method must be either
+\begin{itemize}
+	\item caught in a \textit{catch} block, or
+	\item declared in the method signature in \textit{throws} clause and \textbf{propagated to a caller}.
+\end{itemize}
+\textbf{Errors} and \textbf{Runtime exceptions (unchecked)} are excluded from the rule. but still can be handled in the same way if needed.
+
+\section{Overriding a method Throwing an Exception}
+\begin{itemize}
+	\item \textcolor{red}{\textbf{We cannot add an exception!}}
+	\item we can remove some exception
+	\item we can replace it by its descendant
+\end{itemize}
+It makes sense - it allows that an object of a child class can be put in all those places when an object of parent class can be used..
+
+
+\section{Custom Exception}
+In order to create your own exception we need :
+\begin{itemize}
+	\item \textbf{a class extending Exceptions!}
+	\item two constructors - no-arg \& (String msg, int ID)
+\end{itemize}
+
+\begin{verbatim}
+//custom exception must extend Exception class
+public class CustomException extends Exception{
+
+//required no-arg constructor
+    public CustomException(){
+        // the main purpose to define custom exception class:
+        // custom exception message.
+        // The essage is send to parent constructor and 
+        // it initialises String message variable
+        super("custom exception message)
+        
+        // this constructor takes a string parameter containing 
+        // exception message. This constructor allows to instantiate
+        // exception object with custom defined message
+        public CustomException(String message){
+            super(message);
+        }
+    }
+
+}
+\end{verbatim}
+
+\section{Useful methods}
+\textcolor{red}{At least one of the following methods should be present in a \textbf{catch} clause!}
+\begin{itemize}
+	\item getMessage() - detailed message about exception
+	\item printStackTrace() as getMessage(), also includes stack trace \textbf{from where} the exception was thrown all the way back \textbf{to where }it was thrown
+	\item e.toString - returns exception type.
+\end{itemize}
+
+\begin{verbatim}
+try{...
+} catch (Exception e) { ...
+} finally { ...
+}
+\end{verbatim}
+
+\chapter{Abstract Classes \& Methods}
+
+Abstract methods is a method declaration without implementation. A subclasses are intended to provide an implementation to all derived abstract methods.
+If a class contains an abstract method, then:
+\begin{itemize}
+	\item it must be marked as an \textbf{abstract class}, too.
+	\item it can't be instantiated.
+\end{itemize}
+
+\section{Usage}
+To enforce subclasses to conform to some API.
+
+\section{Abstract Classes vs interfaces}
+See: Basics.Interfaces
+
+\chapter{Varargs}
+\begin{itemize}
+	\item marked by \textbf{elipsis} - (...)
+	\begin{verbatim}
+	public static void main(String... args)
+	\end{verbatim}
+	\item must be \textbf{the last or the only} parameter in a parameter list
+\end{itemize}
+
+\chapter{Static}
+Static members belong to class, they are not instantiated.
+
+\section{Usage}
+\begin{itemize}
+	\item to store values shared across all instances
+	\item constants (marked as \textbf{final})
+\end{itemize}
+
+\section{Static Initialisers}
+\begin{verbatim}
+static int var1, var2;
+static{
+	var1 = ...;
+	var2 = ...;
+}
+\end{verbatim}
+
+\chapter{Interfaces}
+\begin{itemize}
+	\item \textbf{multiple interfaces can be implemented}.
+	\item \textbf{all method are implicitly \textcolor{red}{public}}
+	\item can have concrete methods
+	\item can have private methods(
+	\item can have varuables - \textbf{final static} (constanses)
+	\item \textbf{\textcolor{red}{we can ommit 'abstract' keyword defining methods - they are abstract by definition
+	as interface methods}}
+\end{itemize}
+
+\section{Interfaces vs Abstract Classes}
+\begin{itemize}
+	\item abstract classes
+	\begin{itemize}
+		\item  let inherit fields, prevent multiple inheritance
+		\item define some \textbf{\textcolor{red}{functionality - states \& behaviour}, which must be present in entire family of objects}.
+	\end{itemize}
+	\item interfaces
+	\begin{itemize}
+		\item  allows multiple inheritance, have no fields (no states)
+		\item ensure some \textbf{\textcolor{red}{behaviour} to be present in all objects implementing an interface}
+	\end{itemize}
+	
+\end{itemize}
+
+\chapter{Enumerations}
+Special kind of class with final amount of predefined instances. It can have fields, methods, constructors, mgetters, asf, as regular class have:
+\begin{verbatim}
+enum myEnum{
+	// a call to constructor initialising object myEnumVAR1
+	 VAR1 (1) ;
+	 
+	 // another constructor call.
+	 VAR2 (2);
+	 
+	//  enum variable
+	 private int var;
+	 
+	 // a constructor(int var){
+	 this.var = var;
+	 }
+	 
+	 // getter
+	 private int var(){
+	 	return this.var;
+	 }
+}
+\end{verbatim}
+
+\section{values()}
+Returns an array of enum type:
+\begin{verbatim}
+enum myEnum{..};
+...
+myEnum[] enumArr = myEnum.values();
+\end{verbatim}
+
+\chapter{Annotations}
+\section{Built-in}
+\begin{itemize}
+	\item @Override
+	\item @Deprecated
+	item @FunctionalInterface
+	\item @SuppressWarnings
+	\item SafeVarargs - Coder’s assertion that the annotated method or constructor body doesn’t perform unsafe operations on its varargs parameter.
+\end{itemize}
+
+\chapter{Inner Classes}
+\section{Overview}
+\begin{itemize}
+	\item Inner class can directly acces all members of sorrounding class. 
+	\item An object of inner class can  be instantiated only in association with an object
+	of the sorrounding outer class.
+	\item \textbf{cant have a static class as its member}
+\end{itemize}
+
+\section{localisation within a Code}
+We can declare inner class within:
+\begin{itemize}
+	\item a class
+	\item method
+	\item .. and any other arbitrary scope.
+\end{itemize}
+
+\section{Motivation}
+The intention of inner classes is:
+\begin{itemize}
+	\item  to group classes which logically belong together
+	\item to control the visibility of one within the other.
+	\item to completel prevent type-coding dependencies
+	\item to completely hide implementation details
+	\item \textbf{\textcolor{red}{only inner classes can be private or protected!}}
+\end{itemize}
+The best use of inner clases is when the outer class is uocasted. In such case the inner classes become completely invisible - 
+perfect implementation hiding.
+
+
+\chapter{Inner Static Class}
+\section{Overview}
+\begin{itemize}
+	\item cannot acces members of sorrounding outer class
+	\item no need to instantiate the outer class
+\end{itemize}
+
+\part{IO}
+
+General strategy is to wrap byte-wise IO acces  into Buffered objects (readers/writers)
+performing IOs line-by-line.
+
+\chapter{Reading a File - BufferedReader}
+\begin{itemize}
+	\item constructor throws \textbf{IOException}
+	\item need to call .\textbf{close() }
+		\begin{itemize}
+			\item in \textbf{finally}
+			\item throws \textbf{IOException}, too. Hence should be within another try-catch
+			\item code-smell avoidable by using \textbf{try-with-resources}.
+		\end{itemize}
+	
+	\begin{verbatim}
+	String line;
+	BufferedReader br = new BufferedReader(new FileReader(
+	                   "file-url"));
+	try(br){
+		while((line = br.readLine()) != null)
+			...
+	} catch(IOException ioe) { ... }
+	\end{verbatim}
+\end{itemize}
+
+Mind:
+\begin{itemize}
+	\item resources closed in ordinary brackets
+	\item null-checked assignment enclosed within its own brackets
+\end{itemize}
+
+\chapter{Writing to a File}
+
+\begin{verbatim}
+try(BufferedWriter bw = new BufferedWriter(new FileWriter(
+          "file-url"))){
+	bw.write("bla bla bla...");
+	bw.newLine();
+}
+\end{verbatim}
+
+\chapter{Serialisation}
+It is a process of writing java objects as binary data in order to:
+\begin{itemize}
+	\item send them over network
+	\item store them on file system.
+\end{itemize}
+Individual fields can be excluded from serialisation by making them \textbf{transient}.
+
+\section{Writing - ObjectOutputStream.writeObject(Object o)}
+\begin{verbatim}
+try(ObjectOutputStream oos = new ObectOutputStream(new FileOutputStream("file-url))){
+	oos.writeObject(Object o);
+} catch (IOException e)
+\end{verbatim}
+
+\section{Reading - ObjectInputStream.readObject(Object o)}
+\begin{verbatim}
+try(ObjectInputStream oos = new ObectInputStream(new FileInputStream("file-url))){
+	while(true){
+		Object o = oos.readObject();
+	}
+} catch (ClassNotFoundException e)
+\end{verbatim}
+
+
+
+
+\part{Collections}
+\chapter{Iterator}
+Collections are \textbf{Iterable} - all of them use \textbf{Iterator\textless T\textgreater} objet. It means that the iterator object is created each time we want
+to loop over collections' items in order to control the iteration proces. This is \textbf{\textit{external iteration}}. The core iterator methods are \textbf{hasNext()} and \textbf{next()}.\\
+Issues:
+\begin{itemize}
+	\item hard to abstract away different behavioural operations
+	\item inherent \textbf{serial nature}.
+\end{itemize}
+
+\chapter{Common Methods}
+They are defined in java.util.Collection
+\begin{itemize}
+	\item .add(), addAll()
+	\item clear() - removes all elements
+	\item contains() containsAll()
+	\item equals()
+	\item hashCode()
+	\item isEmpty()
+	\item iterator()
+	\item parallelStream()
+	\item remove(), remooveAll()
+	\item size()
+	\item sort()
+	\item toArray()
+\end{itemize}
+
+\chapter{Map}
+\section{Literal Initialisation}
+\textbf{Map.of()}:
+\begin{verbatim}
+someMap<K, V> map = Map.of(k, v, k, v...);
+\end{verbatim}
+
+\section{HashMap}
+
+\chapter{ArrayList}
+\section{Converting a List to an Array}
+\subsection{list.toArray()}
+Returns \textbf{Object[]}. Any attempt to cast to some other type will cause that an exeption will be thrown.
+
+\subsection{list.toArray(T[])}
+Example:
+\begin{verbatim}
+void makeArray(ArrayList<String> as){
+String[] array = as.toArray(new String[0]);
+}
+\end{verbatim}
+
+Following documentation - toArray(T[]) specifies a type of returned array and returns the array is big enough. Otherwise the method creates the array with the proper size.
+So, we can:
+\begin{itemize}
+	\item invoke the method with an array with \textbf{size equal to 0} - new array is always created.
+	\item invoke with the array with the \textbf{size equal to the size of converted list}:
+	\begin{verbatim}
+	void makeArray(ArrayList<String> as){
+	String[] array = new String[as.size()];
+	as.toArray(array);
+	}
+	\end{verbatim}
+\end{itemize}
+
+\subsection{list.stream().toArray(T[]::new);}
+Clean \& elegant.
+
+
+\part{OOP} 
+
+\begin{itemize}
+	\item UML Distilled textbook by Martin Fowler 
+	\item \textbf{is-a} relationship - inheritance
+	\item \textbf{has-a} relationship - association
+	\item \textbf{CRC} - Class-Responsibility-Collaboration (\url{http://agilemodeling.com/artifacts/crcModel.htm})
+	\begin{itemize}
+		\item \textbf{responsibility} - states and behaviours
+		\item \textbf{collaboration} - other classes that this class is somewhat awared of (association, aggregation,
+		composition).
+	\end{itemize}
+\end{itemize}
+
+\chapter{Abstraction}
+There are different meanning of abstractin. one of them is the ability to capture real world entities as classes.
+Two types of abstractions in Java:
+\begin{itemize}
+	\item \textbf{interfaces}, used to define expected behaviour.Implementation \textbf{is hidden from a client}.
+	\item \textbf{abstract classes}, used to define incomplete functionality.
+\end{itemize}
+
+\chapter{Inheritance}
+The ability of subclass to derive members (fields and methods) from ascendands. In java only single parent class is allowed. It is an \textbf{'is-a'} relationship.
+\textbf{Derived class inherits all members present in the base class. However not all of them are accessible}. This is ruled by access modifiers used in the base class.
+\section{Accessing Members}
+It is valid to instantiate an object with a subtype. The instantiated reference variable allows an access to those members (and their variations) which are present in their type.
+It is still possible to access subtype members using cast:
+\begin{verbatim}
+Parent childParent = new Child();
+\\ access to a member as it is defined in the Parent class.
+childParent.field... 
+
+\\ access to a member as it is defined in the Child class
+((Child)childParent).field 
+\end{verbatim}
+\textbf{\textcolor{red}{Pay attention to the syntax of above cast!}}\\
+%
+%\begin{tabular}{i|l|l|l}
+%	types & fields & cast & method calls \\
+%	\hline
+%	Parent pc = new Child() & parent & \textbf{to child} & \textbf{child \textcolor{red}{(*)}}\\
+%	Parent p = new Parent() & parent & \textcolor{red}{\textbf{error!} & parent} \\
+%	Child c = new Child() & child & \textbf{to parent} & child \\
+%	Child c = new Parent() & \textcolor{red}{\textbf{error!}} & &\\
+%	\hline
+%\end{tabular}\\
+
+\par
+\textbf{\textcolor{red}{*  Those method which are overridden are accessible as usual.\\
+In order to call methods that are not overridden the reference variable used to access the methods (here - \textit{pc}) must be cast to (Child)}}
+
+
+\section{Pitfalls}
+\subsection{Constructor Calls an Overridable Method}
+\begin{enumerate}
+	\item call to constructor in \textbf{child class}
+	\item it calls \textbf{parent class constructor} first
+	\item if there is a call to overridable method it calls \textcolor{red}{\textbf{textchild version of the method}}
+	\item \textbf{ERROR! }The call \textcolor{red}{\textbf{will fail}} if the method references some uninitialised variable.
+	\textcolor{red}{\textbf{The variable can be initialised only when the control returns to child constructor - in steps which will folow!}}
+\end{enumerate}
+
+\chapter{Encapsulation}
+ineer details of classes can be hidden by making them private and acceptible through public API only - getters (accessors)
+and setters (mutators).
+
+\chapter{Polymorphism , Method Overriding}
+\textit{'Many forms'}. implemented by
+\begin{itemize}
+	\item subclass specialisation (\textit{is-a'} relationship
+	\item Liskov substitution principle
+	\item virtual method invocation)
+\end{itemize}
+Polymorphism is usually achieved by method overriding. It utilises method dynamic binding.
+
+\section{Liskov Substitution Principle}
+Whenever an instance of some class is expected in a program, one can suply an instance  of subclass of the class
+\section{Virtual method Invocation}
+Method calls are dynamically dispatched based on runtime type of the receiver object.
+
+\chapter{Method Overloading}
+Overloading means that two or more methods have the same name but different signature. They \textbf{must have different parameters} (number of them and/or types),
+ they \textbf{may have different return type and access modifiers} (private, protected, etc) - see Rules.
+ 
+ \chapter{Method Overriding}
+It means that new implementation is provided to an inherited method. This is annotated by @Override. The overridden method in a superclass can be still called 
+when invoked using \textbf{super.} keyword.
+
+\section*{Rules}
+\begin{itemize}
+	\item \textbf{final, static, private} methods can't be overridden.
+	\item access modifier of overriding method \textbf{must not be more restrictive}.
+	\item \textbf{no new checked exception} can be thrown
+	\item if return type is a reference type, then it can be original type or any descendant of this type (\textbf{covariant return type}).
+\end{itemize}
+
+\textbf{Private} methods can't be overriden because they are excluded from inheritance (not visible from within subclasses). \\
+\textbf{Static} methods reside in static context, they belong to class, not to objects. Therefore they are not inherited, too. Hence, they can't be overriden. \\
+However, they can be \textbf{shadowed} - subclass can have static method with the same name, as its parent class. A method call is bind to first method with a proper signature - starting 
+from the class in current context and going up the inheritance tree.
+
+
+
+
+\part{Lambda Expressions}
+\chapter{Lambda Expressions}
+\section{Motivation}
+Abstraction in OOP is an abstraction over data. Lambda expressions add an abstraction over beaviour.\\
+Functional programming - problem domains expressed in term of \textbf{immutable} values \& functions that translate between them. 
+
+\section{Lambda Expressions - Overview}
+\begin{itemize}
+	\item nameless method
+	\item intended to pass around behaviour
+	\item \textbf{allows to call method direct on interfaces}.
+\end{itemize}
+Traditionally, behaviour is wrapped into an inner class in order to send - \textbf{code as data}. A class has to implement a functional interface.\\
+In lambda expression, we don't have to provide types explicitly.They are inferred from a context - a signature of the method in corresponding functional interface.\\
+\textbf{Lambda expressions are statically typed!}
+\par \textbf{Every time an object implementing functional interface is in use - as method parameter or return value, lambda expression can be used insted.}
+
+\subsection*{Examples}
+
+\begin{itemize}
+	\item no argument, no return
+	\begin{verbatim}
+	FuncIt fi = () -> ();
+	\end{verbatim}
+	
+	Example:
+	\begin{verbatim}
+	Runnable noArgument = () -> System.out.rintln("this lambda takes no argument");
+	\end{verbatim}
+	-----------------------------------------------------------------------------
+	\item no argument, 1 return
+	\begin{verbatim}
+	FuncInt fi = () -> a;
+	\end{verbatim}
+	-----------------------------------------------------------------------------
+	
+	\item 1 argument, no return
+	\begin{verbatim}
+	FuncInt fi = () -> a;	
+	\end{verbatim}
+	Example:
+	\begin{verbatim}
+	ActionListener oneArgument = event - > System.out.println("this is an event"); 
+	\end{verbatim}
+	-----------------------------------------------------------------------------
+	
+	\item no arguments, 2 returns
+	\begin{verbatim}
+	FuncInt fi = () -> {
+	do1();
+	do2()
+	}
+	\end{verbatim}
+	Example:
+	\begin{verbatim}
+	Runnable multiStatement = () -> {
+	System.out.println("Multi-return);
+	System.out.println("lambda expression");
+	}
+	\end{verbatim}
+	-----------------------------------------------------------------------------
+	
+	\item 1 argument, 1 return
+	\begin{verbatim}
+	FuncInt fi = (a) -> b;
+	\end{verbatim}
+	-----------------------------------------------------------------------------
+	\item 2 arguments
+	\begin{verbatim}
+	FuncInt<Long> fi = (a, b) -> a + b;
+	\end{verbatim}
+	Example:
+	\begin{verbatim}
+	BinaryOperator<Long> add = (x, y) -> x + y;
+	\end{verbatim}
+	
+	the same with explicit types:
+	\begin{verbatim}
+	FuncInt<Long> fi = (Long a, Long b) -> a + b;
+	\end{verbatim}
+	Example:
+	\begin{verbatim}
+	BinaryOperator<Long> add = (Long x, Long y) -> x + y;
+	\end{verbatim}
+\end{itemize}
+
+\section{Target Type, Type Inference}
+
+The type of an expression is define by the context in which lambda appears:
+\begin{itemize}
+	\item method parameter
+	\item variable assignment
+\end{itemize}
+They are used to \textbf{infer} lambda type.
+
+\subsection*{Type Inference Rules}
+\begin{itemize}
+	\item \textbf{single possible target type}\\
+	\textit{	The lambda expression infers its type from the corresponding parameter on the functional interface}
+	\item \textbf{several possible types can be inferred}, all belong to the same inheritance tree\\
+	\textit{	the most specific type is inferred}
+	\item \textbf{several possible types, none of them is the most specific}\\
+	\textit{compile error!}
+	
+\end{itemize}
+
+\section{Use of External values by Lambda}
+
+As functional programming is about transiton from one \textbf{immutable} value to another one, hence:
+\begin{itemize}
+	\item external values have to have similar properties
+	\item they must be \textbf{effectively} final
+	\textit{the external variable used by lambda need not to be declared as final as long as it is not \textit{reassigned} later in the code }
+	
+\end{itemize}
+Examples:\\
+1. This compiles:
+\begin{verbatim}
+String name = "Joe";
+FunctInt.do(input -> "hi " + name);
+\end{verbatim}
+
+2. This not:
+\begin{verbatim}
+String name = "Joe";
+name = "Kate"; // NOT effectively final!
+FuncInt.do("Hi " + name);
+\end{verbatim}
+Compile error - variable \textit{name} is reassigned, hence not effectively final.
+
+\section{Lambda Graphically}
+\begin{verbatim}
+FunctInt fi = a -> b;
+\end{verbatim}
+
+Graphically equivalent:
+\begin{verbatim}
+a -> FunctInt -> b
+\end{verbatim}
+
+\section{SAMs, Core Functional Interfaces}
+
+Functional interface (aka SAM - Single Abstract method) - an interface, which contains exactly one \textbf{abstract} method, and which is intended to support lambda expressions. Predefined functional interfaces (part of java API):
+\begin{itemize}
+	\item \textbf{Predicate}\textless T$\textgreater$, T  $\rightarrow$ boolean, \textbf{test()}
+	\item \textbf{Consumer}\textless T$\textgreater$, T  $\rightarrow$ void, \textbf{accept()}
+	\item \textbf{Function}\textless T, R$\textgreater$, T $\rightarrow$ R, \textbf{apply()}
+	\item \textbf{Supplier}\textless T$\textgreater$, () $\rightarrow$ T
+	\item \textbf{UnaryOperator}\textless T$\textgreater$, T $\rightarrow$ T
+	\item  \textbf{BinaryOperator}\textless T$\textgreater$, (T, T)  $\rightarrow$ T, \textbf{apply()}
+\end{itemize}
+
+\section{Custom Functional Interfaces}
+\begin{itemize}
+	\item require \textbf{@FunctionalInterface} annotation to be applied
+	\item  the annotation signals that the interface \textbf{is intended} to use for lambda expression
+	\item annotation compels javac to check whether the interface meets the criteria to be a functional interface. \textbf{helpful by refactoring!}
+	\item just \textbf{single method} in an interface \textbf{doesn't make it a functional interface!}
+	\begin{itemize}
+		\item \textit{Comparable}\\
+		The author explanation - because functions are not comparable (have no fieldsm no states). \textbf{I'm not sure, that this is good explanation}
+		\item \textit{Closable}\\
+		Has to do with resources, which opens and closes. Clearly - they mutate, hence this is not \textbf{pure function}.
+	\end{itemize}
+\end{itemize}
+
+\section{Method References}
+This is a shortcut notation for some lambda expressions which include \textbf{a call to existing method}. \textbf{Argument types and their number are inferred}.
+Four kinds:
+\begin{itemize}
+	\item \textbf{static} method reference
+	\item \textbf{instance} method reference 
+	\item \textbf{arbitrary object of specified type} method reference
+	\item \textbf{constructor call}
+\end{itemize}
+
+\subsection{Static Method Reference}
+\begin{verbatim}
+(args..) -> T.call(args..)
+\end{verbatim}
+is equivalent to:
+\begin{verbatim}
+T:call
+\end{verbatim}
+..where \textbf{\textcolor{red}{T} is a class name}
+
+\subsection{Instance Method Reference}
+\begin{verbatim}
+(args..) -> t.call(args..)
+\end{verbatim}
+can be replaced by ('t' is an object identifier):
+\begin{verbatim}
+t::call
+\end{verbatim}
+
+\subsection{Referencing a Method of an Arbitrary Object of a Particular Type}
+\begin{verbatim}
+(T a) -> a.call()
+\end{verbatim}
+is equivalent to
+\begin{verbatim}
+T::call
+\end{verbatim}
+The syntax similar to static method referencing.
+
+\subsection{Referencing a Constructor}
+\begin{verbatim}
+(T a) -> new T()
+\end{verbatim}
+can be replaced by:
+\begin{verbatim}
+T::new
+\end{verbatim}
+
+\subsection{Applications}
+
+\subsubsection*{Instantiate an Array}
+\begin{verbatim}
+String[] :: new;
+\end{verbatim}
+
+\section{Overloading}
+If lambda expression is backed by overloaded methods, then it means that several types can be inferred.
+A compiler will try to pick the method with the most specific type which suits. It fails to compile when it is not clear 
+which type is the most specific, for instance \textbf{lambda expression is ambiguous }and two or more non-related types are possible to choose.
+
+
+
+\part{Aggregate Operations (streams)}
+\chapter{Motivation}
+\begin{itemize}
+	\item reduces boilerplate code
+	\item adds parallelism
+\end{itemize}
+
+\chapter{for-loop vs stream}
+This is \textbf{external iteration}:
+\begin{itemize}
+	\item calls constructor $\rightarrow$ iterator(),
+	\item check next $\rightarrow$ hasNext()	
+	\item take next $\rightarrow$ next(), nextInt(), asf..
+\end{itemize}
+
+Streams are \textbf{internal} iterations invoked by calling \textbf{stream()}. 
+
+\chapter{Stream methods}
+There are two types of stream methods:
+\begin{itemize}
+	\item lazy, they \textbf{return another stream}.
+	\begin{itemize}
+		\item  .filter(a $\rightarrow$ b), b $\subseteq$ a
+		\item .map(element  $\rightarrow$ mapFunc());
+		\item .flatMap(ListOfLists  $\rightarrow$ concatenated\_lists)
+		\item.sorted()
+		\item .findFirst()
+	\end{itemize}
+	
+	\item  eager, they \textbf{return a value or void}
+	\begin{itemize}
+		\item  .collect(Collectors.toList(), ..ToSet(), see: "Collector" in "Support Classes, Interfaces
+		and methods"
+		\item .count
+		\item .max(), .min()
+		\item .reduce(initVal, \textit{reducer})
+         \begin{itemize}
+         	\item \textbf{\textcolor{green}{BinaryOperator\textless T, V\textgreater  reducer = (acc, item) $\rightarrow$ func(acc, item)}}
+         \end{itemize}
+     \item .isPresent() - returns \textbf{true} or \textbf{false}
+     \item .ifPresent() - performs some action when a value is present
+	\end{itemize}
+\end{itemize}
+
+\section{min(), max()}
+\begin{verbatim}
+List list....
+list.stream()
+.min(Comparator.comparing(ListItem -> getFieldToCompare()))
+\end{verbatim}
+
+\section{.reduce()}
+It comes in three oveloaded version.
+
+\subsection{.reduce(accumulator)}
+Accumulator is of BinaryOperator\textless T, T\textgreater type. It is  like a BiFuncion (but both parameters are of the same type) 
+- it takes two objects as parameters and returns single object resulting from some operation performed on input
+objects. Example:
+\begin{verbatim}
+.reduce((Person p1, Person p2) -> p1.getAge() > p2.getAge() ? p1 : p2)
+.ifPresent(System.out::println);
+\end{verbatim}
+...prints the oldest person.
+
+\subsection{.reduce(identity, accumulator)}
+Identity is an initial value used by the accumulator. Example:
+\begin{verbatim}
+.reduce(new Person(), (Person p1, Person p2) -> p1.getAge()  += p2.getAge());
+.ifPresent(System.out::println);
+\end{verbatim}
+...prints the person whose age is a sum of all ages.
+
+\subsection{.reduce(identity, accumulator, combiner)}
+This version is intended for parallel operations. The combiner is a BinaryOperation used to merge partial values returned
+by accumulator function executed in paralel. Example:
+\begin{verbatim}
+.reducent(0, (Person p1, Person p2) -> totalAge = p1.getAge()  + p2.getAge(),
+(a, b)) -> a + b); 
+.ifPresent(System.out::println);
+\end{verbatim}
+...prints a sum of all ages.
+
+
+\section{.collect(Collector..)}
+.collect(Collector....)  accepts a Collector which consists of four different operations: 
+\begin{itemize}
+	\item a supplier
+	\item an accumulator
+	\item a combiner  
+	\item a finisher
+\end{itemize}
+There are three general types of Collectors:
+\begin{itemize}
+	\item reducers/summarisers, they return a single value
+	\item grouping collectors
+	\item partitioners
+\end{itemize}
+
+\textbf{.collect(Collector.toList()), .collect(Collector.toSet())} are just some examples. All collectors can be found in \textit{java.util.stream.Collectors} class; Appropriate implementation (specific type) is picking under the hood. In order to specify the type explicitly pass a constructor as an argument, f.i):
+\begin{verbatim}
+stream.collect(toCollection(BinaryTree::new));
+\end{verbatim}
+
+.collect(Collection.toMap(..)) can throw an Exception if the provided key is not unique. In order to overcome it we can pass a merge function as an additional parameter to 
+.toMap() function:
+\begin{verbatim}
+Map<Integer, String> map = persons
+.stream()
+.collect(Collectors.toMap(
+p -> p.age,
+p -> p.name,
+(name1, name2) -> name1 + ";" + name2));
+
+System.out.println(map);
+
+// {18=Max, 23=Peter;Pamela, 12=David}
+\end{verbatim}
+
+Can be used to get a single value, too:
+\begin{verbatim}
+stream.collect(maxBy(comparing(someValue)));
+\end{verbatim}
+
+\subsection{Partitoning, Grouping}
+\begin{verbatim}
+.collect(Collectors.partitioningBy(Predicate))
+\end{verbatim}
+... splits into two group using Predicate formula as a dscriminator.
+\\
+\begin{verbatim}
+.collect(Collectors.groupingBy(Classifier))
+\end{verbatim}
+Similar to \textit{partitioningBy()}, but splits to arbitrary number of groups using \textit{classifier.}//
+\textbf{Classifier} is a \textit{Function}, which can specify which fied to use as a discriminator.
+\begin{quote}
+	The classification function maps elements to some key type K. The collector produces a Map<K, List<T>> whose keys are the values resulting from applying the classification function to the input elements, and whose corresponding values are Lists containing the input elements which map to the associated key under the classification function.
+\end{quote}
+\textbf{\textcolor{red}{The classifier returns a Map. So, it is a good idea to store the result in some Map variable for further processing!}}
+
+\subsection{Summarizing}
+\begin{itemize}
+	\item .collect(Collection.averagingInt(..)
+	\item .collect(Colletion.summarizingIInt...))
+\end{itemize}
+
+\subsection{Custom collector}
+We need to instantiate and use an object of Collector interface type - 
+see:"Aggregate Operations"."Support Classes, Interfaces and methods"."Collector Interface"
+
+\section{Sorting}
+\subsection{.sorted()}
+This method uses natural ordering.
+
+\subsection{.sorted(Comparator.comparing(a -> b))}
+Useful to sort reference types or to define custom ordering:
+\begin{verbatim}
+Person[] people;
+Stream.of(people)
+          .sorted(Comparator.comparing(p -> p.getAge()))
+\end{verbatim}
+This sorts people according to their age.
+
+\chapter{Ordering}
+\textit{Encounter order} - the order streamed items appears. Depends on source data and operationson Stream:
+\begin{itemize}
+	\item Collection with a defined order\\
+	- \textit{the order is preserved}.
+	\item unorder Collection\\
+	- \textit{undefined order}
+	\item the order is propagated through intermediate operations
+\end{itemize}
+
+min(), max() are eager functions. Takes Comparator argument, which is returned by a static \textbf{\textit{comparing()}} method of 
+\textbf{\textit{Comparator}} class. This method takes a lambda expression of type \textbf{Function} (x -\textgreater  y), which specifies 
+which field is used to compare items from the list. See Aggregate Operations/.collect(..) for a different way to get min or max
+
+\chapter{Streamming Primitive Types}
+The goal of the optimisation is to remove overhead caused by boxing/unboxing operations when numerical operations
+are performed over some collection. Naming conventions depends on a location of primitive type
+(argument or return):
+\begin{itemize}
+	\item \textbf{return}: to-type-name, like \textit{toIntFunction}
+	\item \textbf{argument} - type-name, like \textit{LongFunction}
+	\item \textbf{higher order functions} - function-To-type, like \textit{mapToLong}
+	\item \textbf{specialised stream} - type-Stream, like \textit{longStream}
+\end{itemize}
+\textbf{Example:}
+We can use mapToObj(Function) to convert integer stream (primitive type) into Character list:
+\begin{verbatim}
+IntStream.of(22, 23, 24)
+    .mapToObj(i -> (char) i)
+    .collect(Collectors.toLost());
+\end{verbatim}
+
+\section{Key Ponts}
+\begin{itemize}
+	\item they used specialised lambdas:
+	\begin{itemize}
+		\item IntFunction instead of Function
+		\item LongPredicate instead of Predicate
+		\item asf
+	\end{itemize}
+	\item support additional methods, like
+	\begin{itemize}
+		\item sum()
+		\item average()
+	\end{itemize}
+\end{itemize}
+
+\section{Conversion to Primitive Stream and back}
+\begin{itemize}
+	\item to primitive stream:
+	\begin{itemize}
+		\item mapToInt()
+		\item mapToLong()
+		\item  mapToDouble()
+	\end{itemize}
+	
+	\item convertion from primitive type:
+	\begin{itemize}
+		\item mapToObj()
+		\item .boxed() simply converts from IntStream to Stream\textless Integer\textgreater
+	\end{itemize}
+\end{itemize}
+
+\section{.summaryStatistics()}
+\textbf{Works on specialised stream of some primitive type only}. Hence, we need to convert objects' stream, first,
+for instance using \textit{mapToInt(), mapToLong() or mapToDouble()}\\
+.summaryStatistics() allows to get single value as a return from a stream, like:
+\begin{itemize}
+	\item getmax()
+	\item getMin()
+	\item getAverage()
+	\item getSum()
+\end{itemize}
+
+\chapter{Streaming a String}
+\begin{verbatim}
+stringObject.chars()
+\end{verbatim}
+returns a stream of integers values equal to characters streamed from input string. To convert back to 
+character representation we need to cast stream items to char.
+
+\textbf{Example:}
+\begin{verbatim}
+strObject.chars()   \\ converts the string into an Integer stream.
+.mapToObj(i -> (char) i)     \\ casts Integer stream 
+\\ into Char stream
+.collect(Collectors.toList());
+\end{verbatim}
+
+\textbf{\textcolor{red}{Parallel version doesn't preserve the order!}}
+
+\section{String Representation of Collections}
+\begin{verbatim}
+someCollection.stream()
+.map(Collection::getField)
+.collect(Collectors.joining(", ", "[", "]"));
+\end{verbatim}
+
+\chapter{Streaming Arrays}
+\begin{verbatim}
+Stream.of(array)   //  converts an array to a stream
+         .....
+         .toArray(T[]::new);      // converts the stream back to an array
+\end{verbatim}
+
+\chapter{Support Classes, Interfaces and Methods}
+\section{Collector interface}
+\begin{verbatim}
+Collector<T, A, R>
+\end{verbatim}
+T - the type of input elements to the reduction operation\\
+A - the mutable accumulation type of the reduction operation (often hidden as an implementation detail)\\
+R - the result type of the reduction operation\\
+
+In order to create new object of Collector class we need to supply four argument to the method Collector.of(...):
+\begin{itemize}
+	\item a supplier
+	\item an accumulator
+	\item a combiner
+	\item a finisher
+	\item a characteristic (optional)
+\end{itemize}
+
+\subsection{supplier}
+This parameter \textit{supplies} \textbf{a container}
+\begin{verbatim}
+() -> container
+\end{verbatim}
+A container to store accumulated values. For instance:
+\begin{itemize}
+	\item an array
+	\item collection
+	\item builder (StringBuilder, StringJoiner)
+\end{itemize}
+We need to assign an initial value to it - new int[1], new StringJoiner(" | "). 
+
+\subsection{accumulator}                             
+it is a lambda of \textbf{Consumer} type, which provides a function which defines the way to combine the values together.
+it returns nothing, just updates the state of the container:
+\begin{verbatim}
+(container, element) -> container.add(element);
+
+or:
+
+(container, element) -> container[0] += element;
+\end{verbatim}
+
+
+\subsection{combiner}
+The purpose of this parameter is to supply a function which allows to merge to containers. It supports
+\textbf{parallel execution} of the collector:
+\begin{verbatim}
+(container1, container2) -> container1.merge(container2); 
+
+or:
+
+(container1, container2) -> { 
+container1[0] += container2[0];
+return container1;
+}
+\end{verbatim}
+
+\subsection{finisher}
+We use this parameter to define required output type returned by our collector - String, int. Colloquially
+- 'to take out the value from the container:
+\begin{verbatim}
+StringJoiner::toString
+
+or
+
+container -> container[0]
+\end{verbatim}
+
+\subsection{characteristic}
+Three types:
+\begin{itemize}
+	\item CONCURRENT — Indicating that one result container can be used by multiple concurrent accumulators.
+	\item IDENTITY\_FINISH — Indicates that the finisher function is the identity function and then can be omitted.
+	\item UNORDERED — Indicates that the collector doesn’t depend on the ordering of the elements.
+\end{itemize}
+
+\section{IntStream}
+\subsection{.of(ints)}
+
+\subsection{.range(lb, up)}
+Generates a stream of integers lb..(up-1). Similar to loops.
+
+\subsection{.rangeClosed(lb, up)}
+Generates a stream of integers lb..up. Similar to loops.
+
+\subsection{.iterator(lb, next).limit(n)}
+lb - value of first index
+next - lambda defining how to calculate consecutive index, fi:
+\begin{verbatim}
+i -> i + 2
+\end{verbatim}
+returns every second value(all odds or all even).\\
+.limit(n) defines a size of the stream. .iterator creates infinite stream.
+
+
+\subsection{.generate(intSupplier s)}
+This method generates custom integer stream. Example applications:
+\begin{itemize}
+	\item stream of constances
+	\item stream of random values
+\end{itemize}
+It takes an object of functional interface \textbf{intSupplier} type as a parameter . The signature of lthe ambda expression is:
+\begin{verbatim}
+() -> int;
+\end{verbatim} 
+The expression provides a definition of returned integer stream. Example:
+\begin{verbatim}
+int[] i = IntStream.generate({} -> (int)(Math.random() * 52 +1))
+                                .distinct
+                                .limit(13)
+                                .sorted()
+                                .toArray()
+\end{verbatim}
+returns 13 random and distinct numbers in the range 1..52 sorted in the ascending order.
+
+\subsection{.boxed()}
+Converts back to Stream\textless Integer.
+\begin{verbatim}
+Stream<Integer) stream = IntStream.range(0, 21).boxed();
+\end{verbatim}
+
+\section{Stream}
+We can use an object of this class to pass stream over our code - for instance as an argument to call a method or as a return type.
+Tha class also contains useful static methods.
+
+\subsection{.of(objects)}
+'objects' can be a structure or literal (literal list of some objects). They can be of different type,
+they can replace them.
+
+\chapter{Patterns \& Idioms Using Aggregate operations}
+
+\section*{Filter Pattern}
+Traditionally:
+\begin{verbatim}
+for(item : List){
+if(conditionOn(item))
+filteredList.add(item);
+}
+\end{verbatim}
+With aggregate methods:
+\begin{verbatim}
+FilteredList fl = List.stream()
+.filter(item -> conditionOnItem())
+.collect(toList();)
+\end{verbatim}
+
+\section*{Reduce Pattern}
+
+Traditionally:
+\begin{verbatim}
+var accu = initVal;
+for(item : List){
+combine(accu, item);
+}
+\end{verbatim}
+
+Aggregate version:
+\begin{verbatim}
+.reduce(initVal, (acc, item) -> func(acc, item));
+\end{verbatim}
+'func' is of BinaryOperator type - (T, T) $\rightarrow$ T.
+
+When initVal is missing, then first two items are used instead.
+
+
+\part{Library Classes}
+\chapter{Scanner}
+Parses primitive types and strings using regular expressions. Breaks an input into tokens using whitespace as a default delimiter. Custom delimiter can be specified by useDelimiter(Pattern pattern). Pattern is a compiled representation of a regular expression.(see: Docs)\\
+close() frees resources which implement Closeable (see: \textit{Docs, Specs}).\\
+Example:
+\begin{verbatim}
+import java.util.scanner
+.....
+Scanner sc = new Scanner(System.in)
+if(sc.hasNextInt())
+int i = sc.nextInt();
+
+if(sc.hasNext())
+String a = sc.next();
+...
+sc.close();
+\end{verbatim}
+
+\section{Key Points:}
+\begin{itemize}
+	\item parses primitives and Strings
+	\item nextInt(), nextLong(), nextBool(), next()...
+	\item delimiter - whitespace \& \textbf{endline}(default)
+	\item read object must implement \textbf{Readable}
+	\item \textbf{must be \textcolor{red}{closed} to release resources}
+	\item \textcolor{red}{\textbf{not safe for multithreading!}}
+\end{itemize}
+
+\section{InputMismatchException}
+When thrown, the token causing the exception is not passed through; instead, it can be retrieved using another method. We can get rid of them by calling .nextLine().
+
+\section{hasNext(), eof}
+hasNext() and its methods family (hasNextInt/Double, asf), may block waiting for a next token. It happens when the last token was parsed. \textbf{These methods return false only when next token is of a different type or next token is 'end-of-file'!}. So, naive using it to terminate loops:
+\begin{verbatim}
+while(scanner.hasNext()){
+...
+}
+\end{verbatim}
+..may not work as expected. It terminates (returns \textbf{false}) only when next token \textbf{is not a String!} - as almost everything is a string then the only thing (I know) that terminates is end-of-file marker. It is ctrl-D (ctrl-Z on Windows).
+
+\section{nextLine()}
+Looping over multiline input may cause unexpected behaviour because of end-of-line marker '\textbf{\textbackslash n}', \textbf{It is NOT consumed by nextInt(), nextDouble()}, asf. It may make a use of the next call to next() method and generate unexpected behaviour. In this case, \textcolor{red}{next() consumes '\textbackslash n' and returns an \textbf{empty string}}. \\
+\par
+One of the ways to deal with this is to use \textbf{nextLine()} - it takes all tokens that left in the current line, end-of-line including, and then sets the marker on starting position of the next line (if it exists). 
+\textbf{nextLine() consumes \textbackslash n and discards it, but  \textcolor{red}{it doesn't return it}: }
+\begin{verbatim}
+String line = sc.nextLine();
+System.out.println("all this " + line + " is on single line 
+- NO NEW LINE IS HERE!" );
+\end{verbatim}
+Another - to use \textbf{second scanner} and feed it with a line fetched by first scanner. 
+
+/section{Tips}
+\begin{itemize}
+	\item always prompt a user for an input
+	\item always echoe user input to discover early problems, and to make the user a feedback, what was input.
+\end{itemize}
+
+\chapter{Integer}
+\section{Boxing}
+\begin{itemize}
+	\item Using int value:
+	\begin{verbatim}
+	Integer var = Integer.valueOf(int a);
+	\end{verbatim}
+	
+	\item Using String:
+	\begin{verbatim}
+	Integer var = Integer.valueOf(String s);
+	
+	// This is an equivalent of:
+	Integer var = Integer.valueOf(Integer.parseInt(String s));
+	\end{verbatim}
+\end{itemize}
+
+\section{Unboxing}
+\begin{verbatim}
+Integer var = integer.valueOf(4);
+int i = var.intValue();
+\end{verbatim}
+
+\section{Conversion from String}
+\begin{verbatim}
+int i = Integer.parseInt(String s);
+\end{verbatim}
+
+\chapter{Date \& Time}
+\section{Date}
+Textual output:
+\begin{verbatim}
+(new Date).toString();
+\end{verbatim}
+
+returns format
+\begin{quote}
+	May 04 09:51:52 CDT 2009
+\end{quote}
+
+\section{Date + String.format(..)}
+Syntax:
+\begin{itemize}
+	\item placeholders starts with 't':
+	\begin{verbatim}
+	Date date = new Date();
+	String.fomat("%tc %ty" )
+	\end{verbatim}
+	\item 't' indicates a date/time placeholder
+	\begin{verbatim}
+	"%tx..."
+	\end{verbatim}
+	\item useful String.format() syntax:
+	\begin{itemize}
+		\item explicit positionning, \textbf{\$} terminates
+		\begin{verbatim}
+		String.format("%1$ %2$.....");
+		\end{verbatim}
+		\item shortcut for repeated args, \textbf{\textless}:
+		\begin{verbatim}
+		String.format("%tc %<te %<tm.... ", date);
+		\end{verbatim}
+	\end{itemize}
+\end{itemize}
+
+%\section{Placeholders Indicators}
+%\begin{tabular}{ l l }
+%	Character & Description & Output 
+%	\hline \\
+%	& \textbf{Full date formater} & 
+%	\hline
+%	c & default & Mon May 04 09:51:52 CDT 2009 
+%	F & ISO & 2004-02-09 
+%	D & US formatted & 02/09/2004 
+%	\hline \\
+%	& \textbf{24/12 Hours} & 
+%	\hline 
+%	T & 24-hour & 18:05:19 
+%	R & 24-hour, no secs & 18:05 
+%	r & 12-hour & 06:05:19 pm 
+%	\hline \\
+%	& \textbf{Year} & 
+%	\hline 
+%	Y & full & 2018 
+%	y & last 2 digits & 18 
+%	C & century & 20 
+%	\hline \\
+%	& \textbf{Month} & 
+%	\hline
+%	B & full & January 
+%	b & abbreviated & Jan 
+%	m & 2-digit with leading zero & 01 
+%	\hline \\
+%	& \textbf{Day} & 
+%	\hline 
+%	d & with leading zero & 07 
+%	e & without leading zero & 7 
+%	\hline \\
+%	& \textbf{Weekday} & 
+%	\hline
+%	A & full & Friday 
+%	a & abbreviated & Fri 
+%	\hline \\
+%	& \textbf{AM/PM} &  
+%	\hline
+%	P & uppercase & PM 
+%	p & lowercase & pm 
+%	\hline \\
+%	& \textbf{Hours} & 
+%	\hline 
+%	H & 24h with leading zeros & 21, 07 
+%	k & 24h without leading zeros	& 21, 7 
+%	I (uppercase 'i') & 12h with leading zero & 09 
+%	l (lowercase 'l') &12h without leading zero & 9 
+%	\hline \\
+%	& \textbf{Min's, Sec's} & 
+%	\hline
+%	M & minutes & 25 
+%	S & seconds & 58 
+%	\hline \\
+%	& \textbf{Varia} & 
+%	\hline
+%	s & Seconds since 1970-01-01 00:00:00 GMT	& 1078884319 
+%	Z & timezone & EET, GMT 
+%	z & offset from GMT & +0200 
+%	\hline
+%\end{tabular}
+
+\section{SimpleDateFormat}
+In order to format date/time:
+\begin{itemize}
+	\item initialise a pattern object:
+	\begin{verbatim}
+	SimpleDateFormat f = new SimpleDateFormat("yyyy/mm/dd");
+	\end{verbatim}
+	\item apply the pattern to a date object using format() method:
+	\begin{verbatim}
+	f.format(date);
+	\end{verbatim}
+\end{itemize}
+
+\chapter{String}
+\section{CharSequence Interface Family}
+CharSequence interface family:
+\begin{itemize}
+	\item String
+	\item CharBuffer
+	\item StringBuffer
+	\item StringBuilder
+\end{itemize}
+
+\section{String.format(pattern, args)}
+\begin{itemize}
+	\item use%\textbf{x$} to explicitly assign a var to some placeholder
+	\begin{verbatim}
+	String.format("%2$s %1$s , arg1, arg2);
+	\end{verbatim}
+	\item use \textbf{\textless} to use \textbf{the same} arg for the \textbf{next} placeholder
+	\begin{verbatim}
+	String.format({%s %<s"}, arg);
+	\end{verbatim}
+\end{itemize}
+
+\section{split()}
+\begin{verbatim}
+stringObject.split(String delimiter)
+\end{verbatim}
+The method splits the input string using the delimiter stringtaken as the method argument. No-arg overloded version of the method takes
+\textbf{spaces as a default delimiter}.
+\textbf{\textcolor{red}{If  input string starts with the delimiter then first returned item is an empty string!}}
+
+\chapter{java.utils.Arrays}
+\begin{itemize}
+	\item asList(T.. a)  - creates a list from some collection of type T
+	\item binarySearch(..)
+	\item copytOf(..)
+	\item equals(..)
+	\item .fill()
+	\item toArrayList()
+	\item toArray()
+	\item sort(..)
+	\item .toString()
+\end{itemize}
+
+\section{ArrayList from an Array}
+\subsection{Sending Arrays.asList(array) to ArrayList constructor}
+\begin{verbatim}
+ArrayList<Element> arrList = new ArrayList<>(Arrays.asList(array))
+\end{verbatim}
+
+\subsection{Using collections.addAll(arrayList, array).}
+\begin{verbatim}
+ArrayList<T> arrList = new ArrayList<>();
+Collections.addAll(arrList, array);
+\end{verbatim}
+\textbf{This is the best approach performance-wise.}
+
+\subsection{Arrays.asList(array)}
+\textbf{\textcolor{red}{This is wrong:}}
+\begin{verbatim}
+ArrayList<Element> arrList = Arrays.asList(array)
+\end{verbatim}
+
+arrList is backed by a fixed size array - adding or removing will cause to throw \textbf{UnsupportedOperationException}.
+
+\chapter{Random}
+\section{Math.random()}
+Returns a radom value x such that
+\begin{verbatim}
+0.0 <= x < 1.0
+\end{verbatim}
+
+\subsection*{Idiom to get int x from a Custom Range 0..y}
+Remember to:
+\begin{itemize}
+	\item add 1
+	\item cast to int
+\end{itemize}
+\begin{verbatim}
+int x = (int)(Math.random() * y + 1)
+\end{verbatim}
+
+\section{Random class}
+An object of Random class encapsulates \textbf{a stream} of random values. Individual random values 
+can be extracted using various next..() methods - nextInt(..), nextLong(..) asf.
+\begin{itemize}
+	\item custom range
+	\item custom numeric type
+\end{itemize}
+
+\begin{verbatim}
+int val = (new Random()).nextInt(range);
+\end{verbatim}
+
+\section{Random class vs Math.random()}
+\begin{itemize}
+	\item two Random objects with the same seed will produce the same random values. We need to define distinct seeds
+	in order to get distinct random values.
+	\item Random class objects are \textbf{more efficient} and \textbf{less biased}.
+\end{itemize}
+
+\section{Comparable}
+Contains
+\begin{verbatim}
+compareTo()
+\end{verbatim}
+which is used by:
+\begin{itemize}
+	\item Collections.sort()
+\end{itemize}
+
+\part{Advanced Topics}
+\section{Reflection}
+Each class is represented by an object, which is created when the class is loaded. The object is accessible by getClass(). It encapsulates:
+\begin{itemize}
+	\item properties of class members
+	\begin{itemize}
+		\item access level
+		\item type, etc
+	\end{itemize}
+	\item behaviours of class members
+	\begin{itemize}
+		\item getters \& setters
+		\item method invocations
+	\end{itemize}
+\end{itemize}
+
+
+\section{Immutability}
+\begin{itemize}
+	\item safe to used in multithreading
+	\item perfect values for keys in Map
+\end{itemize}
+
+\subsection{Implementing Immutability}
+\begin{itemize}
+	\item all fields private
+	\item no setters
+	\item constructor sets all the internal state of te object
+	\item if field refers to some reference type, then associated  getter returns a reference to copy, not to the original object
+\end{itemize}
+
+\section{Default Methods}
+Introduced to java o preserve \textbf{backward binary compatibility}. it means, that programs compiled in previous java version will still compile in new java versions. \textbf{Default methods} are a solution to maintain backward binary compatibility after streaming methods were added to Collections. Those methods provide Collection descendants (without stream methods) whith missing methods.
+\subsection*{Inheritance/Overriding Rules}
+Generally - \textbf{class methods wins over interface (default) methods}. Otherwise - standard overriding rules.
+\subsubsection*{\textbf{ATTENTION!}}
+Generally when we've got interface reference to some class, we're interested only on this part of class API which is defined by the interface (which the class must inherit):
+\begin{verbatim}
+SomeInterface si = new ClassImplement();
+\end{verbatim}
+Here \textit{si} references only the methods which are specified by underlying interface.
+But:
+\begin{verbatim}
+ChildInterface ci = new ChildClass();
+\end{verbatim}
+The same default method ParentInterface is overrided by ChildInterface \textit{(which is the most specific)} and ParentClass. \textbf{ParentClass has a priority} over ChildInterface! This prevents default methods from breaking existing inheritance trees in older libraries.
+
+\subsubsection{Multiple inheritance (from multiple interfaces)}
+If a method can be inherited from more than 1 interface default method - \textbf{compile error!}. To solve:\\
+- \textbf{specify the interface to inherit from} using keyword \textit{super}:
+\begin{verbatim}
+SomeClass implements Interface1, Interface2{
+  @Override
+  void defaultMethod(){
+    return InterfaceX.super.defaultMethod();
+  }
+}
+\end{verbatim}
+
+Keyword \textit{super} can be used to address parent class API, but to address implemented interface API as well
+
+\chapter{Data Parallelism}
+\section{Intro}
+\subsection{Notions}
+\subsection*{Concurrency}
+More than one task is done at the same time exploiting \textbf{processor time slices}.
+
+\subsection*{Parallelism}
+Splits a task in couple of chunks, each assigned to a different processor core, then chunk results are combined into single final result.
+
+\subsection*{Task Pararellism}
+Each individual thread of execution can do totally different task.
+
+\section{Impact on Performance}
+Depends on:
+\begin{itemize}
+	\item size, usually
+	\begin{itemize}
+		\item \textless  100 $\rightarrow$ \textbf{serial} execution is faster
+		\item $\sim$100 $\rightarrow$ \textbf{both} equally fast
+		\item \textgreater 100 $\rightarrow$ \textbf{parallel}  execution is faster
+		\end{itemize}
+	Those results are due the overhead of decoposing the problem and merging the result.
+	\item source data structure
+	\begin{itemize}
+		\item \textbf{ArrayList, array, Stream.ranges()} are \textbf{cheap} to split
+		\item costs of splitting \textbf{HashSet,, TreeSet} is \textbf{acceptable}
+		\item \textbf{LinkedList} is \textbf{expensive} to split, usually O(n)
+		\item \textbf{Streams.iterate, BufferedReader.lines} are \textbf{hard to estimate} - unknown length at the beginning.
+	\end{itemize}
+	\item primitives are faster to operate on than boxed values
+	\item cost per element
+	\begin{itemize}
+		\item the more expensive execution of single element, the more likely performance increase
+	\end{itemize}
+    \item \textbf{stateless} are faster than \textbf{stateful} no need to maintain state
+    \begin{itemize}
+    	\item stateless - \textbf{.map, .flatmap, .filter}
+    	\item statefull - \textbf{.sorted, .distinct, .limit}
+    \end{itemize}
+\end{itemize}
+Exact numbers can vary on different machines.
+
+\section{Parallel Stream Operations}
+\textit{.parallelStream()} - parallel version of stream;
+\textit{.parallel()} - makes a stream parallel at custom point in method chain.
+
+\section{Caveats}
+\textbf{The use of locks can lead to nondeterministic deadlocks!}
+
+\subsection{Parallel .reduce()}
+\begin{itemize}
+	\item initVal must be the \textbf{identity} of combining function \textit{(0 for adding, 1 for multiplying, asf)}
+	\item combining function must be \textbf{associative} \textit{the order of execution doesn't matter}.
+\end{itemize}
+
+\subsection*{Example}
+\begin{verbatim}
+int[] arrayInitialiser(int size){
+  int[] values = new int[size];
+  for(i = 0; i < values.length; i++){
+    int[i] = i;
+  }
+  return values;
+}
+\end{verbatim}
+Parallel:
+\begin{verbatim}
+int[] parallelArrayinitialiser(int size){
+  int[] values = new int[size];
+  Arrays,setAllParalel(values, i -> i);
+  return values;
+}
+\end{verbatim}
+
+Application of \textit{parallelPrefix()}. \textbf{simplemovingAverage} It takes 'rolling window' of n array items an replace values with an average of n previous values:
+\begin{verbatim}
+double[] simplemovingAverage(double[] values, int size){
+  double[] sums = Arays.copyOf(values, values.length);
+  
+  //new array holds runnung totals of the sums so far. Hence, sum of last n-items will be the difference between sum[i] and sum[i - n].
+  // sum[i - n] is hoeld in prefix. 
+  Arrays.parallelPrefix(sums, Double :: sum);
+  int start = n - 1;
+  return IntStream.range(start, sums.length)
+                  .mapToDouble(i -> {
+                    // 0 assigned to prefix initially, as start - n equals (n - 1) - n = -1 out of the array boundary
+                    double prefix = i == start? 0 : sums;
+                    return (sum[i] - prefix) / 2;
+                  }
+                  .toArray();
+                  )
+}
+
+Is cleaner code possible?
+\end{verbatim}
+
+\part{Idioms}
+
+\chapter{Exceptions}
+section{Exception-Driven Loop}
+\begin{verbatim}
+boolean terminateLoop = false;
+while(!terminateLoop){
+  try{
+    /some code throwing an exception/    // jumps to catch clause
+    terminateLoop = true;                 // terminates this loop
+  } catch (SomeException e){
+    /some code/
+  }
+}
+\end{verbatim}
+
+
+
+\part{UML modelling}
+
+\chapter{Domain Modelling}
+Focuses on \textbf{multiplicities} and \textbf{directionalities}:
+\begin{itemize}
+	\item no details about class content
+	\item details about inheritance direction
+	\item details about type of relationship - 1:1, 1:M, M:M
+\end{itemize}
+
+\section{Inheritance}
+\textbf{White} arrows pointing from children classes to parent class.
+
+\section{Association}
+\textbf{An arrow} pointing from \textit{knowing} class to \textit{known-about} class.
+
+\chapter{Class Diagram}
+More internal details about  classes. It includes:
+\begin{itemize}
+	\item attributes
+	\item behaviours
+	\item types
+	\item visibility -  public (+),
+	\item private( -), protected (\#)
+\end{itemize} attributes and behaviours.
+
+
+
+
+\part{Design Concepts}
+
+\chapter{Dependencies}
+\section{Overview}
+Dependency means that some piece of code relies on another one. If an object of type A uses an object of type B, 
+then the object A is called \textit{dependant}, and the object B is called \textit{dependency}. The classes A and B are \textbf{coupled}. 
+
+\section{Dependency as a Type of Relationship}
+A dependencies is the weakest
+type of relationship (strongest to weakest):
+\begin{itemize}
+	\item inheritance (is-a)
+	\item composition (has-a, the same life-span)
+	\item aggregation (as-a, independent life-span)
+	\item association (objects works together)
+	\item dependency(brief use of another object)
+\end{itemize}
+
+\section{Types of dependencies}
+\begin{itemize}
+	\item class dependencies
+	\item interface dependecies
+	\item method/field dependecies (usually used by reflection)
+\end{itemize}
+
+Complicated dependency interfaces means tighter coupling. Therefore it is recommended to avoid adding new method to existing interfaces.
+it is better to add a new component with the required new functionality.
+
+\section{Hidden Dependency}
+Visible dependency is the dependency exposed in the API, for instance when we use dependecy as a method parameter. Hidden dependency can be
+a dependency used within a method body. \textbf{\textcolor{red}{Hidden dependency can bad!}}, because can be discovered by code inspection only.
+
+\section{Indirect Dependencies}
+Transitive dependencies, chained dependencies. A depends on B, B depends on C. A indirect depends on C.
+
+\section{Local and Context Depedences}
+\textbf{General purpose component} is a component which may be used byother applications, too. The classes which belong to this component are \textit{local}.
+
+\textbf{Application specific components} are not of any use outside the application. The classe belonging to the component are called \textit{context}
+
+\textbf{Context dependencies} means that general purpose classes depends on application specific classes. \textbf{\textcolor{red}{This is bad!}}
+It means that general purpose classes cannot be used outside the application.
+
+
+
+
+\part{Design Patterns}
+
+
+
+\chapter{Creational}
+Those patterns specify how an object can be created.
+
+
+\section{Singleton}
+
+\subsection{Problem Descritpion}
+All cases, when \textbf{exactly one instance} is required:
+\begin{itemize}
+	\item network session
+	\item solar system, Milky Way
+\end{itemize}
+There is a modification to the pattern possible to create a pool of fixed amount of objects.
+
+\subsection{Implementatio}
+The key is to:
+\begin{itemize}
+	\item make the \textbf{class final}
+	\item make the \textbf{constructor private}. \textbf{\textcolor{red}{The constructor is mandatory!}} Without it default 'package-protected'
+	constructor will be created.
+	\item \textbf{static} \textit{object} variable and its \textbf{static} \textit{getter}
+	\item \textbf{static getter} returning new object only if there is no object present
+\end{itemize}
+
+\begin{verbatim}
+final class Singleton{
+  // private & static instance variable.
+  private static Singleton obj;
+
+  // private constructor
+  private Singleton(..){
+    ...
+  }
+
+  // the only publicly exposed member - instance getter
+  public static Singleton getObj(){
+    return obj == null? new Singleton() : obj;
+  }
+}
+\end{verbatim}
+
+Object getter is the only publicly exposed API. It returns private static instance variable holding the singleon object. If the object is null, it calls private constructor. There is no other way to call the constructor (and to instantiate another object).
+
+\textbf{final} class modifier is added in order to prevent pattern break by subclassing. Without the keyword it would bo possible to subclass and implement Cloneable interface.
+The final modifier prevents singleton from clonning.
+
+
+
+\chapter{Structural}
+The way the objects are connected. It allows to implement particular project constraints. The overall idea is to implement such solutions
+that future changes to the system won't require changes to existing code.
+
+
+\section{Decorator}
+This is a use of layered objects to dynamically and transparently add responsibilities to individual objects. They preserve
+original API - we use them by invoking exacty the same methods. Decorator classes just adjust and modify existing interface.
+It is often used when large number of subclasses is required to solve al possibilities, like for instance servicing IO
+operations. The drawback is that we must to creat multiple objects in order to get single functionality we need.
+
+
+
+\chapter{Behavioural}
+Captures particular types of actions within a program.
+
+
+\section{Observer}
+
+\subsection{Problem Description}
+The requirement is that objects update their state in respond to changes which occur in some other object. As it is common problem
+the solution is supported by standard Java libraries - \textbf{Observer} and \textbf{Observable}.
+
+\subsection{Implementation}
+\begin{itemize}
+	\item \textbf{Observable} class 
+	\begin{itemize}
+		\item \textbf{keeps track} of all objects which need to be notified about the changes which are of their interest
+		\item \textbf{notifies} observing objects when the changes happen
+		\item We need a call to \textbf{setChanged()} somewhere in the \textit{Observable} class in order to update the flag indicating that a change has happened.
+		\textbf{notify()} tests the flag to decide whether \textit{Observers} have to be notified or not. That is the reason why we \textbf{\textcolor{red}{must not just instantiate an object of \textit{Observeable} class, we must extend this class}}
+	\end{itemize}
+
+	\item \textbf{Observer} class. Objects of this class \textbf{registers} by Observable in order to be \textbf{updated}
+	when some specific change occurs.
+\end{itemize}
+
+\begin{verbatim}
+  class ObserverableClass extends Observabe{
+    
+    ...
+    
+    public void notify(Observer o){
+      setChanged();
+      super.notify(b);     \\ or implement own way to notify
+    }
+  }
+  
+  class ObserverClas implements Observer{
+    Observable notifier;
+    
+    ...
+    
+    public void register(){
+      notifier.addObserver(this);
+    }
+    
+    public void update(ObservableClass oc){
+      ...
+    }
+  }
+\end{verbatim}
+
+
+
+\part{Antipatterns, Code Smells}
+
+
+
+\chapter{AutoBoxing, Unboxing}
+
+
+\section*{Recommended}
+Unwrapping primitive types from collections.
+\begin{verbatim}
+ArrayList<Integer> integer;
+.....
+int i = integer.get(..);
+
+\end{verbatim}
+
+
+
+\section*{Not Recommended}
+This is not recommended because there is no point to force autoboxing:
+\begin{verbatim}
+Integer i = 5;
+\end{verbatim}
+Better:
+\begin{verbatim}
+Integer i = Integer.valueOf(5);
+\end{verbatim}
+--------------------------------------------------------
+\newline
+Forced unboxing is also not recommended:
+\begin{verbatim}
+Integer a = Integer.valueOf(1);
+int b = 2;
+int c = a + b;
+\end{verbatim}
+Better:
+\begin{verbatim}
+Integer a = Integer.valueOf(1);
+int b = 2;
+int c = a + b.intValue();
+\end{verbatim}
+
+
+
+\chapter{Constructors}
+
+
+\section{Constructor Calls an Overridable Method}
+\begin{enumerate}
+	\item call to constructor in \textbf{child class}
+	\item it calls \textbf{parent class constructor} first
+	\item if there is a call to overridable method it calls \textcolor{red}{\textbf{textchild version of the method}}
+	\item \textbf{ERROR! }The call \textcolor{red}{\textbf{will fail}} if the method references some uninitialised variable.
+	\textcolor{red}{\textbf{The variable can be initialised only when the control returns to child constructor - in steps which will folow!}}
+\end{enumerate}
+
+In order to avoid this kind of bug:
+\begin{itemize}
+	\item don't call any method from within a constructor
+	\item make a \textbf{class final }(non-extendable)
+	\item or make the \textbf{method final} (non-overridable)
+	\item or make the \textbf{method private} (which makes them automaticaly final)
+\end{itemize}
+
+
+
+
+\part{Testing}
+
+
+
+\chapter{JUnit}
+
+
+\section{Unit testing}
+It could be a function class, package, subsystem.
+
+
+
+
+\part{Varia}
+
+
+
+\chapter{Compact Strings}
+The compact strings feature is an optimization that allows for a more space-efficient internal representation of strings. It is enabled by default in Java 9. This feature may be disabled by using -XX:-CompactStrings, if you are mainly using UTF-16 strings.
+
+
+
+
+\part{Appendix}
+
+
+
+\chapter{Vocabulary}
+
+
+\section{B}
+
+\subsection{binding}
+Binding refers to the process of associating a method \textbf{definition} with a method \textbf{invocation}
+\begin{itemize}
+	\item \textbf{early binding, static binding}
+	 \begin{quote}
+	 	the method definition is associated with the method invocation when the code is compiled
+	 \end{quote}
+	 \item \textbf{late binding, dynamic binding}
+	 \begin{quote}
+	 	the method invocation is associated with the method invocation when the method is invoked (at run time)
+	 \end{quote}
+\end{itemize}
+
+
+\section{C}
+
+\subsection{composition}
+composing a new class from existing classes.
+
+\subsection{covariant}
+dependants depend on compatible types:\\
+T\textsubscript{a} -\textgreater\  T\textsubscript{b} =\textgreater\ A(T\textsubscript{a}) -\textgreater\  (T\textsubscript{b})\\
+
+This is not an attribute of types, but only of \textit{dependant types}.
+Implicit type compatibility implies implicit covariance, explicit compatibility implies explicit covariance. Intuitively - all types are implicitly compatible with Object class,
+in opposite direction compatibility is possible explicitly only, by the use of \textbf{cast}.
+
+
+
+\section{D}
+
+\subsection{depedency}
+means that some piece of code relies on another one.
+
+\subsection{dynamic binding}
+polymorphism related consept, runtime binding, late binding. The specific callee method is determined during a runtime at the very last moment.
+
+
+\section{E}
+
+\subsection{encapsulation}
+It is hidding data within a class and to make it accessible only through methods. Encapsulation
+hides implementation. I \textbf{combines characteristics and behaviours}
+\begin{itemize}
+	\item \textbf{it is safe to make changes to the implementation}
+	without worrying that existing code can be broken.
+	\item it can preserve internal consistency of the class. For instance can ensure that modifying some data
+	will modify also all related data (\textbf{update variables, call methods})when it is necessary.
+	\item prevent internal (private) utility methods to be called from outside.
+\end{itemize}
+
+
+\section{H}
+
+\subsection{has-a relationship}
+see: composition.
+
+
+\section{I}
+
+\subsection{interface}
+set of all requests that can be done to an object. The type is what determines an interface.
+
+\subsection{invariant}
+'not changing'. For instance an attempt to cast invariant type can raise a compile error. See: Arrays.TypeConversion
+
+\section{L}
+
+\subsection{late binding}
+polymorphism related consept, dynamic binding, runtime binding. The specific callee method is determined during a runtime at the very last moment.
+
+
+\section{M}
+
+\subsection{members of class}
+Fields and methods
+
+
+\section{N}
+
+\subsection{non-interfering}
+The underlying source data (list, array, values) are not modified.
+
+
+\section{P}
+
+\subsection{polymorphism}
+dynamic binding, late binding, runtime binding. Different behaviour of objects of the same base type.
+
+\subsection{problem space}
+the place where the problem atually exists.
+
+
+\section{R}
+
+\subsection{RTTI}
+Run-Time Type Identification
+
+\subsection{runtime binding}
+polymorphism related consept, late binding, dynamic binding. The specific callee method is determined during a runtime at the very last moment.
+
+
+\section{S}
+
+\subsection{short circuiting}
+A logical expression is evaluated only until truth or falsehood of the entire expression can be unambiguously determined.
+
+\subsection{solution space}
+the place where the problem is modelled, such as computer.
+
+\subsection{stateful}
+The state can change and it is maintained during execution.
+
+\subsection{stateless}
+The execution of an operation is \textbf{deterministic}. It means that
+\textbf{it doesn't depend on any mutable value}.
+
+
+\section{U}
+
+\subsection{upcasting}
+a process of treating a derived type as though it were its base type(class).
+
+
+
+\chapter{Docs, Specs}
+\begin{itemize}
+\item Oracle JDK 9 Documentation\\
+\url{https://docs.oracle.com/javase/9/}
+\item The Java® Language Specification\\
+\url{https://docs.oracle.com/javase/specs/jls/se9/html/index.html}
+\end{itemize}
+
+
+\section{Java Doc}
+\begin{itemize}
+\item Pattern - \url{https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html}
+\item Scanner - \url{https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html}
+\end{itemize}
+
+\end{document}

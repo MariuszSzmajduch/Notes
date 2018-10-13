@@ -1,0 +1,1137 @@
+\documentclass{report}
+\title{git-notes}
+\author{m.sz}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+
+
+\begin{document}
+\maketitle
+\pagenumbering{gobble}
+\tableofcontents
+
+
+
+\part{Help}
+\pagenumbering{arabic}
+
+
+\chapter{CLI}
+Short version of help:
+\begin{verbatim}
+git <command> -h
+\end{verbatim}
+Full manual:
+\begin{verbatim}
+git help <command>
+or
+man git <command>
+\end{verbatim}
+
+
+
+\part{Architecture}
+
+
+\chapter{Working Directory}
+This is a single checkout of one version of the project. It is our working area to do current modifications. Coloquially -
+it is what we see on the screen when working on the project. It contains:
+\begin{itemize}
+	\item project objects
+	\item git \textit{metadata}
+\end{itemize}
+\textbf{Modified} means that changes are neither \textit{staged} nor \textit{committed}.
+
+
+\chapter{Staging Area, Index}
+Mediates between working area and local repo - contains those \textbf{changes which are intended to commit to \textit{Local Repo}}. 
+\begin{itemize}
+	\item \textbf{in sync }with the repo after \textit{checkout}
+	\item \textbf{behind} the repo after something is \textit{fetched}
+	\item \textbf{ahead} after some changes were \textit{added}
+\end{itemize}
+\textbf{Staged} means \textit{modified objects} which are yet not committed.
+	
+
+\chapter{Stashing Area}
+'A pocket', intended to store changes that haven't been commited. useful when we need to switch a branch, but the changes are not ready to commit yet.
+
+
+ \chapter{Local Repo}	
+This is a project database stored locally. It is a \textbf{DAG} containing all project snapshots. Two pointers operate on it:
+\begin{itemize}
+	\item \textbf{HEAD}\\
+		points to the commit which copy is present in the working directory
+	\item \textbf{remote\_repo/remote\_branch}\\
+		usually 'origin/master' - points to the last commit fetched from a remote repo 
+\end{itemize}
+
+
+\chapter{Remote Repo}
+
+
+
+\chapter{./.git}
+This is a subdirectory created in project root directory by \textit{git init} command.  Its location can be customised by editing 
+GIT\_DIR environmental variable or by executing
+\begin{verbatim}
+git init --separate-git-dir
+\end{verbatim}
+Contains initially:
+\begin{itemize}
+	\item \textbf{.gitconfig}, project-local config variables
+	\item \textbf{HEAD}, a file with a pointer to the last checked out commit.
+\end{itemize}
+
+
+\section{HEAD}
+Location - /.git.\\
+This is a file which contains a pointers to the currently checked out commit(in \textit{Local Repo}). \textbf{One pointer for each tracked file.}
+
+
+
+
+\part{Configuration}
+
+
+\section{config ranges}
+\begin{itemize}
+	\item System
+	\begin{lstlisting}
+git config --system
+\end{lstlisting}
+
+\item User
+\begin{lstlisting}
+git config --global
+\end{lstlisting}
+
+\item Project
+\begin{lstlisting}
+git config
+\end{lstlisting}
+
+\item edit examples
+\begin{lstlisting}
+git config --global user.email "abc@mail.com"
+git config --global core.editor "vim"
+\end{lstlisting}
+\end{itemize}
+
+\section{configurable properties}
+\begin{itemize}
+
+\item user
+\begin{itemize}
+\item \begin{verbatim}
+user.name=
+\end{verbatim}
+\item \begin{verbatim}
+user.email=
+\end{verbatim}
+\end{itemize}
+
+\item core
+\begin{itemize}
+\item \begin{verbatim}
+core.editor=
+\end{verbatim}
+\item \begin{verbatim}
+core.excludesfile=
+\end{verbatim}
+\end{itemize}
+
+\item color\begin{verbatim}
+color.ui=
+\end{verbatim}
+
+\item remote URLs\\
+look at 'Remote' chapter, 'Managing URLs' section
+
+\end{itemize}
+
+
+\section{config listing}
+\begin{itemize}
+\item all
+\begin{lstlisting}
+git config --list
+\end{lstlisting}
+
+\item specific
+\begin{lstlisting}
+git config user.email
+\end{lstlisting}
+\end{itemize}
+
+
+\section{.gitignore}
+\url{https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository}\\
+\url{https://git-scm.com/docs/gitignore}\\
+
+The file specifies the file which should stay ignored. \textbf{\textcolor{red}{The files already tracked
+are not affected!}}. In order to untrack them use
+\begin{verbatim}
+git -rm --cached
+\end{verbatim} 
+See: \textit{'Common Tasks.delete.rm --cached'}.
+
+\textbf{Glob} patterns (it is simplified Regex) is a format used to specify files to be excluded from tracking.
+
+\begin{itemize}
+	\item syntax
+	\begin{itemize}
+		\item
+	\begin{verbatim}
+	* ? [abc] [a-c1-6] !
+	\end{verbatim}
+
+		\item	\# starts a comment line; blank lines are ignored
+		\item ** means 'match all directories'
+	\end{itemize}
+	
+	\item project scope of ignore
+	\begin{quote}
+		create and edit .gitignore (without extention) in the repository root
+	\end{quote}
+	
+	\item per-user ignore
+	\begin{verbatim}
+	git config --global core.excludesfile <file_path>
+	\end{verbatim}
+	to tell where .gitignore file is, the edit the file. typical filepath:
+	\begin{verbatim}
+	~/.gitignore_global  <- Linux
+	/Users/user_name/.gitignore  <- Windows
+	\end{verbatim}
+\end{itemize}
+
+
+
+\subsection{Glob Patterns}
+\begin{itemize}
+	\item \textbf{characters}
+	\begin{verbatim}
+	[xyz] - ignore all string of 'x',' y' or 'z', where x, y, z may be 
+	any characters (alphabetical, numerical,
+	special characters)
+	x-y - any character in range from x to y...
+	\end{verbatim}
+	
+	\item \textbf{wildcards, negation}
+	\begin{verbatim}
+	? - any single character
+	* - arbitrary number of any characters
+	! - negation...
+	\end{verbatim}
+	
+	\item \textbf{directories}
+	\begin{verbatim}
+	** - any dir path
+	/ - if starts a pattern - current directory
+	                          avoids recursivity
+	  - if ends a pattern - specify the exact directory 
+	                        the pattern is addressed to
+	abc/ - all directories rooted by abc directory
+	\end{verbatim}
+\end{itemize}
+Good source of predefined .gitignore files:\\
+\url{https://github.com/github/gitignore}
+
+
+\section{customised prompt}
+\subsection*{UNIX-like}
+\begin{quote}
+\begin{verbatim}
+export PS1='\W$(__git_ps1 "($s)") > '
+\end{verbatim}
+add it to .bashrc (.bash\_profile):
+\begin{lstlisting}
+# uncomment current prompt export if exist
+# export PS1="some_user"
+....
+# add at the end of the script
+export PS!='\W$(__git_ps1 "($s)") > '
+
+\end{lstlisting}
+\end{quote}
+
+\subsection*{Windows}
+\begin{quote}
+similar format should be preconfigured. to get exact the same:
+\begin{verbatim}
+export PS1='\W$(__git_profile "(%s)") > '
+\end{verbatim}
+save as \textbf{.bash\_profile} in \textbf{/Users/current\_user} dir
+\end{quote}
+
+
+\section{aliases}
+\begin{verbatim}
+git config --<scope> alias.<abbreviation> original_command
+\end{verbatim}
+put original command between double quotes if it contains space(s)
+
+
+\section{.git in a Separate Location}
+\begin{verbatim}
+git init --separate-git-dir
+\end{verbatim}
+Can be invoked on an existing repo.
+
+
+
+
+\part{Basic Tasks}
+
+
+
+\chapter{Creating a Local Repo}
+
+
+\section{Transforming Existing Dir into Local Repo}
+\begin{verbatim}
+git init
+\end{verbatim}
+Creates new local repo rooted by current dir. Creates /.git directory.
+
+\subsection{Empty Repo in the Specified Dir}
+\begin{verbatim}
+git init <dir>
+\end{verbatim}
+
+
+\section{Clonning Remote Repo}
+See: \textit{Remotes.Managing Repo's}
+
+
+\section{git init --bare dir}
+Creates a repo without Working Area. The common usage is  to create \textbf{central repo}.
+No commits, edits, just pushes and pulls only.
+
+
+\section{Local Repo from a Template}
+\begin{verbatim}
+git init --template template=template_dir
+\end{verbatim}
+Uses a template to create .git directory. A default template usually reside in \textit{/usr/share/git-core/templates}. It is
+a good reference for how to create a custom template. For more see: \textit{Git Hook}
+
+
+
+\chapter{Commits}
+
+
+\section{Committing}
+
+\subsection{With Attached Message}
+\begin{verbatim}
+commit -m 'message'
+\end{verbatim}
+
+\subsection{Without Staging}
+\begin{verbatim}
+commit -a
+\end{verbatim}
+Combines 'add' and 'commit'. Ignores deleted and new files. In order to include new files perform '\textit{git add ..}' first.
+
+
+\section{Modification}
+Permitted for last commit only. Reasonable is to use this for minor changes only. In all other cases it is preferable to revert and then make a proper commit.
+
+\subsection{Replacing Last Commit}
+\begin{verbatim}
+git commit --amend
+\end{verbatim}
+Replaces last commit with current staged content, last message is a starting point for new one. If any changes are present from 
+last commit they are appended to it without creating new commit. If there are no changes, then it is effectively just an edit of last message.
+
+\subsection{Changing a Message}
+\begin{verbatim}
+git commit --amend 'message'
+\end{verbatim}
+This replaces the message, too.
+
+
+\section{Review}
+
+\subsection{gitk}
+Wow!
+
+\subsection{log}
+Lists commits.
+
+\begin{itemize}
+	\item my preferred
+\begin{verbatim}
+git log --online --graph --all --decorate
+\end{verbatim}
+	
+	\item short
+\begin{verbatim}
+git log --oneline
+\end{verbatim}
+	
+	\item tree of branches
+\begin{verbatim}
+git log --graph
+\end{verbatim}
+	
+	\item detailed
+\begin{verbatim}
+git log -p
+\end{verbatim}
+	shows changes as shown by \textbf{diff}  command
+	
+	\item particular tree-ish in detail
+\begin{verbatim}
+git show <tree-ish>
+\end{verbatim}
+	shows:
+	\begin{itemize}
+		\item \textbf{content} of files, directories
+		\item particular \textbf{commits} like by "log -p"
+	\end{itemize}
+	
+	\item time
+\begin{verbatim}
+git log --since=".." --until="..."
+\end{verbatim}
+	
+	\item some popular:
+\begin{verbatim}
+git log --grep="...."
+git log --author="..."
+\end{verbatim}
+	
+	\item more at git help 
+\end{itemize}
+
+\subsection{show}
+\begin{quote}
+For commits it shows the log message and textual diff. It also presents the merge commit in a special format as produced by git diff-tree --cc. (git doc, \url{https://git-scm.com/docs/git-show} )
+\end{quote}
+
+
+
+\chapter{Managing Staging Area}
+
+
+\section{Staging, Tracking}
+\begin{verbatim}
+git add ...
+\end{verbatim}
+Git sees files not present in previous commits as 'untracked'. As a consequence of this fact is that \textit{add} command works two-fold:
+\begin{itemize}
+	\item \textbf{tracking} - it starts tracking untracked files; it changes file's status from \textit{untracked} to \textit{tracked.}
+	\item \textbf{staging} - it stages those \textit{modified} files that are intended to be included in next \textit{commit}.
+\end{itemize}
+
+This command defines which files are assigned to be included in next commit (\textbf{to be staged}):
+\begin{itemize}
+	\item \textbf{untracked} files; \textbf{all new files are \textit{untracked} initially}
+	\item \textbf{deleted} files
+	\item \textbf{updated}
+\end{itemize}
+All comits create a stream of snapshots for each file individually - from their creation until their deletion.
+
+\subsection{add -A}
+Stages \textbf{all} changes, including \textbf{new files} \textbf{in entire project}.
+
+\subsection{add .}
+Stages the changes present in current directory and subdirectories. \textbf{Ignores changes in higher directories of the project!}
+
+\subsection{add -p}
+Partial adding, interactive adding.
+\begin{itemize}
+	\item \textbf{y} - confirmed
+	\item \textbf{d} - declined
+	\item \textbf{s} - split to smaller chunks
+	\item \textbf{e} - edit
+	\item \textbf{q} -quit
+\end{itemize}
+
+
+\section{Unstaging}
+
+\subsection{An Arbitrary File}
+\begin{verbatim}
+git reset HEAD filename
+\end{verbatim}
+This sets a staged file to be the same as its current committed version. It effectively \textbf{discards} all changes which have been applied to this  file
+in \textbf{staged area} after last commit.
+
+
+
+\chapter{status -s}
+It's a short version. 
+\begin{itemize}
+	\item A - added
+	\item M - modified
+	\item left column - staging area
+	item right column - working area.
+\end{itemize}
+Examples:\\
+M\_ - modified \& staged\\
+\_M - modified \& not-staged\\
+MM - modified, staged, again modified in working area.
+
+
+
+\chapter{diff}
+\begin{itemize}
+	\item \begin{verbatim}
+	git diff <file_name>
+	\end{verbatim}
+	compares \textcolor{red}{\textbf{working}} directory against \textcolor{red}{\textbf{staging}} area - for each file, on line-by-line basis.\\
+	Displays the differences still \textbf{unstaged} only, \textbf{not added modifications}.
+	
+	\item \begin{verbatim}
+	git diff --staged <file_name> (OBSOLETE: git diff --cached)
+	\end{verbatim}
+	compares \textcolor{red}{\textbf{staging}} against \textcolor{red}{\textbf{repository}}
+	
+	\item \begin{verbatim}
+	git diff <SHA>
+	\end{verbatim}
+	compares state in a particular commit wit the current state in a working dir
+	
+	\item \begin{verbatim}
+	git diff <SHA>..<SHA>\end{verbatim}
+	compares two particular commits
+	
+	\item use switches to change the way the differences are displayed
+	\begin{lstlisting}
+	git diff --color-words <file_name>
+	\end{lstlisting}
+\end{itemize}
+
+
+
+\chapter{...}
+
+
+\section{delete}
+\begin{itemize}
+	\item \begin{verbatim}
+git rm file_name
+	\end{verbatim}
+	\begin{itemize}
+		\item \textbf{Removes definitely the file from working directory} (it doesn't go to the trash bin)
+		\item there are \textbf{\textcolor{red}{no staged modifications}}
+	\end{itemize}
+	
+	\item \begin{verbatim}
+git rm --cached <file_name>
+	\end{verbatim}
+	Effectively removes files from staging area. Usefull to untrack a file.
+	\begin{verbatim}
+-q
+--quiet
+	\end{verbatim}
+	Surpresses default behaviour - one output line displayed for each removed file. rm  --cached \textless file\textgreater
+	Effectively removes files from staging area.
+	
+	\item \begin{verbatim}
+git rm -f
+	\end{verbatim}
+	..\textit{forced} remove. For files \textbf{modified} and \textbf{staged}.
+
+\end{itemize}
+See '\textbf{\textit{Common tasks.untracking files}}' to know how to delete from staging area only.
+
+\section{rename/move}
+\begin{itemize}
+\item \begin{verbatim}
+git mv old_name new_name
+\end{verbatim} 
+\end{itemize}
+
+
+\section{undo}
+\begin{itemize}
+\item in \textbf{working directory}
+\begin{itemize}
+\item\begin{verbatim}
+git checkout <commit_SHA> <branch_name> <file_name>
+\end{verbatim}
+
+\item \begin{verbatim}
+git checkout -- file_name
+\end{verbatim} 
+to redo to the same state as at the pointer in repository
+
+\item \begin{verbatim}
+git checkout file_name
+\end{verbatim}
+branch name not required if it is current one and there is no branch with the same name as the file
+
+\item \begin{verbatim}
+git checkout SHA_number <branch_name> <file_name>
+\end{verbatim}
+sets both \textcolor{red}{\textbf{working directory}} and \textcolor{red}{\textbf{stage area}} to the state in a particular commit identified by SHA
+
+\item \begin{verbatim}
+ git revert SHA_number
+\end{verbatim}
+reverts all changes done in a particular commit - updates working directory and makes \textcolor{red}{\textbf{new commit}} (this can be switched out) whith those reverted changes. \textbf{revert} is for simple changes, \textbf{merge} for complex. 
+\begin{itemize}
+\item \begin{verbatim}
+git revert SHA_number --in
+\end{verbatim}
+doesn't make commit. allows to append further modification to next commit
+\end{itemize}
+
+\item \begin{verbatim}
+git reset ...
+\end{verbatim}
+look at 'reset' subsection
+\end{itemize}
+
+\item in \textbf{staging area}
+\begin{verbatim}
+git reset HEAD <file_name>
+\end{verbatim}
+removes all changes when no file provided. look 'reset' section for more about reset.
+
+\item in \textbf{repository}
+\begin{verbatim}
+git commit --amend <-m "...">
+\end{verbatim}
+only \textcolor{red}{\textbf{last commit}} editable! it appends staged changes to current commit, the message can be changed as well
+\end{itemize}
+
+
+\section{git reset HEAD ...}
+\begin{quotation}
+'Rewind' - sets the head on a particular commit; consecutive commits and logs becomes invisible. They can be accessed only by their SHA.
+\end{quotation}
+\begin{itemize}
+\item \begin{verbatim}
+git reset --soft ...
+\end{verbatim}
+sets pointer to new position, makes no changes to working dir and index (staging area)
+
+\item \begin{verbatim}
+git reset ..., git reset --mixed ...
+\end{verbatim}
+default mode. sets the pointer; sets staging index to match repository at the pointer. working directory stays intact
+
+\item \begin{verbatim}
+git reset --hard
+\end{verbatim}
+sets the pointer; sets both working dir and staging index to match repository at the pointer. later changes, commits, are lost
+\end{itemize}
+
+
+\section{HEAD in detached mode}
+This means that the HEAD pointer is on some particular commit \textbf{outside} any branch. It could've happen after particular commit was checked out using its SHA1. To attach back \textbf{checkout} any branch.
+
+
+\section{untracked files - delete}
+\textbf{\textcolor{red}{Destructive command - permanently removes untracked files!}}
+\begin{itemize}
+\item \begin{verbatim}
+git clean -n
+\end{verbatim}
+tests, which files will be deleted
+\item \begin{verbatim}
+git clean -f
+\end{verbatim}
+\end{itemize}
+
+
+\section{untracking files}
+\begin{quote}
+to stop tracking the  file by staging index:
+\begin{itemize}
+	\item Add the file to \textbf{.gitignore} in order to prevent git to ask to add the file in the future.
+	The file is still kept in \textcolor{red}{\textbf{working dir}} and \textcolor{red}{\textbf{repository}}, but it isn't tracked for further changes by staging index
+   \item \textbf{rm  --cached \textless file\textgreater}\\
+Effectively removes files from staging area.
+\begin{verbatim}
+-q
+--quiet
+\end{verbatim}
+Surpress default behaviour - one output line displayed for each removed file. 
+\end{itemize}
+\end{quote}
+
+
+\section{referencing ancestor commits}
+\begin{quote}
+for instance from HEAD:
+\begin{verbatim}
+HEAD~ = HEAD~1 = HEAD^
+HEAD~2 = HEAD^^
+HEAD~3 = HEAD^^^
+\end{verbatim}
+\end{quote}
+
+
+\section{content listing}
+\begin{quote}
+\begin{verbatim}
+git ls-tree <tree-ish(es)>
+\end{verbatim}
+tree-ish - branch (last commit), SHA, tag, dir
+\end{quote}
+
+
+\section{stashing}
+\begin{itemize}
+\item saving in stash
+\begin{verbatim}
+git stash save "some message"
+\end{verbatim}
+like \textbf{git reset --hard HEAD}, but changes are stashed
+
+\item listing a stash 
+\begin{verbatim}
+git stash list
+\end{verbatim}
+\textcolor{red}{\textbf{stash@\{0\}}}: \textless branch\_name\textgreater: ".." - stash reference
+
+\item showing changes saved in stash
+\begin{verbatim}
+git stash show -p <stash_ref>
+\end{verbatim}
+Shows what changes this stash would apply\\
+\textbf{stash is not bound to any commit. can be taken from one working dir and aplied to some other working dir}
+
+\item applying changes from stash
+\begin{verbatim}
+git stash pop
+git stash apply
+\end{verbatim}
+apply changes to current working dir;\\
+\textbf{pop} drops stash, \textbf{apply} allows multiple use
+
+\item removing from stash
+\begin{itemize}
+\item \begin{verbatim}
+git stash drop stash@{id}
+\end{verbatim}
+
+\item \begin{verbatim}
+git stash clear
+\end{verbatim}
+removes all
+
+\end{itemize}
+\end{itemize}
+
+
+
+
+\part{Branches}
+
+
+\section{new branch}
+\begin{itemize}
+
+\item \begin{verbatim}
+git branch branch_name
+\end{verbatim}
+\textcolor{red}{\textbf{git branch...}} creates new branch
+
+\item \begin{verbatim}
+git checkout -b branch_name
+\end{verbatim}
+\textcolor{red}{\textbf{git checkout -b...}} creates new branch and switches to it
+ 
+\end{itemize}
+
+
+\section{delete}
+\begin{quote}
+Must not be current branch
+\begin{itemize}
+\item \begin{verbatim}
+git branch -d branch_name
+\end{verbatim}
+works for \textcolor{red}{\textbf{fully merged}} branches only
+
+\item \begin{verbatim}
+git branch -D branch_name
+\end{verbatim}
+works for \textcolor{red}{\textbf{unmerged}} branches, too
+\end{itemize}
+
+\end{quote}
+
+
+\section{list of branches}
+\begin{itemize}
+\item \begin{verbatim}
+git branch
+\end{verbatim}
+lists \textbf{local} branches
+
+\item \begin{verbatim}
+git branch -r
+\end{verbatim}
+lists \textbf{remote} branches
+
+\item \begin{verbatim}
+git branch -a
+\end{verbatim}
+lists \textbf{all} branches (local + remote)
+\end{itemize}
+
+
+\section{switching a branch}
+\begin{quote}
+\begin{verbatim}
+git checkout branch_name
+\end{verbatim}
+\begin{itemize}
+\item \textit{'swapping context'}
+\item working dir should be \textit{clean} - all modifications should be committed, stashed or discarded
+\end{itemize}
+\end{quote}
+
+
+\section{rename}
+\begin{quote}
+\begin{verbatim}
+git branch -m old_name new_name
+\end{verbatim}
+\textcolor{red}{\textbf{-m}! Not \textbf{-mv}!}
+\end{quote}
+
+
+\section{merging}
+
+\subsection{merge}
+
+\begin{enumerate}
+\item ensure this is a destination branch
+\item ensure the working directory is clean
+\item \begin{verbatim}
+git merge <source_branch>
+\end{verbatim}
+\end{enumerate}
+
+\begin{itemize}
+\item 
+\begin{verbatim}
+git branch --merged
+\end{verbatim}
+returns a list of fully incorporated branches - they can be merged \textcolor{red}{\textbf{fast-forward (ff-merge)}}
+
+\item \begin{verbatim}
+git merge --no-ff <branch_name>
+\end{verbatim}
+created merge commit even if it is ff-merge
+
+\item \begin{verbatim}
+git merge --ff-only <branch_name>
+\end{verbatim}
+merges only if ff-merge is possible; aborts otherwise
+
+\end{itemize}
+
+\subsection{resolving conflicts}
+\begin{itemize}
+\item abort
+\begin{verbatim}
+git merge --abort
+\end{verbatim}
+
+\item resolve manually
+\begin{itemize}
+\item open files, find conflict spots, manually fix them; useful:
+\begin{verbatim}
+git show <object>
+\end{verbatim}
+, and put SHA1 as an object; look section 2.2
+\item stage modified files
+\item commit
+\begin{itemize}
+\item this is merge commit - merge completed!
+\item message unnecessary
+\end{itemize}
+\end{itemize}
+
+\item resolving using tools
+\begin{quote}
+\begin{verbatim}
+git mergetool --tool=...
+\end{verbatim}
+type \textbf{git mergetool} to get list of available/recommended tools; a tool can be added to the config file
+\end{quote}
+
+\end{itemize}
+
+
+
+\part{Remotes}
+
+
+\section{Managing Repo's}
+
+\subsection{Creating Local Repo from Remote}
+\begin{itemize}
+	\item implicit
+	\begin{verbatim}
+	git clone <remote-repo-url> <local-dir>
+	\end{verbatim}
+	\begin{itemize}
+		\item \textit{local-dir} is optional, current dir used if not specified.
+		\item \textit{origin} is set as an identifier for the remote repo.
+	\end{itemize}
+	
+	\item explicit
+	\begin{verbatim}
+	git remote add <id> <remote-repo-url> <local-dir>
+	\end{verbatim}
+	\begin{itemize}
+		\item \textit{local-dir} is optional
+		\item \textit{id} sets custom identifier for the remote repo. \textbf{origin} is a default identifier.
+	\end{itemize}
+	\begin{verbatim}
+	git fetch <id>
+	\end{verbatim}
+	\begin{itemize}
+		\item fetches remote repo using previous specified \textit{remote-repo-url} for this \textit{id}
+		\item makes remote repo locally accessible as \textit{id/master}.
+		\item \textit{id} may be ommitted when defaults to \textit{origin}
+		\item manual \textit{merge} still needed
+		
+	\begin{verbatim}
+	or
+	git pull
+	\end{verbatim}	
+	\begin{itemize}
+		\item combines \textit{fetch} + \textit{merge}
+		\item current \textbf{local branch} must be set up to \textbf{track a remote branch.}
+	\end{itemize}
+	
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Shallow Clonning}
+\begin{verbatim}
+git clone -depth=x <repo_dir>
+\end{verbatim}
+Clones the history of commits limited to \textit{x} commits. Usefull in the case of scaling problems.
+
+\subsection{Remote from Local}
+\begin{verbatim}
+git remote add ...
+git push -u <remote_name master>
+\end{verbatim}
+
+
+\section{Managing URLs}
+
+\subsection{list}
+\begin{itemize}
+	\item \begin{verbatim}
+git remote
+	\end{verbatim} 
+	returns a list of remote identifiers
+
+	\item \begin{verbatim}
+git remote -v
+	\end{verbatim}
+	detailed info including URLs
+
+\end{itemize}
+
+\subsection{add}
+\begin{quote}
+\begin{verbatim}
+git remote add <remote_name> <URL>
+\end{verbatim}
+it's a convention to call primary remote \textcolor{red}{\textbf{origin}}.\\
+\begin{itemize}
+\item https URL:
+\begin{verbatim}
+https://github.com/<user_name>/<repo_name>.git
+\end{verbatim}
+
+\item ssh URL:
+\begin{verbatim}
+git@github.com:<user_name>:<repo_name>.git
+\end{verbatim}
+\end{itemize}
+\end{quote}
+
+\subsection{rename}
+\textit{Origin} is an informal default identifier for remote repo. It can be change:
+\begin{verbatim}
+git remote rename old-remote-id new-remote-id
+\end{verbatim}
+
+\subsection{remove}
+\begin{quote}
+\begin{verbatim}
+git remote -rm <remote_name>
+\end{verbatim}
+\begin{quote}
+remote name as listed by
+\begin{verbatim}
+git remote -v
+\end{verbatim}
+\end{quote}
+\end{quote}
+
+
+\section{Collaboration}
+
+\subsection{Setting Upstream}
+If repo was cloned then there is no need to set upstream - the address of the remote repo used to clone the project is used.
+Otherwise we need to \textit{push -u}/\textit{push --set-upstream} first.
+
+\subsection{push}
+It works only if ff-merge is possible on the remote side. \\
+Look at Remote $\rightarrow$ origin/master.
+\begin{itemize}
+\item \begin{verbatim}
+git push <remote_repo> <remote_branch>
+\end{verbatim}
+usually:
+\begin{verbatim}
+git push origin master
+\end{verbatim}
+or
+\begin{verbatim}
+git push
+\end{verbatim}
+if current branch is tracked
+
+\subsubsection{push -u}
+Sets a local branch to track a remote one. Necessery when local and remote repos are not synchronised yet (it is first push). 
+This is an equivalent of \textit{git push --set-upstream}. It additionaly sets upstream URL for a branch.
+
+\end{itemize}
+
+\subsection{receive}
+\begin{itemize}
+\item \begin{verbatim} git fetch + git merge
+\end{verbatim}
+\begin{itemize} 
+\item merge works exactly the same as for any other merge
+\item \begin{verbatim}
+git pull
+\end{verbatim}
+does exactly the same if ff-merge is possible (no conflicts)
+\end{itemize}
+
+\item \begin{verbatim}
+git fetch <remote_name>
+\end{verbatim}
+\begin{itemize}
+\item we can omit remote name if there's one remote only
+\item Non-destructive!
+\item updates origin/master, synchronises with remote repo
+\item origin/master doesn't reflect current state of a remote repo, it's only a copy of the last fetched state.
+\item fetch doesn't do any changes neither to local repo, nor staging area, nor local working dir
+
+\end{itemize}
+
+\item merge with origin/master the same way as with any other branch
+\begin{itemize}
+\item \begin{verbatim}
+git show origin/master
+\end{verbatim}
+shows what was fetched
+\item \begin{verbatim}
+git diff master..master/origin
+\end{verbatim}
+shows changes to apply locally
+
+\end{itemize}
+
+\end{itemize}
+
+\subsection{remote branches}
+\begin{itemize}
+\item list
+\begin{itemize}
+
+\item \begin{verbatim}
+git branch -r
+\end{verbatim}
+remote only
+
+\item \begin{verbatim}
+git branch -a
+\end{verbatim}
+ all
+\end{itemize}
+
+\item create
+\begin{verbatim}
+git branch local_branch_name remote_name/remote_branch_name
+git checkout -b local_branch_name remote_name/remote_branch_name
+\end{verbatim}
+\begin{itemize}
+\item creates local and remote branch at the same time
+\item make the local one tracked and in sync with the remote one
+\item \textbf{git checkout -b...} also switches to this new branch 
+\end{itemize}
+
+\item delete
+\begin{quote}
+\begin{verbatim}
+git push origin --delete remote_branch_name
+\end{verbatim}
+or (older version)
+\begin{verbatim}
+git push origin :remote_branch_name
+\end{verbatim}
+(push 'nothing' to a remote branch)
+\end{quote}
+
+\end{itemize}
+
+
+
+\part{GitHub}
+
+
+\chapter{Resources}
+
+\begin{itemize}
+\item GitHub doc:\\
+\url{file:///D:/IT/version%20control/git/web/GitHub%20Help.htm}
+
+\item Short github tutorials:\\
+\url{file:///D:/IT/version%20control/git/web/GitHub%20Guides.htm}
+
+\item Customizing GitHub Pages\\
+\url{https://help.github.com/categories/customizing-github-pages/}
+\end{itemize}
+
+
+\chapter{GitHub pages}
+To create and host web pages based on GitHub repos:\\
+\url{https://guides.github.com/features/pages/}
+
+
+
+
+\part{Git Hook}
+\url{https://www.atlassian.com/git/tutorials/git-hooks}
+
+
+
+\part{Resources}
+\begin{itemize}
+	\item official documentation:\\
+	\url{https://git-scm.com/docs}
+	\item tutorials:
+	\begin{itemize}
+		\item \url{https://www.atlassian.com/git/tutorials/what-is-version-control}
+	\end{itemize}
+\end{itemize}
+
+\end{document}
+
+pdflatex: -aux-directory=build

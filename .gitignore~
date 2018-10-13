@@ -1,0 +1,11 @@
+.gitignore
+.DS_Store
+*.toc
+*.tex
+*.out
+*.gz
+*.log
+*.fls
+*.aux
+*.fdb*
+!*.pdf

@@ -1,0 +1,296 @@
+\BOOKMARK [-1][-]{part.1}{I Intro}{}% 1
+\BOOKMARK [0][-]{chapter.1}{TODOs}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Readings}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Research Topics and Tasks}{chapter.1}% 4
+\BOOKMARK [0][-]{chapter.2}{Resources}{part.1}% 5
+\BOOKMARK [-1][-]{part.2}{II Basics}{}% 6
+\BOOKMARK [0][-]{chapter.3}{Overview}{part.2}% 7
+\BOOKMARK [0][-]{chapter.4}{Identifiers}{part.2}% 8
+\BOOKMARK [1][-]{section.4.1}{Informal Single-Letter Local Variables Naming}{chapter.4}% 9
+\BOOKMARK [1][-]{section.4.2}{Scope Rules}{chapter.4}% 10
+\BOOKMARK [2][-]{subsection.4.2.1}{Name Conflicts.}{section.4.2}% 11
+\BOOKMARK [0][-]{chapter.5}{Modifiers}{part.2}% 12
+\BOOKMARK [1][-]{section.5.1}{Access Modifiers}{chapter.5}% 13
+\BOOKMARK [1][-]{section.5.2}{Recommendation on How to Use Access Modifiers}{chapter.5}% 14
+\BOOKMARK [2][-]{subsection.5.2.1}{public}{section.5.2}% 15
+\BOOKMARK [2][-]{subsection.5.2.2}{protected}{section.5.2}% 16
+\BOOKMARK [1][-]{section.5.3}{Other modifiers}{chapter.5}% 17
+\BOOKMARK [0][-]{chapter.6}{Primitive Types}{part.2}% 18
+\BOOKMARK [1][-]{section.6.1}{List of Types}{chapter.6}% 19
+\BOOKMARK [1][-]{section.6.2}{Conversion}{chapter.6}% 20
+\BOOKMARK [1][-]{section.6.3}{Primitive Type Specialisation \(from java8\)}{chapter.6}% 21
+\BOOKMARK [0][-]{chapter.7}{Reference Types}{part.2}% 22
+\BOOKMARK [1][-]{section.7.1}{List of Reference Types}{chapter.7}% 23
+\BOOKMARK [1][-]{section.7.2}{Reference vs Primitive Types}{chapter.7}% 24
+\BOOKMARK [1][-]{section.7.3}{Default Values}{chapter.7}% 25
+\BOOKMARK [2][-]{subsection.7.3.1}{Objects}{section.7.3}% 26
+\BOOKMARK [2][-]{subsection.7.3.2}{Arrays}{section.7.3}% 27
+\BOOKMARK [1][-]{section.7.4}{Object Instantiation}{chapter.7}% 28
+\BOOKMARK [2][-]{subsection.7.4.1}{Class Loading}{section.7.4}% 29
+\BOOKMARK [2][-]{subsection.7.4.2}{Static Initialsation}{section.7.4}% 30
+\BOOKMARK [2][-]{subsection.7.4.3}{Class Variables Initialisation}{section.7.4}% 31
+\BOOKMARK [2][-]{subsection.7.4.4}{Constructor Calls}{section.7.4}% 32
+\BOOKMARK [1][-]{section.7.5}{Cloning}{chapter.7}% 33
+\BOOKMARK [2][-]{subsection.7.5.1}{Overview}{section.7.5}% 34
+\BOOKMARK [2][-]{subsection.7.5.2}{Switching Cloneability}{section.7.5}% 35
+\BOOKMARK [2][-]{subsection.7.5.3}{Shallow Cloning}{section.7.5}% 36
+\BOOKMARK [2][-]{subsection.7.5.4}{Deep Cloning}{section.7.5}% 37
+\BOOKMARK [2][-]{subsection.7.5.5}{Serialisation and Copy Constructor}{section.7.5}% 38
+\BOOKMARK [0][-]{chapter.8}{Arrays}{part.2}% 39
+\BOOKMARK [1][-]{section.8.1}{Permitted Element types}{chapter.8}% 40
+\BOOKMARK [1][-]{section.8.2}{Definition, Instantiation, Initialisation}{chapter.8}% 41
+\BOOKMARK [2][-]{subsection.8.2.1}{Definition}{section.8.2}% 42
+\BOOKMARK [2][-]{subsection.8.2.2}{Instantiation}{section.8.2}% 43
+\BOOKMARK [2][-]{subsection.8.2.3}{Initialisation}{section.8.2}% 44
+\BOOKMARK [1][-]{section.8.3}{Anonymous Arrays}{chapter.8}% 45
+\BOOKMARK [1][-]{section.8.4}{Converting a List to an Array}{chapter.8}% 46
+\BOOKMARK [2][-]{subsection.8.4.1}{list.toArray\(\)}{section.8.4}% 47
+\BOOKMARK [2][-]{subsection.8.4.2}{list.toArray\(T[]\)}{section.8.4}% 48
+\BOOKMARK [2][-]{subsection.8.4.3}{list.stream\(\).toArray\(T::new\);}{section.8.4}% 49
+\BOOKMARK [1][-]{section.8.5}{Type Conversion}{chapter.8}% 50
+\BOOKMARK [0][-]{chapter.9}{if/else}{part.2}% 51
+\BOOKMARK [1][-]{section.9.1}{Nested if's problem}{chapter.9}% 52
+\BOOKMARK [1][-]{section.9.2}{else if}{chapter.9}% 53
+\BOOKMARK [0][-]{chapter.10}{Switch Statement}{part.2}% 54
+\BOOKMARK [0][-]{chapter.11}{Labels}{part.2}% 55
+\BOOKMARK [0][-]{chapter.12}{Text-based User Input}{part.2}% 56
+\BOOKMARK [1][-]{section.12.1}{Program Arguments}{chapter.12}% 57
+\BOOKMARK [1][-]{section.12.2}{Using an Object of Scanner Class}{chapter.12}% 58
+\BOOKMARK [2][-]{subsection.12.2.1}{Conversions}{section.12.2}% 59
+\BOOKMARK [2][-]{subsection.12.2.2}{Comparison Objects}{section.12.2}% 60
+\BOOKMARK [2][-]{subsection.12.2.3}{Comparing String Objects}{section.12.2}% 61
+\BOOKMARK [2][-]{subsection.12.2.4}{Copying}{section.12.2}% 62
+\BOOKMARK [0][-]{chapter.13}{Constructors}{part.2}% 63
+\BOOKMARK [1][-]{section.13.1}{Constructor Chaining}{chapter.13}% 64
+\BOOKMARK [1][-]{section.13.2}{Practices}{chapter.13}% 65
+\BOOKMARK [2][-]{subsection.13.2.1}{Define no-arg Constructor when a Constructor Taking Arguments Is Present }{section.13.2}% 66
+\BOOKMARK [2][-]{subsection.13.2.2}{Never Call Overridable Method from within a Constructor}{section.13.2}% 67
+\BOOKMARK [0][-]{chapter.14}{this}{part.2}% 68
+\BOOKMARK [0][-]{chapter.15}{super}{part.2}% 69
+\BOOKMARK [1][-]{section.15.1}{super.a\(\) vs. \(\(<T>\)this\).a\(\)}{chapter.15}% 70
+\BOOKMARK [0][-]{chapter.16}{Exceptions}{part.2}% 71
+\BOOKMARK [1][-]{section.16.1}{Types}{chapter.16}% 72
+\BOOKMARK [1][-]{section.16.2}{Try Blocks}{chapter.16}% 73
+\BOOKMARK [1][-]{section.16.3}{Important Points}{chapter.16}% 74
+\BOOKMARK [1][-]{section.16.4}{Catch or Declare Rule}{chapter.16}% 75
+\BOOKMARK [1][-]{section.16.5}{Overriding a method Throwing an Exception}{chapter.16}% 76
+\BOOKMARK [1][-]{section.16.6}{Custom Exception}{chapter.16}% 77
+\BOOKMARK [1][-]{section.16.7}{Useful methods}{chapter.16}% 78
+\BOOKMARK [0][-]{chapter.17}{Abstract Classes \046 Methods}{part.2}% 79
+\BOOKMARK [1][-]{section.17.1}{Usage}{chapter.17}% 80
+\BOOKMARK [1][-]{section.17.2}{Abstract Classes vs interfaces}{chapter.17}% 81
+\BOOKMARK [0][-]{chapter.18}{Varargs}{part.2}% 82
+\BOOKMARK [0][-]{chapter.19}{Static}{part.2}% 83
+\BOOKMARK [1][-]{section.19.1}{Usage}{chapter.19}% 84
+\BOOKMARK [1][-]{section.19.2}{Static Initialisers}{chapter.19}% 85
+\BOOKMARK [0][-]{chapter.20}{Interfaces}{part.2}% 86
+\BOOKMARK [1][-]{section.20.1}{Interfaces vs Abstract Classes}{chapter.20}% 87
+\BOOKMARK [0][-]{chapter.21}{Enumerations}{part.2}% 88
+\BOOKMARK [1][-]{section.21.1}{values\(\)}{chapter.21}% 89
+\BOOKMARK [0][-]{chapter.22}{Annotations}{part.2}% 90
+\BOOKMARK [1][-]{section.22.1}{Built-in}{chapter.22}% 91
+\BOOKMARK [0][-]{chapter.23}{Inner Classes}{part.2}% 92
+\BOOKMARK [1][-]{section.23.1}{Overview}{chapter.23}% 93
+\BOOKMARK [1][-]{section.23.2}{localisation within a Code}{chapter.23}% 94
+\BOOKMARK [1][-]{section.23.3}{Motivation}{chapter.23}% 95
+\BOOKMARK [0][-]{chapter.24}{Inner Static Class}{part.2}% 96
+\BOOKMARK [1][-]{section.24.1}{Overview}{chapter.24}% 97
+\BOOKMARK [-1][-]{part.3}{III IO}{}% 98
+\BOOKMARK [0][-]{chapter.25}{Reading a File - BufferedReader}{part.3}% 99
+\BOOKMARK [0][-]{chapter.26}{Writing to a File}{part.3}% 100
+\BOOKMARK [0][-]{chapter.27}{Serialisation}{part.3}% 101
+\BOOKMARK [1][-]{section.27.1}{Writing - ObjectOutputStream.writeObject\(Object o\)}{chapter.27}% 102
+\BOOKMARK [1][-]{section.27.2}{Reading - ObjectInputStream.readObject\(Object o\)}{chapter.27}% 103
+\BOOKMARK [-1][-]{part.4}{IV Collections}{}% 104
+\BOOKMARK [0][-]{chapter.28}{Iterator}{part.4}% 105
+\BOOKMARK [0][-]{chapter.29}{Common Methods}{part.4}% 106
+\BOOKMARK [0][-]{chapter.30}{Map}{part.4}% 107
+\BOOKMARK [1][-]{section.30.1}{Literal Initialisation}{chapter.30}% 108
+\BOOKMARK [1][-]{section.30.2}{HashMap}{chapter.30}% 109
+\BOOKMARK [0][-]{chapter.31}{ArrayList}{part.4}% 110
+\BOOKMARK [1][-]{section.31.1}{Converting a List to an Array}{chapter.31}% 111
+\BOOKMARK [2][-]{subsection.31.1.1}{list.toArray\(\)}{section.31.1}% 112
+\BOOKMARK [2][-]{subsection.31.1.2}{list.toArray\(T[]\)}{section.31.1}% 113
+\BOOKMARK [2][-]{subsection.31.1.3}{list.stream\(\).toArray\(T[]::new\);}{section.31.1}% 114
+\BOOKMARK [-1][-]{part.5}{V OOP}{}% 115
+\BOOKMARK [0][-]{chapter.32}{Abstraction}{part.5}% 116
+\BOOKMARK [0][-]{chapter.33}{Inheritance}{part.5}% 117
+\BOOKMARK [1][-]{section.33.1}{Accessing Members}{chapter.33}% 118
+\BOOKMARK [1][-]{section.33.2}{Pitfalls}{chapter.33}% 119
+\BOOKMARK [2][-]{subsection.33.2.1}{Constructor Calls an Overridable Method}{section.33.2}% 120
+\BOOKMARK [0][-]{chapter.34}{Encapsulation}{part.5}% 121
+\BOOKMARK [0][-]{chapter.35}{Polymorphism , Method Overriding}{part.5}% 122
+\BOOKMARK [1][-]{section.35.1}{Liskov Substitution Principle}{chapter.35}% 123
+\BOOKMARK [1][-]{section.35.2}{Virtual method Invocation}{chapter.35}% 124
+\BOOKMARK [0][-]{chapter.36}{Method Overloading}{part.5}% 125
+\BOOKMARK [0][-]{chapter.37}{Method Overriding}{part.5}% 126
+\BOOKMARK [-1][-]{part.6}{VI Lambda Expressions}{}% 127
+\BOOKMARK [0][-]{chapter.38}{Lambda Expressions}{part.6}% 128
+\BOOKMARK [1][-]{section.38.1}{Motivation}{chapter.38}% 129
+\BOOKMARK [1][-]{section.38.2}{Lambda Expressions - Overview}{chapter.38}% 130
+\BOOKMARK [1][-]{section.38.3}{Target Type, Type Inference}{chapter.38}% 131
+\BOOKMARK [1][-]{section.38.4}{Use of External values by Lambda}{chapter.38}% 132
+\BOOKMARK [1][-]{section.38.5}{Lambda Graphically}{chapter.38}% 133
+\BOOKMARK [1][-]{section.38.6}{SAMs, Core Functional Interfaces}{chapter.38}% 134
+\BOOKMARK [1][-]{section.38.7}{Custom Functional Interfaces}{chapter.38}% 135
+\BOOKMARK [1][-]{section.38.8}{Method References}{chapter.38}% 136
+\BOOKMARK [2][-]{subsection.38.8.1}{Static Method Reference}{section.38.8}% 137
+\BOOKMARK [2][-]{subsection.38.8.2}{Instance Method Reference}{section.38.8}% 138
+\BOOKMARK [2][-]{subsection.38.8.3}{Referencing a Method of an Arbitrary Object of a Particular Type}{section.38.8}% 139
+\BOOKMARK [2][-]{subsection.38.8.4}{Referencing a Constructor}{section.38.8}% 140
+\BOOKMARK [2][-]{subsection.38.8.5}{Applications}{section.38.8}% 141
+\BOOKMARK [1][-]{section.38.9}{Overloading}{chapter.38}% 142
+\BOOKMARK [-1][-]{part.7}{VII Aggregate Operations \(streams\)}{}% 143
+\BOOKMARK [0][-]{chapter.39}{Motivation}{part.7}% 144
+\BOOKMARK [0][-]{chapter.40}{for-loop vs stream}{part.7}% 145
+\BOOKMARK [0][-]{chapter.41}{Stream methods}{part.7}% 146
+\BOOKMARK [1][-]{section.41.1}{min\(\), max\(\)}{chapter.41}% 147
+\BOOKMARK [1][-]{section.41.2}{.reduce\(\)}{chapter.41}% 148
+\BOOKMARK [2][-]{subsection.41.2.1}{.reduce\(accumulator\)}{section.41.2}% 149
+\BOOKMARK [2][-]{subsection.41.2.2}{.reduce\(identity, accumulator\)}{section.41.2}% 150
+\BOOKMARK [2][-]{subsection.41.2.3}{.reduce\(identity, accumulator, combiner\)}{section.41.2}% 151
+\BOOKMARK [1][-]{section.41.3}{.collect\(Collector..\)}{chapter.41}% 152
+\BOOKMARK [2][-]{subsection.41.3.1}{Partitoning, Grouping}{section.41.3}% 153
+\BOOKMARK [2][-]{subsection.41.3.2}{Summarizing}{section.41.3}% 154
+\BOOKMARK [2][-]{subsection.41.3.3}{Custom collector}{section.41.3}% 155
+\BOOKMARK [1][-]{section.41.4}{Sorting}{chapter.41}% 156
+\BOOKMARK [2][-]{subsection.41.4.1}{.sorted\(\)}{section.41.4}% 157
+\BOOKMARK [2][-]{subsection.41.4.2}{.sorted\(Comparator.comparing\(a -> b\)\)}{section.41.4}% 158
+\BOOKMARK [0][-]{chapter.42}{Ordering}{part.7}% 159
+\BOOKMARK [0][-]{chapter.43}{Streamming Primitive Types}{part.7}% 160
+\BOOKMARK [1][-]{section.43.1}{Key Ponts}{chapter.43}% 161
+\BOOKMARK [1][-]{section.43.2}{Conversion to Primitive Stream and back}{chapter.43}% 162
+\BOOKMARK [1][-]{section.43.3}{.summaryStatistics\(\)}{chapter.43}% 163
+\BOOKMARK [0][-]{chapter.44}{Streaming a String}{part.7}% 164
+\BOOKMARK [1][-]{section.44.1}{String Representation of Collections}{chapter.44}% 165
+\BOOKMARK [0][-]{chapter.45}{Streaming Arrays}{part.7}% 166
+\BOOKMARK [0][-]{chapter.46}{Support Classes, Interfaces and Methods}{part.7}% 167
+\BOOKMARK [1][-]{section.46.1}{Collector interface}{chapter.46}% 168
+\BOOKMARK [2][-]{subsection.46.1.1}{supplier}{section.46.1}% 169
+\BOOKMARK [2][-]{subsection.46.1.2}{accumulator}{section.46.1}% 170
+\BOOKMARK [2][-]{subsection.46.1.3}{combiner}{section.46.1}% 171
+\BOOKMARK [2][-]{subsection.46.1.4}{finisher}{section.46.1}% 172
+\BOOKMARK [2][-]{subsection.46.1.5}{characteristic}{section.46.1}% 173
+\BOOKMARK [1][-]{section.46.2}{IntStream}{chapter.46}% 174
+\BOOKMARK [2][-]{subsection.46.2.1}{.of\(ints\)}{section.46.2}% 175
+\BOOKMARK [2][-]{subsection.46.2.2}{.range\(lb, up\)}{section.46.2}% 176
+\BOOKMARK [2][-]{subsection.46.2.3}{.rangeClosed\(lb, up\)}{section.46.2}% 177
+\BOOKMARK [2][-]{subsection.46.2.4}{.iterator\(lb, next\).limit\(n\)}{section.46.2}% 178
+\BOOKMARK [2][-]{subsection.46.2.5}{.generate\(intSupplier s\)}{section.46.2}% 179
+\BOOKMARK [2][-]{subsection.46.2.6}{.boxed\(\)}{section.46.2}% 180
+\BOOKMARK [1][-]{section.46.3}{Stream}{chapter.46}% 181
+\BOOKMARK [2][-]{subsection.46.3.1}{.of\(objects\)}{section.46.3}% 182
+\BOOKMARK [0][-]{chapter.47}{Patterns \046 Idioms Using Aggregate operations}{part.7}% 183
+\BOOKMARK [-1][-]{part.8}{VIII Library Classes}{}% 184
+\BOOKMARK [0][-]{chapter.48}{Scanner}{part.8}% 185
+\BOOKMARK [1][-]{section.48.1}{Key Points:}{chapter.48}% 186
+\BOOKMARK [1][-]{section.48.2}{InputMismatchException}{chapter.48}% 187
+\BOOKMARK [1][-]{section.48.3}{hasNext\(\), eof}{chapter.48}% 188
+\BOOKMARK [1][-]{section.48.4}{nextLine\(\)}{chapter.48}% 189
+\BOOKMARK [0][-]{chapter.49}{Integer}{part.8}% 190
+\BOOKMARK [1][-]{section.49.1}{Boxing}{chapter.49}% 191
+\BOOKMARK [1][-]{section.49.2}{Unboxing}{chapter.49}% 192
+\BOOKMARK [1][-]{section.49.3}{Conversion from String}{chapter.49}% 193
+\BOOKMARK [0][-]{chapter.50}{Date \046 Time}{part.8}% 194
+\BOOKMARK [1][-]{section.50.1}{Date}{chapter.50}% 195
+\BOOKMARK [1][-]{section.50.2}{Date + String.format\(..\)}{chapter.50}% 196
+\BOOKMARK [1][-]{section.50.3}{SimpleDateFormat}{chapter.50}% 197
+\BOOKMARK [0][-]{chapter.51}{String}{part.8}% 198
+\BOOKMARK [1][-]{section.51.1}{CharSequence Interface Family}{chapter.51}% 199
+\BOOKMARK [1][-]{section.51.2}{String.format\(pattern, args\)}{chapter.51}% 200
+\BOOKMARK [1][-]{section.51.3}{split\(\)}{chapter.51}% 201
+\BOOKMARK [0][-]{chapter.52}{java.utils.Arrays}{part.8}% 202
+\BOOKMARK [1][-]{section.52.1}{ArrayList from an Array}{chapter.52}% 203
+\BOOKMARK [2][-]{subsection.52.1.1}{Sending Arrays.asList\(array\) to ArrayList constructor}{section.52.1}% 204
+\BOOKMARK [2][-]{subsection.52.1.2}{Using collections.addAll\(arrayList, array\).}{section.52.1}% 205
+\BOOKMARK [2][-]{subsection.52.1.3}{Arrays.asList\(array\)}{section.52.1}% 206
+\BOOKMARK [0][-]{chapter.53}{Random}{part.8}% 207
+\BOOKMARK [1][-]{section.53.1}{Math.random\(\)}{chapter.53}% 208
+\BOOKMARK [1][-]{section.53.2}{Random class}{chapter.53}% 209
+\BOOKMARK [1][-]{section.53.3}{Random class vs Math.random\(\)}{chapter.53}% 210
+\BOOKMARK [1][-]{section.53.4}{Comparable}{chapter.53}% 211
+\BOOKMARK [-1][-]{part.9}{IX Advanced Topics}{}% 212
+\BOOKMARK [0][-]{section.53.5}{Reflection}{part.9}% 213
+\BOOKMARK [1][-]{section.53.6}{Immutability}{section.53.5}% 214
+\BOOKMARK [2][-]{subsection.53.6.1}{Implementing Immutability}{section.53.6}% 215
+\BOOKMARK [1][-]{section.53.7}{Default Methods}{section.53.5}% 216
+\BOOKMARK [0][-]{chapter.54}{Data Parallelism}{part.9}% 217
+\BOOKMARK [1][-]{section.54.1}{Intro}{chapter.54}% 218
+\BOOKMARK [2][-]{subsection.54.1.1}{Notions}{section.54.1}% 219
+\BOOKMARK [1][-]{section.54.2}{Impact on Performance}{chapter.54}% 220
+\BOOKMARK [1][-]{section.54.3}{Parallel Stream Operations}{chapter.54}% 221
+\BOOKMARK [1][-]{section.54.4}{Caveats}{chapter.54}% 222
+\BOOKMARK [2][-]{subsection.54.4.1}{Parallel .reduce\(\)}{section.54.4}% 223
+\BOOKMARK [-1][-]{part.10}{X Idioms}{}% 224
+\BOOKMARK [0][-]{chapter.55}{Exceptions}{part.10}% 225
+\BOOKMARK [-1][-]{part.11}{XI UML modelling}{}% 226
+\BOOKMARK [0][-]{chapter.56}{Domain Modelling}{part.11}% 227
+\BOOKMARK [1][-]{section.56.1}{Inheritance}{chapter.56}% 228
+\BOOKMARK [1][-]{section.56.2}{Association}{chapter.56}% 229
+\BOOKMARK [0][-]{chapter.57}{Class Diagram}{part.11}% 230
+\BOOKMARK [-1][-]{part.12}{XII Design Concepts}{}% 231
+\BOOKMARK [0][-]{chapter.58}{Dependencies}{part.12}% 232
+\BOOKMARK [1][-]{section.58.1}{Overview}{chapter.58}% 233
+\BOOKMARK [1][-]{section.58.2}{Dependency as a Type of Relationship}{chapter.58}% 234
+\BOOKMARK [1][-]{section.58.3}{Types of dependencies}{chapter.58}% 235
+\BOOKMARK [1][-]{section.58.4}{Hidden Dependency}{chapter.58}% 236
+\BOOKMARK [1][-]{section.58.5}{Indirect Dependencies}{chapter.58}% 237
+\BOOKMARK [1][-]{section.58.6}{Local and Context Depedences}{chapter.58}% 238
+\BOOKMARK [-1][-]{part.13}{XIII Design Patterns}{}% 239
+\BOOKMARK [0][-]{chapter.59}{Creational}{part.13}% 240
+\BOOKMARK [1][-]{section.59.1}{Singleton}{chapter.59}% 241
+\BOOKMARK [2][-]{subsection.59.1.1}{Problem Descritpion}{section.59.1}% 242
+\BOOKMARK [2][-]{subsection.59.1.2}{Implementatio}{section.59.1}% 243
+\BOOKMARK [0][-]{chapter.60}{Structural}{part.13}% 244
+\BOOKMARK [1][-]{section.60.1}{Decorator}{chapter.60}% 245
+\BOOKMARK [0][-]{chapter.61}{Behavioural}{part.13}% 246
+\BOOKMARK [1][-]{section.61.1}{Observer}{chapter.61}% 247
+\BOOKMARK [2][-]{subsection.61.1.1}{Problem Description}{section.61.1}% 248
+\BOOKMARK [2][-]{subsection.61.1.2}{Implementation}{section.61.1}% 249
+\BOOKMARK [-1][-]{part.14}{XIV Antipatterns, Code Smells}{}% 250
+\BOOKMARK [0][-]{chapter.62}{AutoBoxing, Unboxing}{part.14}% 251
+\BOOKMARK [0][-]{chapter.63}{Constructors}{part.14}% 252
+\BOOKMARK [1][-]{section.63.1}{Constructor Calls an Overridable Method}{chapter.63}% 253
+\BOOKMARK [-1][-]{part.15}{XV Testing}{}% 254
+\BOOKMARK [0][-]{chapter.64}{JUnit}{part.15}% 255
+\BOOKMARK [1][-]{section.64.1}{Unit testing}{chapter.64}% 256
+\BOOKMARK [-1][-]{part.16}{XVI Varia}{}% 257
+\BOOKMARK [0][-]{chapter.65}{Compact Strings}{part.16}% 258
+\BOOKMARK [-1][-]{part.17}{XVII Appendix}{}% 259
+\BOOKMARK [0][-]{chapter.66}{Vocabulary}{part.17}% 260
+\BOOKMARK [1][-]{section.66.1}{B}{chapter.66}% 261
+\BOOKMARK [2][-]{subsection.66.1.1}{binding}{section.66.1}% 262
+\BOOKMARK [1][-]{section.66.2}{C}{chapter.66}% 263
+\BOOKMARK [2][-]{subsection.66.2.1}{composition}{section.66.2}% 264
+\BOOKMARK [2][-]{subsection.66.2.2}{covariant}{section.66.2}% 265
+\BOOKMARK [1][-]{section.66.3}{D}{chapter.66}% 266
+\BOOKMARK [2][-]{subsection.66.3.1}{depedency}{section.66.3}% 267
+\BOOKMARK [2][-]{subsection.66.3.2}{dynamic binding}{section.66.3}% 268
+\BOOKMARK [1][-]{section.66.4}{E}{chapter.66}% 269
+\BOOKMARK [2][-]{subsection.66.4.1}{encapsulation}{section.66.4}% 270
+\BOOKMARK [1][-]{section.66.5}{H}{chapter.66}% 271
+\BOOKMARK [2][-]{subsection.66.5.1}{has-a relationship}{section.66.5}% 272
+\BOOKMARK [1][-]{section.66.6}{I}{chapter.66}% 273
+\BOOKMARK [2][-]{subsection.66.6.1}{interface}{section.66.6}% 274
+\BOOKMARK [2][-]{subsection.66.6.2}{invariant}{section.66.6}% 275
+\BOOKMARK [1][-]{section.66.7}{L}{chapter.66}% 276
+\BOOKMARK [2][-]{subsection.66.7.1}{late binding}{section.66.7}% 277
+\BOOKMARK [1][-]{section.66.8}{M}{chapter.66}% 278
+\BOOKMARK [2][-]{subsection.66.8.1}{members of class}{section.66.8}% 279
+\BOOKMARK [1][-]{section.66.9}{N}{chapter.66}% 280
+\BOOKMARK [2][-]{subsection.66.9.1}{non-interfering}{section.66.9}% 281
+\BOOKMARK [1][-]{section.66.10}{P}{chapter.66}% 282
+\BOOKMARK [2][-]{subsection.66.10.1}{polymorphism}{section.66.10}% 283
+\BOOKMARK [2][-]{subsection.66.10.2}{problem space}{section.66.10}% 284
+\BOOKMARK [1][-]{section.66.11}{R}{chapter.66}% 285
+\BOOKMARK [2][-]{subsection.66.11.1}{RTTI}{section.66.11}% 286
+\BOOKMARK [2][-]{subsection.66.11.2}{runtime binding}{section.66.11}% 287
+\BOOKMARK [1][-]{section.66.12}{S}{chapter.66}% 288
+\BOOKMARK [2][-]{subsection.66.12.1}{short circuiting}{section.66.12}% 289
+\BOOKMARK [2][-]{subsection.66.12.2}{solution space}{section.66.12}% 290
+\BOOKMARK [2][-]{subsection.66.12.3}{stateful}{section.66.12}% 291
+\BOOKMARK [2][-]{subsection.66.12.4}{stateless}{section.66.12}% 292
+\BOOKMARK [1][-]{section.66.13}{U}{chapter.66}% 293
+\BOOKMARK [2][-]{subsection.66.13.1}{upcasting}{section.66.13}% 294
+\BOOKMARK [0][-]{chapter.67}{Docs, Specs}{part.17}% 295
+\BOOKMARK [1][-]{section.67.1}{Java Doc}{chapter.67}% 296

@@ -1,0 +1,87 @@
+\contentsline {part}{I\hspace {1em}Help}{}{part.1}
+\contentsline {chapter}{\numberline {1}CLI}{1}{chapter.1}
+\contentsline {part}{II\hspace {1em}Architecture}{2}{part.2}
+\contentsline {chapter}{\numberline {2}Working Directory}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Staging Area, Index}{4}{chapter.3}
+\contentsline {chapter}{\numberline {4}Stashing Area}{5}{chapter.4}
+\contentsline {chapter}{\numberline {5}Local Repo}{6}{chapter.5}
+\contentsline {chapter}{\numberline {6}Remote Repo}{7}{chapter.6}
+\contentsline {chapter}{\numberline {7}./.git}{8}{chapter.7}
+\contentsline {section}{\numberline {7.1}HEAD}{8}{section.7.1}
+\contentsline {part}{III\hspace {1em}Configuration}{9}{part.3}
+\contentsline {section}{\numberline {7.2}config ranges}{10}{section.7.2}
+\contentsline {section}{\numberline {7.3}configurable properties}{10}{section.7.3}
+\contentsline {section}{\numberline {7.4}config listing}{10}{section.7.4}
+\contentsline {section}{\numberline {7.5}.gitignore}{11}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}Glob Patterns}{11}{subsection.7.5.1}
+\contentsline {section}{\numberline {7.6}customised prompt}{12}{section.7.6}
+\contentsline {section}{\numberline {7.7}aliases}{12}{section.7.7}
+\contentsline {section}{\numberline {7.8}.git in a Separate Location}{12}{section.7.8}
+\contentsline {part}{IV\hspace {1em}Basic Tasks}{13}{part.4}
+\contentsline {chapter}{\numberline {8}Creating a Local Repo}{14}{chapter.8}
+\contentsline {section}{\numberline {8.1}Transforming Existing Dir into Local Repo}{14}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Empty Repo in the Specified Dir}{14}{subsection.8.1.1}
+\contentsline {section}{\numberline {8.2}Clonning Remote Repo}{14}{section.8.2}
+\contentsline {section}{\numberline {8.3}git init --bare dir}{14}{section.8.3}
+\contentsline {section}{\numberline {8.4}Local Repo from a Template}{14}{section.8.4}
+\contentsline {chapter}{\numberline {9}Commits}{15}{chapter.9}
+\contentsline {section}{\numberline {9.1}Committing}{15}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}With Attached Message}{15}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Without Staging}{15}{subsection.9.1.2}
+\contentsline {section}{\numberline {9.2}Modification}{15}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Replacing Last Commit}{15}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Changing a Message}{15}{subsection.9.2.2}
+\contentsline {section}{\numberline {9.3}Review}{16}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}gitk}{16}{subsection.9.3.1}
+\contentsline {subsection}{\numberline {9.3.2}log}{16}{subsection.9.3.2}
+\contentsline {subsection}{\numberline {9.3.3}show}{16}{subsection.9.3.3}
+\contentsline {chapter}{\numberline {10}Managing Staging Area}{17}{chapter.10}
+\contentsline {section}{\numberline {10.1}Staging, Tracking}{17}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}add -A}{17}{subsection.10.1.1}
+\contentsline {subsection}{\numberline {10.1.2}add .}{17}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}add -p}{18}{subsection.10.1.3}
+\contentsline {section}{\numberline {10.2}Unstaging}{18}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}An Arbitrary File}{18}{subsection.10.2.1}
+\contentsline {chapter}{\numberline {11}status -s}{19}{chapter.11}
+\contentsline {chapter}{\numberline {12}diff}{20}{chapter.12}
+\contentsline {chapter}{\numberline {13}...}{21}{chapter.13}
+\contentsline {section}{\numberline {13.1}delete}{21}{section.13.1}
+\contentsline {section}{\numberline {13.2}rename/move}{21}{section.13.2}
+\contentsline {section}{\numberline {13.3}undo}{22}{section.13.3}
+\contentsline {section}{\numberline {13.4}git reset HEAD ...}{22}{section.13.4}
+\contentsline {section}{\numberline {13.5}HEAD in detached mode}{23}{section.13.5}
+\contentsline {section}{\numberline {13.6}untracked files - delete}{23}{section.13.6}
+\contentsline {section}{\numberline {13.7}untracking files}{23}{section.13.7}
+\contentsline {section}{\numberline {13.8}referencing ancestor commits}{24}{section.13.8}
+\contentsline {section}{\numberline {13.9}content listing}{24}{section.13.9}
+\contentsline {section}{\numberline {13.10}stashing}{24}{section.13.10}
+\contentsline {part}{V\hspace {1em}Branches}{25}{part.5}
+\contentsline {section}{\numberline {13.11}new branch}{26}{section.13.11}
+\contentsline {section}{\numberline {13.12}delete}{26}{section.13.12}
+\contentsline {section}{\numberline {13.13}list of branches}{26}{section.13.13}
+\contentsline {section}{\numberline {13.14}switching a branch}{26}{section.13.14}
+\contentsline {section}{\numberline {13.15}rename}{26}{section.13.15}
+\contentsline {section}{\numberline {13.16}merging}{27}{section.13.16}
+\contentsline {subsection}{\numberline {13.16.1}merge}{27}{subsection.13.16.1}
+\contentsline {subsection}{\numberline {13.16.2}resolving conflicts}{27}{subsection.13.16.2}
+\contentsline {part}{VI\hspace {1em}Remotes}{28}{part.6}
+\contentsline {section}{\numberline {13.17}Managing Repo's}{29}{section.13.17}
+\contentsline {subsection}{\numberline {13.17.1}Creating Local Repo from Remote}{29}{subsection.13.17.1}
+\contentsline {subsubsection}{Shallow Clonning}{29}{section*.4}
+\contentsline {subsection}{\numberline {13.17.2}Remote from Local}{29}{subsection.13.17.2}
+\contentsline {section}{\numberline {13.18}Managing URLs}{30}{section.13.18}
+\contentsline {subsection}{\numberline {13.18.1}list}{30}{subsection.13.18.1}
+\contentsline {subsection}{\numberline {13.18.2}add}{30}{subsection.13.18.2}
+\contentsline {subsection}{\numberline {13.18.3}rename}{30}{subsection.13.18.3}
+\contentsline {subsection}{\numberline {13.18.4}remove}{30}{subsection.13.18.4}
+\contentsline {section}{\numberline {13.19}Collaboration}{30}{section.13.19}
+\contentsline {subsection}{\numberline {13.19.1}Setting Upstream}{30}{subsection.13.19.1}
+\contentsline {subsection}{\numberline {13.19.2}push}{31}{subsection.13.19.2}
+\contentsline {subsubsection}{push -u}{31}{section*.5}
+\contentsline {subsection}{\numberline {13.19.3}receive}{31}{subsection.13.19.3}
+\contentsline {subsection}{\numberline {13.19.4}remote branches}{32}{subsection.13.19.4}
+\contentsline {part}{VII\hspace {1em}GitHub}{33}{part.7}
+\contentsline {chapter}{\numberline {14}Resources}{34}{chapter.14}
+\contentsline {chapter}{\numberline {15}GitHub pages}{35}{chapter.15}
+\contentsline {part}{VIII\hspace {1em}Git Hook}{36}{part.8}
+\contentsline {part}{IX\hspace {1em}Resources}{38}{part.9}

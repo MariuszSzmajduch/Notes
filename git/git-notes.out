@@ -1,0 +1,85 @@
+\BOOKMARK [-1][-]{part.1}{I Help}{}% 1
+\BOOKMARK [0][-]{chapter.1}{CLI}{part.1}% 2
+\BOOKMARK [-1][-]{part.2}{II Architecture}{}% 3
+\BOOKMARK [0][-]{chapter.2}{Working Directory}{part.2}% 4
+\BOOKMARK [0][-]{chapter.3}{Staging Area, Index}{part.2}% 5
+\BOOKMARK [0][-]{chapter.4}{Stashing Area}{part.2}% 6
+\BOOKMARK [0][-]{chapter.5}{Local Repo}{part.2}% 7
+\BOOKMARK [0][-]{chapter.6}{Remote Repo}{part.2}% 8
+\BOOKMARK [0][-]{chapter.7}{./.git}{part.2}% 9
+\BOOKMARK [1][-]{section.7.1}{HEAD}{chapter.7}% 10
+\BOOKMARK [-1][-]{part.3}{III Configuration}{}% 11
+\BOOKMARK [0][-]{section.7.2}{config ranges}{part.3}% 12
+\BOOKMARK [1][-]{section.7.3}{configurable properties}{section.7.2}% 13
+\BOOKMARK [1][-]{section.7.4}{config listing}{section.7.2}% 14
+\BOOKMARK [1][-]{section.7.5}{.gitignore}{section.7.2}% 15
+\BOOKMARK [2][-]{subsection.7.5.1}{Glob Patterns}{section.7.5}% 16
+\BOOKMARK [1][-]{section.7.6}{customised prompt}{section.7.2}% 17
+\BOOKMARK [1][-]{section.7.7}{aliases}{section.7.2}% 18
+\BOOKMARK [1][-]{section.7.8}{.git in a Separate Location}{section.7.2}% 19
+\BOOKMARK [-1][-]{part.4}{IV Basic Tasks}{}% 20
+\BOOKMARK [0][-]{chapter.8}{Creating a Local Repo}{part.4}% 21
+\BOOKMARK [1][-]{section.8.1}{Transforming Existing Dir into Local Repo}{chapter.8}% 22
+\BOOKMARK [2][-]{subsection.8.1.1}{Empty Repo in the Specified Dir}{section.8.1}% 23
+\BOOKMARK [1][-]{section.8.2}{Clonning Remote Repo}{chapter.8}% 24
+\BOOKMARK [1][-]{section.8.3}{git init \205bare dir}{chapter.8}% 25
+\BOOKMARK [1][-]{section.8.4}{Local Repo from a Template}{chapter.8}% 26
+\BOOKMARK [0][-]{chapter.9}{Commits}{part.4}% 27
+\BOOKMARK [1][-]{section.9.1}{Committing}{chapter.9}% 28
+\BOOKMARK [2][-]{subsection.9.1.1}{With Attached Message}{section.9.1}% 29
+\BOOKMARK [2][-]{subsection.9.1.2}{Without Staging}{section.9.1}% 30
+\BOOKMARK [1][-]{section.9.2}{Modification}{chapter.9}% 31
+\BOOKMARK [2][-]{subsection.9.2.1}{Replacing Last Commit}{section.9.2}% 32
+\BOOKMARK [2][-]{subsection.9.2.2}{Changing a Message}{section.9.2}% 33
+\BOOKMARK [1][-]{section.9.3}{Review}{chapter.9}% 34
+\BOOKMARK [2][-]{subsection.9.3.1}{gitk}{section.9.3}% 35
+\BOOKMARK [2][-]{subsection.9.3.2}{log}{section.9.3}% 36
+\BOOKMARK [2][-]{subsection.9.3.3}{show}{section.9.3}% 37
+\BOOKMARK [0][-]{chapter.10}{Managing Staging Area}{part.4}% 38
+\BOOKMARK [1][-]{section.10.1}{Staging, Tracking}{chapter.10}% 39
+\BOOKMARK [2][-]{subsection.10.1.1}{add -A}{section.10.1}% 40
+\BOOKMARK [2][-]{subsection.10.1.2}{add .}{section.10.1}% 41
+\BOOKMARK [2][-]{subsection.10.1.3}{add -p}{section.10.1}% 42
+\BOOKMARK [1][-]{section.10.2}{Unstaging}{chapter.10}% 43
+\BOOKMARK [2][-]{subsection.10.2.1}{An Arbitrary File}{section.10.2}% 44
+\BOOKMARK [0][-]{chapter.11}{status -s}{part.4}% 45
+\BOOKMARK [0][-]{chapter.12}{diff}{part.4}% 46
+\BOOKMARK [0][-]{chapter.13}{...}{part.4}% 47
+\BOOKMARK [1][-]{section.13.1}{delete}{chapter.13}% 48
+\BOOKMARK [1][-]{section.13.2}{rename/move}{chapter.13}% 49
+\BOOKMARK [1][-]{section.13.3}{undo}{chapter.13}% 50
+\BOOKMARK [1][-]{section.13.4}{git reset HEAD ...}{chapter.13}% 51
+\BOOKMARK [1][-]{section.13.5}{HEAD in detached mode}{chapter.13}% 52
+\BOOKMARK [1][-]{section.13.6}{untracked files - delete}{chapter.13}% 53
+\BOOKMARK [1][-]{section.13.7}{untracking files}{chapter.13}% 54
+\BOOKMARK [1][-]{section.13.8}{referencing ancestor commits}{chapter.13}% 55
+\BOOKMARK [1][-]{section.13.9}{content listing}{chapter.13}% 56
+\BOOKMARK [1][-]{section.13.10}{stashing}{chapter.13}% 57
+\BOOKMARK [-1][-]{part.5}{V Branches}{}% 58
+\BOOKMARK [0][-]{section.13.11}{new branch}{part.5}% 59
+\BOOKMARK [1][-]{section.13.12}{delete}{section.13.11}% 60
+\BOOKMARK [1][-]{section.13.13}{list of branches}{section.13.11}% 61
+\BOOKMARK [1][-]{section.13.14}{switching a branch}{section.13.11}% 62
+\BOOKMARK [1][-]{section.13.15}{rename}{section.13.11}% 63
+\BOOKMARK [1][-]{section.13.16}{merging}{section.13.11}% 64
+\BOOKMARK [2][-]{subsection.13.16.1}{merge}{section.13.16}% 65
+\BOOKMARK [2][-]{subsection.13.16.2}{resolving conflicts}{section.13.16}% 66
+\BOOKMARK [-1][-]{part.6}{VI Remotes}{}% 67
+\BOOKMARK [0][-]{section.13.17}{Managing Repo's}{part.6}% 68
+\BOOKMARK [1][-]{subsection.13.17.1}{Creating Local Repo from Remote}{section.13.17}% 69
+\BOOKMARK [2][-]{subsection.13.17.2}{Remote from Local}{subsection.13.17.1}% 70
+\BOOKMARK [1][-]{section.13.18}{Managing URLs}{section.13.17}% 71
+\BOOKMARK [2][-]{subsection.13.18.1}{list}{section.13.18}% 72
+\BOOKMARK [2][-]{subsection.13.18.2}{add}{section.13.18}% 73
+\BOOKMARK [2][-]{subsection.13.18.3}{rename}{section.13.18}% 74
+\BOOKMARK [2][-]{subsection.13.18.4}{remove}{section.13.18}% 75
+\BOOKMARK [1][-]{section.13.19}{Collaboration}{section.13.17}% 76
+\BOOKMARK [2][-]{subsection.13.19.1}{Setting Upstream}{section.13.19}% 77
+\BOOKMARK [2][-]{subsection.13.19.2}{push}{section.13.19}% 78
+\BOOKMARK [2][-]{subsection.13.19.3}{receive}{section.13.19}% 79
+\BOOKMARK [2][-]{subsection.13.19.4}{remote branches}{section.13.19}% 80
+\BOOKMARK [-1][-]{part.7}{VII GitHub}{}% 81
+\BOOKMARK [0][-]{chapter.14}{Resources}{part.7}% 82
+\BOOKMARK [0][-]{chapter.15}{GitHub pages}{part.7}% 83
+\BOOKMARK [-1][-]{part.8}{VIII Git Hook}{}% 84
+\BOOKMARK [-1][-]{part.9}{IX Resources}{}% 85
