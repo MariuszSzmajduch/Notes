@@ -1,0 +1,19 @@
+\BOOKMARK [-1][-]{part.1}{I Design Principles}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Separate What Vary from What Stays the Same}{part.1}% 2
+\BOOKMARK [0][-]{chapter.2}{Program to an Interface, not an Implementation}{part.1}% 3
+\BOOKMARK [0][-]{chapter.3}{Favour Composition over Inheritance}{part.1}% 4
+\BOOKMARK [-1][-]{part.2}{II Design Patterns}{}% 5
+\BOOKMARK [0][-]{chapter.4}{Creational}{part.2}% 6
+\BOOKMARK [1][-]{section.4.1}{Singleton}{chapter.4}% 7
+\BOOKMARK [2][-]{subsection.4.1.1}{Problem Descritpion}{section.4.1}% 8
+\BOOKMARK [2][-]{subsection.4.1.2}{Implementatio}{section.4.1}% 9
+\BOOKMARK [0][-]{chapter.5}{Structural}{part.2}% 10
+\BOOKMARK [1][-]{section.5.1}{Decorator}{chapter.5}% 11
+\BOOKMARK [0][-]{chapter.6}{Behavioural}{part.2}% 12
+\BOOKMARK [1][-]{section.6.1}{Observer}{chapter.6}% 13
+\BOOKMARK [2][-]{subsection.6.1.1}{Problem Description}{section.6.1}% 14
+\BOOKMARK [2][-]{subsection.6.1.2}{Implementation}{section.6.1}% 15
+\BOOKMARK [1][-]{section.6.2}{Strategy}{chapter.6}% 16
+\BOOKMARK [2][-]{subsection.6.2.1}{Problem Description}{section.6.2}% 17
+\BOOKMARK [2][-]{subsection.6.2.2}{Anti-Patterns}{section.6.2}% 18
+\BOOKMARK [2][-]{subsection.6.2.3}{Impementation}{section.6.2}% 19

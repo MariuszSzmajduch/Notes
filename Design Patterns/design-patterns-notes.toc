@@ -1,0 +1,21 @@
+\contentsline {part}{I\hspace {1em}Design Principles}{}{part.1}
+\contentsline {chapter}{\numberline {1}Separate What Vary from What Stays the Same}{}{chapter.1}
+\contentsline {chapter}{\numberline {2}Program to an Interface, not an Implementation}{}{chapter.2}
+\contentsline {chapter}{\numberline {3}Favour Composition over Inheritance}{}{chapter.3}
+\contentsline {part}{II\hspace {1em}Design Patterns}{}{part.2}
+\contentsline {chapter}{\numberline {4}Creational}{1}{chapter.4}
+\contentsline {section}{\numberline {4.1}Singleton}{1}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Problem Descritpion}{1}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Implementatio}{1}{subsection.4.1.2}
+\contentsline {chapter}{\numberline {5}Structural}{3}{chapter.5}
+\contentsline {section}{\numberline {5.1}Decorator}{3}{section.5.1}
+\contentsline {chapter}{\numberline {6}Behavioural}{4}{chapter.6}
+\contentsline {section}{\numberline {6.1}Observer}{4}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Problem Description}{4}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Implementation}{4}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Strategy}{5}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Problem Description}{5}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Anti-Patterns}{5}{subsection.6.2.2}
+\contentsline {subsubsection}{Voiding by Overriding with Empty Methods}{5}{section*.2}
+\contentsline {subsubsection}{Tag Subclasses with Interfaces}{5}{section*.3}
+\contentsline {subsection}{\numberline {6.2.3}Impementation}{5}{subsection.6.2.3}

@@ -1,0 +1,180 @@
+\documentclass{report}
+\title{design-patterns-notes}
+\author{m.sz}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+
+
+\begin{document}
+\maketitle
+\pagenumbering{gobble}
+\tableofcontents
+
+
+
+
+
+\part{Design Principles}
+
+
+\chapter{Separate What Vary from What Stays the Same}
+Extracting changing parts and encapsulating them separatly allows future changes without affecting existing parts of code.
+
+
+\chapter{Program to an Interface, not an Implementation}
+Here by 'an interface' an API is meant, not the java.
+
+\chapter{Favour Composition over Inheritance}
+Allows dynamic changes of behaviour in runtime. See: Strategy Pattern.
+
+
+
+
+\part{Design Patterns}
+\pagenumbering{arabic}
+
+
+\chapter{Creational}
+Those patterns specify how an object can be created.
+
+
+\section{Singleton}
+
+\subsection{Problem Descritpion}
+All cases, when \textbf{exactly one instance} is required:
+\begin{itemize}
+	\item network session
+	\item solar system, Milky Way
+\end{itemize}
+There is a modification to the pattern possible to create a pool of fixed amount of objects.
+
+\subsection{Implementatio}
+The key is to:
+\begin{itemize}
+	\item make the \textbf{class final}
+	\item make the \textbf{constructor private}. \textbf{\textcolor{red}{The constructor is mandatory!}} Without it default 'package-protected'
+	constructor will be created.
+	\item \textbf{static} \textit{object} variable and its \textbf{static} \textit{getter}
+	\item \textbf{static getter} returning new object only if there is no object present
+\end{itemize}
+
+\begin{verbatim}
+final class Singleton{
+  // private & static instance variable.
+  private static Singleton obj;
+
+  // private constructor
+  private Singleton(..){
+    ...
+  }
+
+  // the only publicly exposed member - instance getter
+  public static Singleton getObj(){
+    return obj == null? new Singleton() : obj;
+  }
+}
+\end{verbatim}
+
+Object getter is the only publicly exposed API. It returns private static instance variable holding the singleon object. If the object is null, it calls private constructor. There is no other way to call the constructor (and to instantiate another object).
+
+\textbf{final} class modifier is added in order to prevent pattern break by subclassing. Without the keyword it would bo possible to subclass and implement Cloneable interface.
+The final modifier prevents singleton from clonning.
+
+
+
+\chapter{Structural}
+The way the objects are connected. It allows to implement particular project constraints. The overall idea is to implement such solutions
+that future changes to the system won't require changes to existing code.
+
+
+\section{Decorator}
+This is a use of layered objects to dynamically and transparently add responsibilities to individual objects. They preserve
+original API - we use them by invoking exacty the same methods. Decorator classes just adjust and modify existing interface.
+It is often used when large number of subclasses is required to solve al possibilities, like for instance servicing IO
+operations. The drawback is that we must to creat multiple objects in order to get single functionality we need.
+
+
+
+\chapter{Behavioural}
+Captures particular types of actions within a program.
+
+
+\section{Observer}
+
+\subsection{Problem Description}
+The requirement is that objects update their state in respond to changes which occur in some other object. As it is common problem
+the solution is supported by standard Java libraries - \textbf{Observer} and \textbf{Observable}.
+
+\subsection{Implementation}
+\begin{itemize}
+	\item \textbf{Observable} class 
+	\begin{itemize}
+		\item \textbf{keeps track} of all objects which need to be notified about the changes which are of their interest
+		\item \textbf{notifies} observing objects when the changes happen
+		\item We need a call to \textbf{setChanged()} somewhere in the \textit{Observable} class in order to update the flag indicating that a change has happened.
+		\textbf{notify()} tests the flag to decide whether \textit{Observers} have to be notified or not. That is the reason why we \textbf{\textcolor{red}{must not just instantiate an object of \textit{Observeable} class, we must extend this class}}
+	\end{itemize}
+
+	\item \textbf{Observer} class. Objects of this class \textbf{registers} by Observable in order to be \textbf{updated}
+	when some specific change occurs.
+\end{itemize}
+
+\begin{verbatim}
+  class ObserverableClass extends Observabe{
+    
+    ...
+    
+    public void notify(Observer o){
+      setChanged();
+      super.notify(b);     \\ or implement own way to notify
+    }
+  }
+  
+  class ObserverClas implements Observer{
+    Observable notifier;
+    
+    ...
+    
+    public void register(){
+      notifier.addObserver(this);
+    }
+    
+    public void update(ObservableClass oc){
+      ...
+    }
+  }
+\end{verbatim}
+
+
+\section{Strategy}
+
+\subsection{Problem Description}
+Derived classes cherrypick behaviours(algorithms). Adding new behaviour in the parent class results
+that unwanted behaviour may appear in some child classes. 
+ 
+\subsection{Anti-Patterns}
+\subsubsection{Voiding by Overriding with Empty Methods}
+\begin{enumerate}
+  \item code duplication (many empty methods)
+  \item need to go over all subclasses each time new feature is added.
+\end{enumerate}
+
+\subsubsection{Tag Subclasses with Interfaces}
+Another maintenance nightmare:
+\begin{enumerate}
+  \item terrible code duplication, extremaly bug-proned.
+\end{enumerate}
+
+\subsection{Impementation}
+\begin{enumerate}
+  \item apply 'separate what vary from what stays the same' principle - extract away optional features.
+  \item apply 'favour composition over inheritance' principle - root each tree of extracted features with an
+  interface.
+  \item apply 'program to interface, not to implementation' principle - assign extracted behaviour as an 
+  interface type to allow behaviour change in runtime.
+\end{enumerate}
+
+\end{document}

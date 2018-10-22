@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.13)  22 OCT 2018 20:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.13)  22 OCT 2018 21:41
 entering extended mode
-**./git-notes.tex
-(git-notes.tex
+**./design-patterns-notes.tex
+(design-patterns-notes.tex
 LaTeX2e <2018-04-01> patch level 5
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
@@ -181,8 +181,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
-(git-notes.aux)
-\openout1 = `git-notes.aux'.
+(design-patterns-notes.aux)
+\openout1 = `design-patterns-notes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -228,9 +228,9 @@ LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
 LaTeX Info: Redefining \nameref on input line 11.
 
-(git-notes.out) (git-notes.out)
+(design-patterns-notes.out) (design-patterns-notes.out)
 \@outlinefile=\write3
-\openout3 = `git-notes.out'.
+\openout3 = `design-patterns-notes.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 13.
@@ -240,234 +240,127 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 13.
  [1
 
-{C:/Users/jo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (git-notes.toc
+{C:/Users/jo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (design-patter
+ns-notes.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 10.
+(Font)              <7> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 10.
- [1
+(Font)              <5> on input line 7.
+)
+\tf@toc=\write4
+\openout4 = `design-patterns-notes.toc'.
+
+
+[1
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.63 ...mberline {13.15}rename}{26}{section.13.15}
-                                                   [2])
-\tf@toc=\write4
-\openout4 = `git-notes.toc'.
+l.20 \part{Design Principles}
+                              [2
+
+]
+Chapter 1.
+
+Overfull \hbox (6.63957pt too wide) in paragraph at lines 24--25
+\OT1/cmr/m/n/10 Extracting chang-ing parts and en-cap-su-lat-ing them sep-a-rat
+ly al-lows fu-ture changes
+ []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.18 \part
-          {Help} [3]pdfTeX warning (ext4): destination with the same identifier
- (name{page.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.18 \part{Help}
-                 [4
-
-]
-Chapter 1.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.36 \part
-          {Architecture} [1
-
-] [2
+l.27 \chapter
+             {Program to an Interface, not an Implementation} [3
 
 ]
 Chapter 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.30 \chapter
+             {Favour Composition over Inheritance} [4
+
+]
+Chapter 3.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.36 \part
+          {Design Patterns} [5
+
+]pdfTeX warning (ext4): destination with the same identifier (name{page.}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.36 \part{Design Patterns}
+                            [6
+
+]
+Chapter 4.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 49.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
- [3
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.79 \end{verbatim}
+                    [1
 
-]
-Chapter 3.
-[4
-
-]
-Chapter 4.
-[5
-
-]
+] [2]
 Chapter 5.
-[6
+[3
 
 ]
 Chapter 6.
-[7
+[4
 
-]
-Chapter 7.
-[8
-
-] [9
-
-]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 100.
+] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
+ (design-patterns-notes.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
 
 
-Overfull \hbox (62.74648pt too wide) in paragraph at lines 172--174
-[]$\OT1/cmtt/m/n/10 https : / / git-[]scm . com / book / en / v2 / Git-[]Basics
--[]Recording-[]Changes-[]to-[]the-[]Repository$[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
-
- []
-
-[10]
-Overfull \hbox (26.49701pt too wide) in paragraph at lines 222--222
- []\OT1/cmtt/m/n/10 [xyz] - ignore all string of 'x',' y' or 'z', where x, y, z
- may be[] 
- []
-
-[11]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 257.
-
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 257.
- [12] [13
-
-]
-Chapter 8.
-[14
-
-]
-Chapter 9.
-[15
-
-] [16]
-Chapter 10.
-[17
-
-] [18]
-Chapter 11.
-[19
-
-]
-Chapter 12.
-[20
-
-]
-Chapter 13.
-[21
-
-] [22]
-LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10> not available
-(Font)              Font shape `OML/cmm/b/it' tried instead on input line 653.
- [23]
-LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 696.
- [24] [25
-
-]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 733.
-
-[26] [27] [28
-
-]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 875.
-
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 877.
-
-
-Overfull \hbox (3.17833pt too wide) in paragraph at lines 911--912
-[]\OT1/cmr/m/n/10 current \OT1/cmr/bx/n/10 lo-cal branch \OT1/cmr/m/n/10 must b
-e set up to \OT1/cmr/bx/n/10 track a re-mote branch. 
- []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 951--952
-
- []
-
-[30] [31]
-Overfull \hbox (15.9971pt too wide) in paragraph at lines 1073--1073
- []\OT1/cmtt/m/n/10 git checkout -b local_branch_name remote_name/remote_branch
-_name[] 
- []
-
-[32] [33
-
-]
-Chapter 14.
-[34
-
-]
-Chapter 15.
-[35
-
-] [36
-
-] [37] [38
-
-]
-Overfull \hbox (34.24715pt too wide) in paragraph at lines 1131--1132
-[][]$\OT1/cmtt/m/n/10 https : / / www . atlassian . com / git / tutorials / wha
-t-[]is-[]version-[]control$[] 
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1136.
-[39]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1136.
- (git-notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1136.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1136.
-
-
-
-Package rerunfilecheck Warning: File `git-notes.out' has changed.
+Package rerunfilecheck Warning: File `design-patterns-notes.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: Checksums for `git-notes.out':
-(rerunfilecheck)             Before: 3B519CBCDBEE9AC93243760CF11F6C57;5211
-(rerunfilecheck)             After:  A0634F29454352384EA2B3C1536DE524;5296.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1136.
+Package rerunfilecheck Info: Checksums for `design-patterns-notes.out':
+(rerunfilecheck)             Before: B878902C22E09963ED5759B403D50461;1164
+(rerunfilecheck)             After:  5994149C4F12CB43E4ACC0ACE4318467;1232.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
- 6639 strings out of 492970
- 95434 string characters out of 3135863
- 186163 words of memory out of 3000000
- 10336 multiletter control sequences out of 15000+200000
- 10593 words of font info for 37 fonts, out of 3000000 for 9000
+ 6167 strings out of 492970
+ 90987 string characters out of 3135863
+ 182175 words of memory out of 3000000
+ 9988 multiletter control sequences out of 15000+200000
+ 9980 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,6n,32p,280b,1287s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on git-notes.pdf (44 pages, 272372 bytes).
+ 28i,6n,32p,291b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb>
+Output written on design-patterns-notes.pdf (13 pages, 142473 bytes).
 PDF statistics:
- 734 PDF objects out of 1000 (max. 8388607)
- 155 named destinations out of 1000 (max. 500000)
- 681 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 199 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
