@@ -1162,6 +1162,10 @@ Clean \& elegant.
 
 \part{OOP} 
 
+
+
+\chapter{Resources}
+
 \begin{itemize}
 	\item UML Distilled textbook by Martin Fowler 
 	\item \textbf{is-a} relationship - inheritance
@@ -1196,7 +1200,7 @@ childParent.field...
 \\ access to a member as it is defined in the Child class
 ((Child)childParent).field 
 \end{verbatim}
-\textbf{\textcolor{red}{Pay attention to the syntax of above cast!}}\\
+\textbf{\textcolor{red}{Pay attention to the syntax of above cast!}}
 %
 %\begin{tabular}{i|l|l|l}
 %	types & fields & cast & method calls \\
@@ -1261,6 +1265,22 @@ when invoked using \textbf{super.} keyword.
 \textbf{Static} methods reside in static context, they belong to class, not to objects. Therefore they are not inherited, too. Hence, they can't be overriden. \\
 However, they can be \textbf{shadowed} - subclass can have static method with the same name, as its parent class. A method call is bind to first method with a proper signature - starting 
 from the class in current context and going up the inheritance tree.
+
+
+
+\chapter{Design Principles}
+
+
+\section{Separate What Vary from What Stays the Same}
+Extracting changing parts and encapsulating them separatly allows future changes without affecting existing parts of code.
+
+
+\section{Program to an Interface, not an Jmplementation}
+Here by 'an interface' an API is meant, not the java.
+
+
+\chapter{Favor Composition over Inheritance}
+Allows dynamic changes of behaviour in runtime. See: Strategy Pattern.
 
 
 
