@@ -136,178 +136,163 @@
 \contentsline {section}{\numberline {36.2}Virtual method Invocation}{52}{section.36.2}
 \contentsline {chapter}{\numberline {37}Method Overloading}{53}{chapter.37}
 \contentsline {chapter}{\numberline {38}Method Overriding}{54}{chapter.38}
-\contentsline {chapter}{\numberline {39}Design Principles}{55}{chapter.39}
-\contentsline {section}{\numberline {39.1}Separate What Vary from What Stays the Same}{55}{section.39.1}
-\contentsline {section}{\numberline {39.2}Program to an Interface, not an Jmplementation}{55}{section.39.2}
-\contentsline {chapter}{\numberline {40}Favor Composition over Inheritance}{56}{chapter.40}
-\contentsline {part}{VI\hspace {1em}Lambda Expressions}{57}{part.6}
-\contentsline {chapter}{\numberline {41}Lambda Expressions}{58}{chapter.41}
-\contentsline {section}{\numberline {41.1}Motivation}{58}{section.41.1}
-\contentsline {section}{\numberline {41.2}Lambda Expressions - Overview}{58}{section.41.2}
-\contentsline {section}{\numberline {41.3}Target Type, Type Inference}{60}{section.41.3}
-\contentsline {section}{\numberline {41.4}Use of External values by Lambda}{60}{section.41.4}
-\contentsline {section}{\numberline {41.5}Lambda Graphically}{61}{section.41.5}
-\contentsline {section}{\numberline {41.6}SAMs, Core Functional Interfaces}{61}{section.41.6}
-\contentsline {section}{\numberline {41.7}Custom Functional Interfaces}{61}{section.41.7}
-\contentsline {section}{\numberline {41.8}Method References}{62}{section.41.8}
-\contentsline {subsection}{\numberline {41.8.1}Static Method Reference}{62}{subsection.41.8.1}
-\contentsline {subsection}{\numberline {41.8.2}Instance Method Reference}{62}{subsection.41.8.2}
-\contentsline {subsection}{\numberline {41.8.3}Referencing a Method of an Arbitrary Object of a Particular Type}{62}{subsection.41.8.3}
-\contentsline {subsection}{\numberline {41.8.4}Referencing a Constructor}{63}{subsection.41.8.4}
-\contentsline {subsection}{\numberline {41.8.5}Applications}{63}{subsection.41.8.5}
-\contentsline {section}{\numberline {41.9}Overloading}{63}{section.41.9}
-\contentsline {part}{VII\hspace {1em}Aggregate Operations (streams)}{64}{part.7}
-\contentsline {chapter}{\numberline {42}Motivation}{65}{chapter.42}
-\contentsline {chapter}{\numberline {43}for-loop vs stream}{66}{chapter.43}
-\contentsline {chapter}{\numberline {44}Stream methods}{67}{chapter.44}
-\contentsline {section}{\numberline {44.1}min(), max()}{67}{section.44.1}
-\contentsline {section}{\numberline {44.2}.reduce()}{68}{section.44.2}
-\contentsline {subsection}{\numberline {44.2.1}.reduce(accumulator)}{68}{subsection.44.2.1}
-\contentsline {subsection}{\numberline {44.2.2}.reduce(identity, accumulator)}{68}{subsection.44.2.2}
-\contentsline {subsection}{\numberline {44.2.3}.reduce(identity, accumulator, combiner)}{68}{subsection.44.2.3}
-\contentsline {section}{\numberline {44.3}.collect(Collector..)}{68}{section.44.3}
-\contentsline {subsection}{\numberline {44.3.1}Partitoning, Grouping}{69}{subsection.44.3.1}
-\contentsline {subsection}{\numberline {44.3.2}Summarizing}{70}{subsection.44.3.2}
-\contentsline {subsection}{\numberline {44.3.3}Custom collector}{70}{subsection.44.3.3}
-\contentsline {section}{\numberline {44.4}Sorting}{70}{section.44.4}
-\contentsline {subsection}{\numberline {44.4.1}.sorted()}{70}{subsection.44.4.1}
-\contentsline {subsection}{\numberline {44.4.2}.sorted(Comparator.comparing(a -> b))}{70}{subsection.44.4.2}
-\contentsline {chapter}{\numberline {45}Ordering}{71}{chapter.45}
-\contentsline {chapter}{\numberline {46}Streamming Primitive Types}{72}{chapter.46}
-\contentsline {section}{\numberline {46.1}Key Ponts}{72}{section.46.1}
-\contentsline {section}{\numberline {46.2}Conversion to Primitive Stream and back}{73}{section.46.2}
-\contentsline {section}{\numberline {46.3}.summaryStatistics()}{73}{section.46.3}
-\contentsline {chapter}{\numberline {47}Streaming a String}{74}{chapter.47}
-\contentsline {section}{\numberline {47.1}String Representation of Collections}{74}{section.47.1}
-\contentsline {chapter}{\numberline {48}Streaming Arrays}{75}{chapter.48}
-\contentsline {chapter}{\numberline {49}Support Classes, Interfaces and Methods}{76}{chapter.49}
-\contentsline {section}{\numberline {49.1}Collector interface}{76}{section.49.1}
-\contentsline {subsection}{\numberline {49.1.1}supplier}{76}{subsection.49.1.1}
-\contentsline {subsection}{\numberline {49.1.2}accumulator}{77}{subsection.49.1.2}
-\contentsline {subsection}{\numberline {49.1.3}combiner}{77}{subsection.49.1.3}
-\contentsline {subsection}{\numberline {49.1.4}finisher}{77}{subsection.49.1.4}
-\contentsline {subsection}{\numberline {49.1.5}characteristic}{77}{subsection.49.1.5}
-\contentsline {section}{\numberline {49.2}IntStream}{78}{section.49.2}
-\contentsline {subsection}{\numberline {49.2.1}.of(ints)}{78}{subsection.49.2.1}
-\contentsline {subsection}{\numberline {49.2.2}.range(lb, up)}{78}{subsection.49.2.2}
-\contentsline {subsection}{\numberline {49.2.3}.rangeClosed(lb, up)}{78}{subsection.49.2.3}
-\contentsline {subsection}{\numberline {49.2.4}.iterator(lb, next).limit(n)}{78}{subsection.49.2.4}
-\contentsline {subsection}{\numberline {49.2.5}.generate(intSupplier s)}{78}{subsection.49.2.5}
-\contentsline {subsection}{\numberline {49.2.6}.boxed()}{79}{subsection.49.2.6}
-\contentsline {section}{\numberline {49.3}Stream}{79}{section.49.3}
-\contentsline {subsection}{\numberline {49.3.1}.of(objects)}{79}{subsection.49.3.1}
-\contentsline {chapter}{\numberline {50}Patterns \& Idioms Using Aggregate operations}{80}{chapter.50}
-\contentsline {part}{VIII\hspace {1em}Library Classes}{81}{part.8}
-\contentsline {chapter}{\numberline {51}Scanner}{82}{chapter.51}
-\contentsline {section}{\numberline {51.1}Key Points:}{82}{section.51.1}
-\contentsline {section}{\numberline {51.2}InputMismatchException}{83}{section.51.2}
-\contentsline {section}{\numberline {51.3}hasNext(), eof}{83}{section.51.3}
-\contentsline {section}{\numberline {51.4}nextLine()}{83}{section.51.4}
-\contentsline {chapter}{\numberline {52}Integer}{84}{chapter.52}
-\contentsline {section}{\numberline {52.1}Boxing}{84}{section.52.1}
-\contentsline {section}{\numberline {52.2}Unboxing}{84}{section.52.2}
-\contentsline {section}{\numberline {52.3}Conversion from String}{84}{section.52.3}
-\contentsline {chapter}{\numberline {53}Date \& Time}{85}{chapter.53}
-\contentsline {section}{\numberline {53.1}Date}{85}{section.53.1}
-\contentsline {section}{\numberline {53.2}Date + String.format(..)}{85}{section.53.2}
-\contentsline {section}{\numberline {53.3}SimpleDateFormat}{86}{section.53.3}
-\contentsline {chapter}{\numberline {54}String}{87}{chapter.54}
-\contentsline {section}{\numberline {54.1}CharSequence Interface Family}{87}{section.54.1}
-\contentsline {section}{\numberline {54.2}String.format(pattern, args)}{87}{section.54.2}
-\contentsline {section}{\numberline {54.3}split()}{87}{section.54.3}
-\contentsline {chapter}{\numberline {55}java.utils.Arrays}{88}{chapter.55}
-\contentsline {section}{\numberline {55.1}ArrayList from an Array}{88}{section.55.1}
-\contentsline {subsection}{\numberline {55.1.1}Sending Arrays.asList(array) to ArrayList constructor}{88}{subsection.55.1.1}
-\contentsline {subsection}{\numberline {55.1.2}Using collections.addAll(arrayList, array).}{88}{subsection.55.1.2}
-\contentsline {subsection}{\numberline {55.1.3}Arrays.asList(array)}{89}{subsection.55.1.3}
-\contentsline {chapter}{\numberline {56}Random}{90}{chapter.56}
-\contentsline {section}{\numberline {56.1}Math.random()}{90}{section.56.1}
-\contentsline {section}{\numberline {56.2}Random class}{90}{section.56.2}
-\contentsline {section}{\numberline {56.3}Random class vs Math.random()}{90}{section.56.3}
-\contentsline {section}{\numberline {56.4}Comparable}{91}{section.56.4}
-\contentsline {part}{IX\hspace {1em}Advanced Topics}{92}{part.9}
-\contentsline {section}{\numberline {56.5}Reflection}{93}{section.56.5}
-\contentsline {section}{\numberline {56.6}Immutability}{93}{section.56.6}
-\contentsline {subsection}{\numberline {56.6.1}Implementing Immutability}{93}{subsection.56.6.1}
-\contentsline {section}{\numberline {56.7}Default Methods}{93}{section.56.7}
-\contentsline {subsubsection}{Multiple inheritance (from multiple interfaces)}{94}{section*.25}
-\contentsline {chapter}{\numberline {57}Data Parallelism}{95}{chapter.57}
-\contentsline {section}{\numberline {57.1}Intro}{95}{section.57.1}
-\contentsline {subsection}{\numberline {57.1.1}Notions}{95}{subsection.57.1.1}
-\contentsline {section}{\numberline {57.2}Impact on Performance}{95}{section.57.2}
-\contentsline {section}{\numberline {57.3}Parallel Stream Operations}{96}{section.57.3}
-\contentsline {section}{\numberline {57.4}Caveats}{96}{section.57.4}
-\contentsline {subsection}{\numberline {57.4.1}Parallel .reduce()}{96}{subsection.57.4.1}
-\contentsline {part}{X\hspace {1em}Idioms}{98}{part.10}
-\contentsline {chapter}{\numberline {58}Exceptions}{99}{chapter.58}
-\contentsline {part}{XI\hspace {1em}UML modelling}{100}{part.11}
-\contentsline {chapter}{\numberline {59}Domain Modelling}{101}{chapter.59}
-\contentsline {section}{\numberline {59.1}Inheritance}{101}{section.59.1}
-\contentsline {section}{\numberline {59.2}Association}{101}{section.59.2}
-\contentsline {chapter}{\numberline {60}Class Diagram}{102}{chapter.60}
-\contentsline {part}{XII\hspace {1em}Design Concepts}{103}{part.12}
-\contentsline {chapter}{\numberline {61}Dependencies}{104}{chapter.61}
-\contentsline {section}{\numberline {61.1}Overview}{104}{section.61.1}
-\contentsline {section}{\numberline {61.2}Dependency as a Type of Relationship}{104}{section.61.2}
-\contentsline {section}{\numberline {61.3}Types of dependencies}{104}{section.61.3}
-\contentsline {section}{\numberline {61.4}Hidden Dependency}{105}{section.61.4}
-\contentsline {section}{\numberline {61.5}Indirect Dependencies}{105}{section.61.5}
-\contentsline {section}{\numberline {61.6}Local and Context Depedences}{105}{section.61.6}
-\contentsline {part}{XIII\hspace {1em}Design Patterns}{106}{part.13}
-\contentsline {chapter}{\numberline {62}Creational}{107}{chapter.62}
-\contentsline {section}{\numberline {62.1}Singleton}{107}{section.62.1}
-\contentsline {subsection}{\numberline {62.1.1}Problem Descritpion}{107}{subsection.62.1.1}
-\contentsline {subsection}{\numberline {62.1.2}Implementatio}{107}{subsection.62.1.2}
-\contentsline {chapter}{\numberline {63}Structural}{109}{chapter.63}
-\contentsline {section}{\numberline {63.1}Decorator}{109}{section.63.1}
-\contentsline {chapter}{\numberline {64}Behavioural}{110}{chapter.64}
-\contentsline {section}{\numberline {64.1}Observer}{110}{section.64.1}
-\contentsline {subsection}{\numberline {64.1.1}Problem Description}{110}{subsection.64.1.1}
-\contentsline {subsection}{\numberline {64.1.2}Implementation}{110}{subsection.64.1.2}
-\contentsline {part}{XIV\hspace {1em}Antipatterns, Code Smells}{112}{part.14}
-\contentsline {chapter}{\numberline {65}AutoBoxing, Unboxing}{113}{chapter.65}
-\contentsline {chapter}{\numberline {66}Constructors}{114}{chapter.66}
-\contentsline {section}{\numberline {66.1}Constructor Calls an Overridable Method}{114}{section.66.1}
-\contentsline {part}{XV\hspace {1em}Testing}{115}{part.15}
-\contentsline {chapter}{\numberline {67}JUnit}{116}{chapter.67}
-\contentsline {section}{\numberline {67.1}Unit testing}{116}{section.67.1}
-\contentsline {part}{XVI\hspace {1em}Varia}{117}{part.16}
-\contentsline {chapter}{\numberline {68}Compact Strings}{118}{chapter.68}
-\contentsline {part}{XVII\hspace {1em}Appendix}{119}{part.17}
-\contentsline {chapter}{\numberline {69}Vocabulary}{120}{chapter.69}
-\contentsline {section}{\numberline {69.1}B}{120}{section.69.1}
-\contentsline {subsection}{\numberline {69.1.1}binding}{120}{subsection.69.1.1}
-\contentsline {section}{\numberline {69.2}C}{120}{section.69.2}
-\contentsline {subsection}{\numberline {69.2.1}composition}{120}{subsection.69.2.1}
-\contentsline {subsection}{\numberline {69.2.2}covariant}{120}{subsection.69.2.2}
-\contentsline {section}{\numberline {69.3}D}{121}{section.69.3}
-\contentsline {subsection}{\numberline {69.3.1}depedency}{121}{subsection.69.3.1}
-\contentsline {subsection}{\numberline {69.3.2}dynamic binding}{121}{subsection.69.3.2}
-\contentsline {section}{\numberline {69.4}E}{121}{section.69.4}
-\contentsline {subsection}{\numberline {69.4.1}encapsulation}{121}{subsection.69.4.1}
-\contentsline {section}{\numberline {69.5}H}{121}{section.69.5}
-\contentsline {subsection}{\numberline {69.5.1}has-a relationship}{121}{subsection.69.5.1}
-\contentsline {section}{\numberline {69.6}I}{121}{section.69.6}
-\contentsline {subsection}{\numberline {69.6.1}interface}{121}{subsection.69.6.1}
-\contentsline {subsection}{\numberline {69.6.2}invariant}{121}{subsection.69.6.2}
-\contentsline {section}{\numberline {69.7}L}{122}{section.69.7}
-\contentsline {subsection}{\numberline {69.7.1}late binding}{122}{subsection.69.7.1}
-\contentsline {section}{\numberline {69.8}M}{122}{section.69.8}
-\contentsline {subsection}{\numberline {69.8.1}members of class}{122}{subsection.69.8.1}
-\contentsline {section}{\numberline {69.9}N}{122}{section.69.9}
-\contentsline {subsection}{\numberline {69.9.1}non-interfering}{122}{subsection.69.9.1}
-\contentsline {section}{\numberline {69.10}P}{122}{section.69.10}
-\contentsline {subsection}{\numberline {69.10.1}polymorphism}{122}{subsection.69.10.1}
-\contentsline {subsection}{\numberline {69.10.2}problem space}{122}{subsection.69.10.2}
-\contentsline {section}{\numberline {69.11}R}{122}{section.69.11}
-\contentsline {subsection}{\numberline {69.11.1}RTTI}{122}{subsection.69.11.1}
-\contentsline {subsection}{\numberline {69.11.2}runtime binding}{122}{subsection.69.11.2}
-\contentsline {section}{\numberline {69.12}S}{123}{section.69.12}
-\contentsline {subsection}{\numberline {69.12.1}short circuiting}{123}{subsection.69.12.1}
-\contentsline {subsection}{\numberline {69.12.2}solution space}{123}{subsection.69.12.2}
-\contentsline {subsection}{\numberline {69.12.3}stateful}{123}{subsection.69.12.3}
-\contentsline {subsection}{\numberline {69.12.4}stateless}{123}{subsection.69.12.4}
-\contentsline {section}{\numberline {69.13}U}{123}{section.69.13}
-\contentsline {subsection}{\numberline {69.13.1}upcasting}{123}{subsection.69.13.1}
-\contentsline {chapter}{\numberline {70}Docs, Specs}{124}{chapter.70}
-\contentsline {section}{\numberline {70.1}Java Doc}{124}{section.70.1}
+\contentsline {part}{VI\hspace {1em}Lambda Expressions}{55}{part.6}
+\contentsline {chapter}{\numberline {39}Lambda Expressions}{56}{chapter.39}
+\contentsline {section}{\numberline {39.1}Motivation}{56}{section.39.1}
+\contentsline {section}{\numberline {39.2}Lambda Expressions - Overview}{56}{section.39.2}
+\contentsline {section}{\numberline {39.3}Target Type, Type Inference}{58}{section.39.3}
+\contentsline {section}{\numberline {39.4}Use of External values by Lambda}{58}{section.39.4}
+\contentsline {section}{\numberline {39.5}Lambda Graphically}{59}{section.39.5}
+\contentsline {section}{\numberline {39.6}SAMs, Core Functional Interfaces}{59}{section.39.6}
+\contentsline {section}{\numberline {39.7}Custom Functional Interfaces}{59}{section.39.7}
+\contentsline {section}{\numberline {39.8}Method References}{60}{section.39.8}
+\contentsline {subsection}{\numberline {39.8.1}Static Method Reference}{60}{subsection.39.8.1}
+\contentsline {subsection}{\numberline {39.8.2}Instance Method Reference}{60}{subsection.39.8.2}
+\contentsline {subsection}{\numberline {39.8.3}Referencing a Method of an Arbitrary Object of a Particular Type}{60}{subsection.39.8.3}
+\contentsline {subsection}{\numberline {39.8.4}Referencing a Constructor}{61}{subsection.39.8.4}
+\contentsline {subsection}{\numberline {39.8.5}Applications}{61}{subsection.39.8.5}
+\contentsline {section}{\numberline {39.9}Overloading}{61}{section.39.9}
+\contentsline {part}{VII\hspace {1em}Aggregate Operations (streams)}{62}{part.7}
+\contentsline {chapter}{\numberline {40}Motivation}{63}{chapter.40}
+\contentsline {chapter}{\numberline {41}for-loop vs stream}{64}{chapter.41}
+\contentsline {chapter}{\numberline {42}Stream methods}{65}{chapter.42}
+\contentsline {section}{\numberline {42.1}min(), max()}{65}{section.42.1}
+\contentsline {section}{\numberline {42.2}.reduce()}{66}{section.42.2}
+\contentsline {subsection}{\numberline {42.2.1}.reduce(accumulator)}{66}{subsection.42.2.1}
+\contentsline {subsection}{\numberline {42.2.2}.reduce(identity, accumulator)}{66}{subsection.42.2.2}
+\contentsline {subsection}{\numberline {42.2.3}.reduce(identity, accumulator, combiner)}{66}{subsection.42.2.3}
+\contentsline {section}{\numberline {42.3}.collect(Collector..)}{66}{section.42.3}
+\contentsline {subsection}{\numberline {42.3.1}Partitoning, Grouping}{67}{subsection.42.3.1}
+\contentsline {subsection}{\numberline {42.3.2}Summarizing}{68}{subsection.42.3.2}
+\contentsline {subsection}{\numberline {42.3.3}Custom collector}{68}{subsection.42.3.3}
+\contentsline {section}{\numberline {42.4}Sorting}{68}{section.42.4}
+\contentsline {subsection}{\numberline {42.4.1}.sorted()}{68}{subsection.42.4.1}
+\contentsline {subsection}{\numberline {42.4.2}.sorted(Comparator.comparing(a -> b))}{68}{subsection.42.4.2}
+\contentsline {chapter}{\numberline {43}Ordering}{69}{chapter.43}
+\contentsline {chapter}{\numberline {44}Streamming Primitive Types}{70}{chapter.44}
+\contentsline {section}{\numberline {44.1}Key Ponts}{70}{section.44.1}
+\contentsline {section}{\numberline {44.2}Conversion to Primitive Stream and back}{71}{section.44.2}
+\contentsline {section}{\numberline {44.3}.summaryStatistics()}{71}{section.44.3}
+\contentsline {chapter}{\numberline {45}Streaming a String}{72}{chapter.45}
+\contentsline {section}{\numberline {45.1}String Representation of Collections}{72}{section.45.1}
+\contentsline {chapter}{\numberline {46}Streaming Arrays}{73}{chapter.46}
+\contentsline {chapter}{\numberline {47}Support Classes, Interfaces and Methods}{74}{chapter.47}
+\contentsline {section}{\numberline {47.1}Collector interface}{74}{section.47.1}
+\contentsline {subsection}{\numberline {47.1.1}supplier}{74}{subsection.47.1.1}
+\contentsline {subsection}{\numberline {47.1.2}accumulator}{75}{subsection.47.1.2}
+\contentsline {subsection}{\numberline {47.1.3}combiner}{75}{subsection.47.1.3}
+\contentsline {subsection}{\numberline {47.1.4}finisher}{75}{subsection.47.1.4}
+\contentsline {subsection}{\numberline {47.1.5}characteristic}{75}{subsection.47.1.5}
+\contentsline {section}{\numberline {47.2}IntStream}{76}{section.47.2}
+\contentsline {subsection}{\numberline {47.2.1}.of(ints)}{76}{subsection.47.2.1}
+\contentsline {subsection}{\numberline {47.2.2}.range(lb, up)}{76}{subsection.47.2.2}
+\contentsline {subsection}{\numberline {47.2.3}.rangeClosed(lb, up)}{76}{subsection.47.2.3}
+\contentsline {subsection}{\numberline {47.2.4}.iterator(lb, next).limit(n)}{76}{subsection.47.2.4}
+\contentsline {subsection}{\numberline {47.2.5}.generate(intSupplier s)}{76}{subsection.47.2.5}
+\contentsline {subsection}{\numberline {47.2.6}.boxed()}{77}{subsection.47.2.6}
+\contentsline {section}{\numberline {47.3}Stream}{77}{section.47.3}
+\contentsline {subsection}{\numberline {47.3.1}.of(objects)}{77}{subsection.47.3.1}
+\contentsline {chapter}{\numberline {48}Patterns \& Idioms Using Aggregate operations}{78}{chapter.48}
+\contentsline {part}{VIII\hspace {1em}Library Classes}{79}{part.8}
+\contentsline {chapter}{\numberline {49}Scanner}{80}{chapter.49}
+\contentsline {section}{\numberline {49.1}Key Points:}{80}{section.49.1}
+\contentsline {section}{\numberline {49.2}InputMismatchException}{81}{section.49.2}
+\contentsline {section}{\numberline {49.3}hasNext(), eof}{81}{section.49.3}
+\contentsline {section}{\numberline {49.4}nextLine()}{81}{section.49.4}
+\contentsline {chapter}{\numberline {50}Integer}{82}{chapter.50}
+\contentsline {section}{\numberline {50.1}Boxing}{82}{section.50.1}
+\contentsline {section}{\numberline {50.2}Unboxing}{82}{section.50.2}
+\contentsline {section}{\numberline {50.3}Conversion from String}{82}{section.50.3}
+\contentsline {chapter}{\numberline {51}Date \& Time}{83}{chapter.51}
+\contentsline {section}{\numberline {51.1}Date}{83}{section.51.1}
+\contentsline {section}{\numberline {51.2}Date + String.format(..)}{83}{section.51.2}
+\contentsline {section}{\numberline {51.3}SimpleDateFormat}{84}{section.51.3}
+\contentsline {chapter}{\numberline {52}String}{85}{chapter.52}
+\contentsline {section}{\numberline {52.1}CharSequence Interface Family}{85}{section.52.1}
+\contentsline {section}{\numberline {52.2}String.format(pattern, args)}{85}{section.52.2}
+\contentsline {section}{\numberline {52.3}split()}{85}{section.52.3}
+\contentsline {chapter}{\numberline {53}java.utils.Arrays}{86}{chapter.53}
+\contentsline {section}{\numberline {53.1}ArrayList from an Array}{86}{section.53.1}
+\contentsline {subsection}{\numberline {53.1.1}Sending Arrays.asList(array) to ArrayList constructor}{86}{subsection.53.1.1}
+\contentsline {subsection}{\numberline {53.1.2}Using collections.addAll(arrayList, array).}{86}{subsection.53.1.2}
+\contentsline {subsection}{\numberline {53.1.3}Arrays.asList(array)}{87}{subsection.53.1.3}
+\contentsline {chapter}{\numberline {54}Random}{88}{chapter.54}
+\contentsline {section}{\numberline {54.1}Math.random()}{88}{section.54.1}
+\contentsline {section}{\numberline {54.2}Random class}{88}{section.54.2}
+\contentsline {section}{\numberline {54.3}Random class vs Math.random()}{88}{section.54.3}
+\contentsline {section}{\numberline {54.4}Comparable}{89}{section.54.4}
+\contentsline {part}{IX\hspace {1em}Advanced Topics}{90}{part.9}
+\contentsline {section}{\numberline {54.5}Reflection}{91}{section.54.5}
+\contentsline {section}{\numberline {54.6}Immutability}{91}{section.54.6}
+\contentsline {subsection}{\numberline {54.6.1}Implementing Immutability}{91}{subsection.54.6.1}
+\contentsline {section}{\numberline {54.7}Default Methods}{91}{section.54.7}
+\contentsline {subsubsection}{Multiple inheritance (from multiple interfaces)}{92}{section*.25}
+\contentsline {chapter}{\numberline {55}Data Parallelism}{93}{chapter.55}
+\contentsline {section}{\numberline {55.1}Intro}{93}{section.55.1}
+\contentsline {subsection}{\numberline {55.1.1}Notions}{93}{subsection.55.1.1}
+\contentsline {section}{\numberline {55.2}Impact on Performance}{93}{section.55.2}
+\contentsline {section}{\numberline {55.3}Parallel Stream Operations}{94}{section.55.3}
+\contentsline {section}{\numberline {55.4}Caveats}{94}{section.55.4}
+\contentsline {subsection}{\numberline {55.4.1}Parallel .reduce()}{94}{subsection.55.4.1}
+\contentsline {part}{X\hspace {1em}Idioms}{96}{part.10}
+\contentsline {chapter}{\numberline {56}Exceptions}{97}{chapter.56}
+\contentsline {part}{XI\hspace {1em}UML modelling}{98}{part.11}
+\contentsline {chapter}{\numberline {57}Domain Modelling}{99}{chapter.57}
+\contentsline {section}{\numberline {57.1}Inheritance}{99}{section.57.1}
+\contentsline {section}{\numberline {57.2}Association}{99}{section.57.2}
+\contentsline {chapter}{\numberline {58}Class Diagram}{100}{chapter.58}
+\contentsline {part}{XII\hspace {1em}Design Concepts}{101}{part.12}
+\contentsline {chapter}{\numberline {59}Dependencies}{102}{chapter.59}
+\contentsline {section}{\numberline {59.1}Overview}{102}{section.59.1}
+\contentsline {section}{\numberline {59.2}Dependency as a Type of Relationship}{102}{section.59.2}
+\contentsline {section}{\numberline {59.3}Types of dependencies}{102}{section.59.3}
+\contentsline {section}{\numberline {59.4}Hidden Dependency}{103}{section.59.4}
+\contentsline {section}{\numberline {59.5}Indirect Dependencies}{103}{section.59.5}
+\contentsline {section}{\numberline {59.6}Local and Context Depedences}{103}{section.59.6}
+\contentsline {part}{XIII\hspace {1em}Antipatterns, Code Smells}{104}{part.13}
+\contentsline {chapter}{\numberline {60}AutoBoxing, Unboxing}{105}{chapter.60}
+\contentsline {chapter}{\numberline {61}Constructors}{106}{chapter.61}
+\contentsline {section}{\numberline {61.1}Constructor Calls an Overridable Method}{106}{section.61.1}
+\contentsline {part}{XIV\hspace {1em}Testing}{107}{part.14}
+\contentsline {chapter}{\numberline {62}JUnit}{108}{chapter.62}
+\contentsline {section}{\numberline {62.1}Unit testing}{108}{section.62.1}
+\contentsline {part}{XV\hspace {1em}Varia}{109}{part.15}
+\contentsline {chapter}{\numberline {63}Compact Strings}{110}{chapter.63}
+\contentsline {part}{XVI\hspace {1em}Appendix}{111}{part.16}
+\contentsline {chapter}{\numberline {64}Vocabulary}{112}{chapter.64}
+\contentsline {section}{\numberline {64.1}B}{112}{section.64.1}
+\contentsline {subsection}{\numberline {64.1.1}binding}{112}{subsection.64.1.1}
+\contentsline {section}{\numberline {64.2}C}{112}{section.64.2}
+\contentsline {subsection}{\numberline {64.2.1}composition}{112}{subsection.64.2.1}
+\contentsline {subsection}{\numberline {64.2.2}covariant}{112}{subsection.64.2.2}
+\contentsline {section}{\numberline {64.3}D}{113}{section.64.3}
+\contentsline {subsection}{\numberline {64.3.1}depedency}{113}{subsection.64.3.1}
+\contentsline {subsection}{\numberline {64.3.2}dynamic binding}{113}{subsection.64.3.2}
+\contentsline {section}{\numberline {64.4}E}{113}{section.64.4}
+\contentsline {subsection}{\numberline {64.4.1}encapsulation}{113}{subsection.64.4.1}
+\contentsline {section}{\numberline {64.5}H}{113}{section.64.5}
+\contentsline {subsection}{\numberline {64.5.1}has-a relationship}{113}{subsection.64.5.1}
+\contentsline {section}{\numberline {64.6}I}{113}{section.64.6}
+\contentsline {subsection}{\numberline {64.6.1}interface}{113}{subsection.64.6.1}
+\contentsline {subsection}{\numberline {64.6.2}invariant}{113}{subsection.64.6.2}
+\contentsline {section}{\numberline {64.7}L}{114}{section.64.7}
+\contentsline {subsection}{\numberline {64.7.1}late binding}{114}{subsection.64.7.1}
+\contentsline {section}{\numberline {64.8}M}{114}{section.64.8}
+\contentsline {subsection}{\numberline {64.8.1}members of class}{114}{subsection.64.8.1}
+\contentsline {section}{\numberline {64.9}N}{114}{section.64.9}
+\contentsline {subsection}{\numberline {64.9.1}non-interfering}{114}{subsection.64.9.1}
+\contentsline {section}{\numberline {64.10}P}{114}{section.64.10}
+\contentsline {subsection}{\numberline {64.10.1}polymorphism}{114}{subsection.64.10.1}
+\contentsline {subsection}{\numberline {64.10.2}problem space}{114}{subsection.64.10.2}
+\contentsline {section}{\numberline {64.11}R}{114}{section.64.11}
+\contentsline {subsection}{\numberline {64.11.1}RTTI}{114}{subsection.64.11.1}
+\contentsline {subsection}{\numberline {64.11.2}runtime binding}{114}{subsection.64.11.2}
+\contentsline {section}{\numberline {64.12}S}{115}{section.64.12}
+\contentsline {subsection}{\numberline {64.12.1}short circuiting}{115}{subsection.64.12.1}
+\contentsline {subsection}{\numberline {64.12.2}solution space}{115}{subsection.64.12.2}
+\contentsline {subsection}{\numberline {64.12.3}stateful}{115}{subsection.64.12.3}
+\contentsline {subsection}{\numberline {64.12.4}stateless}{115}{subsection.64.12.4}
+\contentsline {section}{\numberline {64.13}U}{115}{section.64.13}
+\contentsline {subsection}{\numberline {64.13.1}upcasting}{115}{subsection.64.13.1}
+\contentsline {chapter}{\numberline {65}Docs, Specs}{116}{chapter.65}
+\contentsline {section}{\numberline {65.1}Java Doc}{116}{section.65.1}

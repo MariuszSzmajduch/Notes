@@ -1249,7 +1249,7 @@ Method calls are dynamically dispatched based on runtime type of the receiver ob
 Overloading means that two or more methods have the same name but different signature. They \textbf{must have different parameters} (number of them and/or types),
  they \textbf{may have different return type and access modifiers} (private, protected, etc) - see Rules.
  
- \chapter{Method Overriding}
+\chapter{Method Overriding}
 It means that new implementation is provided to an inherited method. This is annotated by @Override. The overridden method in a superclass can be still called 
 when invoked using \textbf{super.} keyword.
 
@@ -1265,23 +1265,6 @@ when invoked using \textbf{super.} keyword.
 \textbf{Static} methods reside in static context, they belong to class, not to objects. Therefore they are not inherited, too. Hence, they can't be overriden. \\
 However, they can be \textbf{shadowed} - subclass can have static method with the same name, as its parent class. A method call is bind to first method with a proper signature - starting 
 from the class in current context and going up the inheritance tree.
-
-
-
-\chapter{Design Principles}
-
-
-\section{Separate What Vary from What Stays the Same}
-Extracting changing parts and encapsulating them separatly allows future changes without affecting existing parts of code.
-
-
-\section{Program to an Interface, not an Jmplementation}
-Here by 'an interface' an API is meant, not the java.
-
-
-\chapter{Favor Composition over Inheritance}
-Allows dynamic changes of behaviour in runtime. See: Strategy Pattern.
-
 
 
 
@@ -2501,123 +2484,6 @@ Transitive dependencies, chained dependencies. A depends on B, B depends on C. A
 \textbf{Context dependencies} means that general purpose classes depends on application specific classes. \textbf{\textcolor{red}{This is bad!}}
 It means that general purpose classes cannot be used outside the application.
 
-
-
-
-\part{Design Patterns}
-
-
-
-\chapter{Creational}
-Those patterns specify how an object can be created.
-
-
-\section{Singleton}
-
-\subsection{Problem Descritpion}
-All cases, when \textbf{exactly one instance} is required:
-\begin{itemize}
-	\item network session
-	\item solar system, Milky Way
-\end{itemize}
-There is a modification to the pattern possible to create a pool of fixed amount of objects.
-
-\subsection{Implementatio}
-The key is to:
-\begin{itemize}
-	\item make the \textbf{class final}
-	\item make the \textbf{constructor private}. \textbf{\textcolor{red}{The constructor is mandatory!}} Without it default 'package-protected'
-	constructor will be created.
-	\item \textbf{static} \textit{object} variable and its \textbf{static} \textit{getter}
-	\item \textbf{static getter} returning new object only if there is no object present
-\end{itemize}
-
-\begin{verbatim}
-final class Singleton{
-  // private & static instance variable.
-  private static Singleton obj;
-
-  // private constructor
-  private Singleton(..){
-    ...
-  }
-
-  // the only publicly exposed member - instance getter
-  public static Singleton getObj(){
-    return obj == null? new Singleton() : obj;
-  }
-}
-\end{verbatim}
-
-Object getter is the only publicly exposed API. It returns private static instance variable holding the singleon object. If the object is null, it calls private constructor. There is no other way to call the constructor (and to instantiate another object).
-
-\textbf{final} class modifier is added in order to prevent pattern break by subclassing. Without the keyword it would bo possible to subclass and implement Cloneable interface.
-The final modifier prevents singleton from clonning.
-
-
-
-\chapter{Structural}
-The way the objects are connected. It allows to implement particular project constraints. The overall idea is to implement such solutions
-that future changes to the system won't require changes to existing code.
-
-
-\section{Decorator}
-This is a use of layered objects to dynamically and transparently add responsibilities to individual objects. They preserve
-original API - we use them by invoking exacty the same methods. Decorator classes just adjust and modify existing interface.
-It is often used when large number of subclasses is required to solve al possibilities, like for instance servicing IO
-operations. The drawback is that we must to creat multiple objects in order to get single functionality we need.
-
-
-
-\chapter{Behavioural}
-Captures particular types of actions within a program.
-
-
-\section{Observer}
-
-\subsection{Problem Description}
-The requirement is that objects update their state in respond to changes which occur in some other object. As it is common problem
-the solution is supported by standard Java libraries - \textbf{Observer} and \textbf{Observable}.
-
-\subsection{Implementation}
-\begin{itemize}
-	\item \textbf{Observable} class 
-	\begin{itemize}
-		\item \textbf{keeps track} of all objects which need to be notified about the changes which are of their interest
-		\item \textbf{notifies} observing objects when the changes happen
-		\item We need a call to \textbf{setChanged()} somewhere in the \textit{Observable} class in order to update the flag indicating that a change has happened.
-		\textbf{notify()} tests the flag to decide whether \textit{Observers} have to be notified or not. That is the reason why we \textbf{\textcolor{red}{must not just instantiate an object of \textit{Observeable} class, we must extend this class}}
-	\end{itemize}
-
-	\item \textbf{Observer} class. Objects of this class \textbf{registers} by Observable in order to be \textbf{updated}
-	when some specific change occurs.
-\end{itemize}
-
-\begin{verbatim}
-  class ObserverableClass extends Observabe{
-    
-    ...
-    
-    public void notify(Observer o){
-      setChanged();
-      super.notify(b);     \\ or implement own way to notify
-    }
-  }
-  
-  class ObserverClas implements Observer{
-    Observable notifier;
-    
-    ...
-    
-    public void register(){
-      notifier.addObserver(this);
-    }
-    
-    public void update(ObservableClass oc){
-      ...
-    }
-  }
-\end{verbatim}
 
 
 

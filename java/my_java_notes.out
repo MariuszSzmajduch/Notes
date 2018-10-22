@@ -125,177 +125,162 @@
 \BOOKMARK [1][-]{section.36.2}{Virtual method Invocation}{chapter.36}% 125
 \BOOKMARK [0][-]{chapter.37}{Method Overloading}{part.5}% 126
 \BOOKMARK [0][-]{chapter.38}{Method Overriding}{part.5}% 127
-\BOOKMARK [0][-]{chapter.39}{Design Principles}{part.5}% 128
-\BOOKMARK [1][-]{section.39.1}{Separate What Vary from What Stays the Same}{chapter.39}% 129
-\BOOKMARK [1][-]{section.39.2}{Program to an Interface, not an Jmplementation}{chapter.39}% 130
-\BOOKMARK [0][-]{chapter.40}{Favor Composition over Inheritance}{part.5}% 131
-\BOOKMARK [-1][-]{part.6}{VI Lambda Expressions}{}% 132
-\BOOKMARK [0][-]{chapter.41}{Lambda Expressions}{part.6}% 133
-\BOOKMARK [1][-]{section.41.1}{Motivation}{chapter.41}% 134
-\BOOKMARK [1][-]{section.41.2}{Lambda Expressions - Overview}{chapter.41}% 135
-\BOOKMARK [1][-]{section.41.3}{Target Type, Type Inference}{chapter.41}% 136
-\BOOKMARK [1][-]{section.41.4}{Use of External values by Lambda}{chapter.41}% 137
-\BOOKMARK [1][-]{section.41.5}{Lambda Graphically}{chapter.41}% 138
-\BOOKMARK [1][-]{section.41.6}{SAMs, Core Functional Interfaces}{chapter.41}% 139
-\BOOKMARK [1][-]{section.41.7}{Custom Functional Interfaces}{chapter.41}% 140
-\BOOKMARK [1][-]{section.41.8}{Method References}{chapter.41}% 141
-\BOOKMARK [2][-]{subsection.41.8.1}{Static Method Reference}{section.41.8}% 142
-\BOOKMARK [2][-]{subsection.41.8.2}{Instance Method Reference}{section.41.8}% 143
-\BOOKMARK [2][-]{subsection.41.8.3}{Referencing a Method of an Arbitrary Object of a Particular Type}{section.41.8}% 144
-\BOOKMARK [2][-]{subsection.41.8.4}{Referencing a Constructor}{section.41.8}% 145
-\BOOKMARK [2][-]{subsection.41.8.5}{Applications}{section.41.8}% 146
-\BOOKMARK [1][-]{section.41.9}{Overloading}{chapter.41}% 147
-\BOOKMARK [-1][-]{part.7}{VII Aggregate Operations \(streams\)}{}% 148
-\BOOKMARK [0][-]{chapter.42}{Motivation}{part.7}% 149
-\BOOKMARK [0][-]{chapter.43}{for-loop vs stream}{part.7}% 150
-\BOOKMARK [0][-]{chapter.44}{Stream methods}{part.7}% 151
-\BOOKMARK [1][-]{section.44.1}{min\(\), max\(\)}{chapter.44}% 152
-\BOOKMARK [1][-]{section.44.2}{.reduce\(\)}{chapter.44}% 153
-\BOOKMARK [2][-]{subsection.44.2.1}{.reduce\(accumulator\)}{section.44.2}% 154
-\BOOKMARK [2][-]{subsection.44.2.2}{.reduce\(identity, accumulator\)}{section.44.2}% 155
-\BOOKMARK [2][-]{subsection.44.2.3}{.reduce\(identity, accumulator, combiner\)}{section.44.2}% 156
-\BOOKMARK [1][-]{section.44.3}{.collect\(Collector..\)}{chapter.44}% 157
-\BOOKMARK [2][-]{subsection.44.3.1}{Partitoning, Grouping}{section.44.3}% 158
-\BOOKMARK [2][-]{subsection.44.3.2}{Summarizing}{section.44.3}% 159
-\BOOKMARK [2][-]{subsection.44.3.3}{Custom collector}{section.44.3}% 160
-\BOOKMARK [1][-]{section.44.4}{Sorting}{chapter.44}% 161
-\BOOKMARK [2][-]{subsection.44.4.1}{.sorted\(\)}{section.44.4}% 162
-\BOOKMARK [2][-]{subsection.44.4.2}{.sorted\(Comparator.comparing\(a -> b\)\)}{section.44.4}% 163
-\BOOKMARK [0][-]{chapter.45}{Ordering}{part.7}% 164
-\BOOKMARK [0][-]{chapter.46}{Streamming Primitive Types}{part.7}% 165
-\BOOKMARK [1][-]{section.46.1}{Key Ponts}{chapter.46}% 166
-\BOOKMARK [1][-]{section.46.2}{Conversion to Primitive Stream and back}{chapter.46}% 167
-\BOOKMARK [1][-]{section.46.3}{.summaryStatistics\(\)}{chapter.46}% 168
-\BOOKMARK [0][-]{chapter.47}{Streaming a String}{part.7}% 169
-\BOOKMARK [1][-]{section.47.1}{String Representation of Collections}{chapter.47}% 170
-\BOOKMARK [0][-]{chapter.48}{Streaming Arrays}{part.7}% 171
-\BOOKMARK [0][-]{chapter.49}{Support Classes, Interfaces and Methods}{part.7}% 172
-\BOOKMARK [1][-]{section.49.1}{Collector interface}{chapter.49}% 173
-\BOOKMARK [2][-]{subsection.49.1.1}{supplier}{section.49.1}% 174
-\BOOKMARK [2][-]{subsection.49.1.2}{accumulator}{section.49.1}% 175
-\BOOKMARK [2][-]{subsection.49.1.3}{combiner}{section.49.1}% 176
-\BOOKMARK [2][-]{subsection.49.1.4}{finisher}{section.49.1}% 177
-\BOOKMARK [2][-]{subsection.49.1.5}{characteristic}{section.49.1}% 178
-\BOOKMARK [1][-]{section.49.2}{IntStream}{chapter.49}% 179
-\BOOKMARK [2][-]{subsection.49.2.1}{.of\(ints\)}{section.49.2}% 180
-\BOOKMARK [2][-]{subsection.49.2.2}{.range\(lb, up\)}{section.49.2}% 181
-\BOOKMARK [2][-]{subsection.49.2.3}{.rangeClosed\(lb, up\)}{section.49.2}% 182
-\BOOKMARK [2][-]{subsection.49.2.4}{.iterator\(lb, next\).limit\(n\)}{section.49.2}% 183
-\BOOKMARK [2][-]{subsection.49.2.5}{.generate\(intSupplier s\)}{section.49.2}% 184
-\BOOKMARK [2][-]{subsection.49.2.6}{.boxed\(\)}{section.49.2}% 185
-\BOOKMARK [1][-]{section.49.3}{Stream}{chapter.49}% 186
-\BOOKMARK [2][-]{subsection.49.3.1}{.of\(objects\)}{section.49.3}% 187
-\BOOKMARK [0][-]{chapter.50}{Patterns \046 Idioms Using Aggregate operations}{part.7}% 188
-\BOOKMARK [-1][-]{part.8}{VIII Library Classes}{}% 189
-\BOOKMARK [0][-]{chapter.51}{Scanner}{part.8}% 190
-\BOOKMARK [1][-]{section.51.1}{Key Points:}{chapter.51}% 191
-\BOOKMARK [1][-]{section.51.2}{InputMismatchException}{chapter.51}% 192
-\BOOKMARK [1][-]{section.51.3}{hasNext\(\), eof}{chapter.51}% 193
-\BOOKMARK [1][-]{section.51.4}{nextLine\(\)}{chapter.51}% 194
-\BOOKMARK [0][-]{chapter.52}{Integer}{part.8}% 195
-\BOOKMARK [1][-]{section.52.1}{Boxing}{chapter.52}% 196
-\BOOKMARK [1][-]{section.52.2}{Unboxing}{chapter.52}% 197
-\BOOKMARK [1][-]{section.52.3}{Conversion from String}{chapter.52}% 198
-\BOOKMARK [0][-]{chapter.53}{Date \046 Time}{part.8}% 199
-\BOOKMARK [1][-]{section.53.1}{Date}{chapter.53}% 200
-\BOOKMARK [1][-]{section.53.2}{Date + String.format\(..\)}{chapter.53}% 201
-\BOOKMARK [1][-]{section.53.3}{SimpleDateFormat}{chapter.53}% 202
-\BOOKMARK [0][-]{chapter.54}{String}{part.8}% 203
-\BOOKMARK [1][-]{section.54.1}{CharSequence Interface Family}{chapter.54}% 204
-\BOOKMARK [1][-]{section.54.2}{String.format\(pattern, args\)}{chapter.54}% 205
-\BOOKMARK [1][-]{section.54.3}{split\(\)}{chapter.54}% 206
-\BOOKMARK [0][-]{chapter.55}{java.utils.Arrays}{part.8}% 207
-\BOOKMARK [1][-]{section.55.1}{ArrayList from an Array}{chapter.55}% 208
-\BOOKMARK [2][-]{subsection.55.1.1}{Sending Arrays.asList\(array\) to ArrayList constructor}{section.55.1}% 209
-\BOOKMARK [2][-]{subsection.55.1.2}{Using collections.addAll\(arrayList, array\).}{section.55.1}% 210
-\BOOKMARK [2][-]{subsection.55.1.3}{Arrays.asList\(array\)}{section.55.1}% 211
-\BOOKMARK [0][-]{chapter.56}{Random}{part.8}% 212
-\BOOKMARK [1][-]{section.56.1}{Math.random\(\)}{chapter.56}% 213
-\BOOKMARK [1][-]{section.56.2}{Random class}{chapter.56}% 214
-\BOOKMARK [1][-]{section.56.3}{Random class vs Math.random\(\)}{chapter.56}% 215
-\BOOKMARK [1][-]{section.56.4}{Comparable}{chapter.56}% 216
-\BOOKMARK [-1][-]{part.9}{IX Advanced Topics}{}% 217
-\BOOKMARK [0][-]{section.56.5}{Reflection}{part.9}% 218
-\BOOKMARK [1][-]{section.56.6}{Immutability}{section.56.5}% 219
-\BOOKMARK [2][-]{subsection.56.6.1}{Implementing Immutability}{section.56.6}% 220
-\BOOKMARK [1][-]{section.56.7}{Default Methods}{section.56.5}% 221
-\BOOKMARK [0][-]{chapter.57}{Data Parallelism}{part.9}% 222
-\BOOKMARK [1][-]{section.57.1}{Intro}{chapter.57}% 223
-\BOOKMARK [2][-]{subsection.57.1.1}{Notions}{section.57.1}% 224
-\BOOKMARK [1][-]{section.57.2}{Impact on Performance}{chapter.57}% 225
-\BOOKMARK [1][-]{section.57.3}{Parallel Stream Operations}{chapter.57}% 226
-\BOOKMARK [1][-]{section.57.4}{Caveats}{chapter.57}% 227
-\BOOKMARK [2][-]{subsection.57.4.1}{Parallel .reduce\(\)}{section.57.4}% 228
-\BOOKMARK [-1][-]{part.10}{X Idioms}{}% 229
-\BOOKMARK [0][-]{chapter.58}{Exceptions}{part.10}% 230
-\BOOKMARK [-1][-]{part.11}{XI UML modelling}{}% 231
-\BOOKMARK [0][-]{chapter.59}{Domain Modelling}{part.11}% 232
-\BOOKMARK [1][-]{section.59.1}{Inheritance}{chapter.59}% 233
-\BOOKMARK [1][-]{section.59.2}{Association}{chapter.59}% 234
-\BOOKMARK [0][-]{chapter.60}{Class Diagram}{part.11}% 235
-\BOOKMARK [-1][-]{part.12}{XII Design Concepts}{}% 236
-\BOOKMARK [0][-]{chapter.61}{Dependencies}{part.12}% 237
-\BOOKMARK [1][-]{section.61.1}{Overview}{chapter.61}% 238
-\BOOKMARK [1][-]{section.61.2}{Dependency as a Type of Relationship}{chapter.61}% 239
-\BOOKMARK [1][-]{section.61.3}{Types of dependencies}{chapter.61}% 240
-\BOOKMARK [1][-]{section.61.4}{Hidden Dependency}{chapter.61}% 241
-\BOOKMARK [1][-]{section.61.5}{Indirect Dependencies}{chapter.61}% 242
-\BOOKMARK [1][-]{section.61.6}{Local and Context Depedences}{chapter.61}% 243
-\BOOKMARK [-1][-]{part.13}{XIII Design Patterns}{}% 244
-\BOOKMARK [0][-]{chapter.62}{Creational}{part.13}% 245
-\BOOKMARK [1][-]{section.62.1}{Singleton}{chapter.62}% 246
-\BOOKMARK [2][-]{subsection.62.1.1}{Problem Descritpion}{section.62.1}% 247
-\BOOKMARK [2][-]{subsection.62.1.2}{Implementatio}{section.62.1}% 248
-\BOOKMARK [0][-]{chapter.63}{Structural}{part.13}% 249
-\BOOKMARK [1][-]{section.63.1}{Decorator}{chapter.63}% 250
-\BOOKMARK [0][-]{chapter.64}{Behavioural}{part.13}% 251
-\BOOKMARK [1][-]{section.64.1}{Observer}{chapter.64}% 252
-\BOOKMARK [2][-]{subsection.64.1.1}{Problem Description}{section.64.1}% 253
-\BOOKMARK [2][-]{subsection.64.1.2}{Implementation}{section.64.1}% 254
-\BOOKMARK [-1][-]{part.14}{XIV Antipatterns, Code Smells}{}% 255
-\BOOKMARK [0][-]{chapter.65}{AutoBoxing, Unboxing}{part.14}% 256
-\BOOKMARK [0][-]{chapter.66}{Constructors}{part.14}% 257
-\BOOKMARK [1][-]{section.66.1}{Constructor Calls an Overridable Method}{chapter.66}% 258
-\BOOKMARK [-1][-]{part.15}{XV Testing}{}% 259
-\BOOKMARK [0][-]{chapter.67}{JUnit}{part.15}% 260
-\BOOKMARK [1][-]{section.67.1}{Unit testing}{chapter.67}% 261
-\BOOKMARK [-1][-]{part.16}{XVI Varia}{}% 262
-\BOOKMARK [0][-]{chapter.68}{Compact Strings}{part.16}% 263
-\BOOKMARK [-1][-]{part.17}{XVII Appendix}{}% 264
-\BOOKMARK [0][-]{chapter.69}{Vocabulary}{part.17}% 265
-\BOOKMARK [1][-]{section.69.1}{B}{chapter.69}% 266
-\BOOKMARK [2][-]{subsection.69.1.1}{binding}{section.69.1}% 267
-\BOOKMARK [1][-]{section.69.2}{C}{chapter.69}% 268
-\BOOKMARK [2][-]{subsection.69.2.1}{composition}{section.69.2}% 269
-\BOOKMARK [2][-]{subsection.69.2.2}{covariant}{section.69.2}% 270
-\BOOKMARK [1][-]{section.69.3}{D}{chapter.69}% 271
-\BOOKMARK [2][-]{subsection.69.3.1}{depedency}{section.69.3}% 272
-\BOOKMARK [2][-]{subsection.69.3.2}{dynamic binding}{section.69.3}% 273
-\BOOKMARK [1][-]{section.69.4}{E}{chapter.69}% 274
-\BOOKMARK [2][-]{subsection.69.4.1}{encapsulation}{section.69.4}% 275
-\BOOKMARK [1][-]{section.69.5}{H}{chapter.69}% 276
-\BOOKMARK [2][-]{subsection.69.5.1}{has-a relationship}{section.69.5}% 277
-\BOOKMARK [1][-]{section.69.6}{I}{chapter.69}% 278
-\BOOKMARK [2][-]{subsection.69.6.1}{interface}{section.69.6}% 279
-\BOOKMARK [2][-]{subsection.69.6.2}{invariant}{section.69.6}% 280
-\BOOKMARK [1][-]{section.69.7}{L}{chapter.69}% 281
-\BOOKMARK [2][-]{subsection.69.7.1}{late binding}{section.69.7}% 282
-\BOOKMARK [1][-]{section.69.8}{M}{chapter.69}% 283
-\BOOKMARK [2][-]{subsection.69.8.1}{members of class}{section.69.8}% 284
-\BOOKMARK [1][-]{section.69.9}{N}{chapter.69}% 285
-\BOOKMARK [2][-]{subsection.69.9.1}{non-interfering}{section.69.9}% 286
-\BOOKMARK [1][-]{section.69.10}{P}{chapter.69}% 287
-\BOOKMARK [2][-]{subsection.69.10.1}{polymorphism}{section.69.10}% 288
-\BOOKMARK [2][-]{subsection.69.10.2}{problem space}{section.69.10}% 289
-\BOOKMARK [1][-]{section.69.11}{R}{chapter.69}% 290
-\BOOKMARK [2][-]{subsection.69.11.1}{RTTI}{section.69.11}% 291
-\BOOKMARK [2][-]{subsection.69.11.2}{runtime binding}{section.69.11}% 292
-\BOOKMARK [1][-]{section.69.12}{S}{chapter.69}% 293
-\BOOKMARK [2][-]{subsection.69.12.1}{short circuiting}{section.69.12}% 294
-\BOOKMARK [2][-]{subsection.69.12.2}{solution space}{section.69.12}% 295
-\BOOKMARK [2][-]{subsection.69.12.3}{stateful}{section.69.12}% 296
-\BOOKMARK [2][-]{subsection.69.12.4}{stateless}{section.69.12}% 297
-\BOOKMARK [1][-]{section.69.13}{U}{chapter.69}% 298
-\BOOKMARK [2][-]{subsection.69.13.1}{upcasting}{section.69.13}% 299
-\BOOKMARK [0][-]{chapter.70}{Docs, Specs}{part.17}% 300
-\BOOKMARK [1][-]{section.70.1}{Java Doc}{chapter.70}% 301
+\BOOKMARK [-1][-]{part.6}{VI Lambda Expressions}{}% 128
+\BOOKMARK [0][-]{chapter.39}{Lambda Expressions}{part.6}% 129
+\BOOKMARK [1][-]{section.39.1}{Motivation}{chapter.39}% 130
+\BOOKMARK [1][-]{section.39.2}{Lambda Expressions - Overview}{chapter.39}% 131
+\BOOKMARK [1][-]{section.39.3}{Target Type, Type Inference}{chapter.39}% 132
+\BOOKMARK [1][-]{section.39.4}{Use of External values by Lambda}{chapter.39}% 133
+\BOOKMARK [1][-]{section.39.5}{Lambda Graphically}{chapter.39}% 134
+\BOOKMARK [1][-]{section.39.6}{SAMs, Core Functional Interfaces}{chapter.39}% 135
+\BOOKMARK [1][-]{section.39.7}{Custom Functional Interfaces}{chapter.39}% 136
+\BOOKMARK [1][-]{section.39.8}{Method References}{chapter.39}% 137
+\BOOKMARK [2][-]{subsection.39.8.1}{Static Method Reference}{section.39.8}% 138
+\BOOKMARK [2][-]{subsection.39.8.2}{Instance Method Reference}{section.39.8}% 139
+\BOOKMARK [2][-]{subsection.39.8.3}{Referencing a Method of an Arbitrary Object of a Particular Type}{section.39.8}% 140
+\BOOKMARK [2][-]{subsection.39.8.4}{Referencing a Constructor}{section.39.8}% 141
+\BOOKMARK [2][-]{subsection.39.8.5}{Applications}{section.39.8}% 142
+\BOOKMARK [1][-]{section.39.9}{Overloading}{chapter.39}% 143
+\BOOKMARK [-1][-]{part.7}{VII Aggregate Operations \(streams\)}{}% 144
+\BOOKMARK [0][-]{chapter.40}{Motivation}{part.7}% 145
+\BOOKMARK [0][-]{chapter.41}{for-loop vs stream}{part.7}% 146
+\BOOKMARK [0][-]{chapter.42}{Stream methods}{part.7}% 147
+\BOOKMARK [1][-]{section.42.1}{min\(\), max\(\)}{chapter.42}% 148
+\BOOKMARK [1][-]{section.42.2}{.reduce\(\)}{chapter.42}% 149
+\BOOKMARK [2][-]{subsection.42.2.1}{.reduce\(accumulator\)}{section.42.2}% 150
+\BOOKMARK [2][-]{subsection.42.2.2}{.reduce\(identity, accumulator\)}{section.42.2}% 151
+\BOOKMARK [2][-]{subsection.42.2.3}{.reduce\(identity, accumulator, combiner\)}{section.42.2}% 152
+\BOOKMARK [1][-]{section.42.3}{.collect\(Collector..\)}{chapter.42}% 153
+\BOOKMARK [2][-]{subsection.42.3.1}{Partitoning, Grouping}{section.42.3}% 154
+\BOOKMARK [2][-]{subsection.42.3.2}{Summarizing}{section.42.3}% 155
+\BOOKMARK [2][-]{subsection.42.3.3}{Custom collector}{section.42.3}% 156
+\BOOKMARK [1][-]{section.42.4}{Sorting}{chapter.42}% 157
+\BOOKMARK [2][-]{subsection.42.4.1}{.sorted\(\)}{section.42.4}% 158
+\BOOKMARK [2][-]{subsection.42.4.2}{.sorted\(Comparator.comparing\(a -> b\)\)}{section.42.4}% 159
+\BOOKMARK [0][-]{chapter.43}{Ordering}{part.7}% 160
+\BOOKMARK [0][-]{chapter.44}{Streamming Primitive Types}{part.7}% 161
+\BOOKMARK [1][-]{section.44.1}{Key Ponts}{chapter.44}% 162
+\BOOKMARK [1][-]{section.44.2}{Conversion to Primitive Stream and back}{chapter.44}% 163
+\BOOKMARK [1][-]{section.44.3}{.summaryStatistics\(\)}{chapter.44}% 164
+\BOOKMARK [0][-]{chapter.45}{Streaming a String}{part.7}% 165
+\BOOKMARK [1][-]{section.45.1}{String Representation of Collections}{chapter.45}% 166
+\BOOKMARK [0][-]{chapter.46}{Streaming Arrays}{part.7}% 167
+\BOOKMARK [0][-]{chapter.47}{Support Classes, Interfaces and Methods}{part.7}% 168
+\BOOKMARK [1][-]{section.47.1}{Collector interface}{chapter.47}% 169
+\BOOKMARK [2][-]{subsection.47.1.1}{supplier}{section.47.1}% 170
+\BOOKMARK [2][-]{subsection.47.1.2}{accumulator}{section.47.1}% 171
+\BOOKMARK [2][-]{subsection.47.1.3}{combiner}{section.47.1}% 172
+\BOOKMARK [2][-]{subsection.47.1.4}{finisher}{section.47.1}% 173
+\BOOKMARK [2][-]{subsection.47.1.5}{characteristic}{section.47.1}% 174
+\BOOKMARK [1][-]{section.47.2}{IntStream}{chapter.47}% 175
+\BOOKMARK [2][-]{subsection.47.2.1}{.of\(ints\)}{section.47.2}% 176
+\BOOKMARK [2][-]{subsection.47.2.2}{.range\(lb, up\)}{section.47.2}% 177
+\BOOKMARK [2][-]{subsection.47.2.3}{.rangeClosed\(lb, up\)}{section.47.2}% 178
+\BOOKMARK [2][-]{subsection.47.2.4}{.iterator\(lb, next\).limit\(n\)}{section.47.2}% 179
+\BOOKMARK [2][-]{subsection.47.2.5}{.generate\(intSupplier s\)}{section.47.2}% 180
+\BOOKMARK [2][-]{subsection.47.2.6}{.boxed\(\)}{section.47.2}% 181
+\BOOKMARK [1][-]{section.47.3}{Stream}{chapter.47}% 182
+\BOOKMARK [2][-]{subsection.47.3.1}{.of\(objects\)}{section.47.3}% 183
+\BOOKMARK [0][-]{chapter.48}{Patterns \046 Idioms Using Aggregate operations}{part.7}% 184
+\BOOKMARK [-1][-]{part.8}{VIII Library Classes}{}% 185
+\BOOKMARK [0][-]{chapter.49}{Scanner}{part.8}% 186
+\BOOKMARK [1][-]{section.49.1}{Key Points:}{chapter.49}% 187
+\BOOKMARK [1][-]{section.49.2}{InputMismatchException}{chapter.49}% 188
+\BOOKMARK [1][-]{section.49.3}{hasNext\(\), eof}{chapter.49}% 189
+\BOOKMARK [1][-]{section.49.4}{nextLine\(\)}{chapter.49}% 190
+\BOOKMARK [0][-]{chapter.50}{Integer}{part.8}% 191
+\BOOKMARK [1][-]{section.50.1}{Boxing}{chapter.50}% 192
+\BOOKMARK [1][-]{section.50.2}{Unboxing}{chapter.50}% 193
+\BOOKMARK [1][-]{section.50.3}{Conversion from String}{chapter.50}% 194
+\BOOKMARK [0][-]{chapter.51}{Date \046 Time}{part.8}% 195
+\BOOKMARK [1][-]{section.51.1}{Date}{chapter.51}% 196
+\BOOKMARK [1][-]{section.51.2}{Date + String.format\(..\)}{chapter.51}% 197
+\BOOKMARK [1][-]{section.51.3}{SimpleDateFormat}{chapter.51}% 198
+\BOOKMARK [0][-]{chapter.52}{String}{part.8}% 199
+\BOOKMARK [1][-]{section.52.1}{CharSequence Interface Family}{chapter.52}% 200
+\BOOKMARK [1][-]{section.52.2}{String.format\(pattern, args\)}{chapter.52}% 201
+\BOOKMARK [1][-]{section.52.3}{split\(\)}{chapter.52}% 202
+\BOOKMARK [0][-]{chapter.53}{java.utils.Arrays}{part.8}% 203
+\BOOKMARK [1][-]{section.53.1}{ArrayList from an Array}{chapter.53}% 204
+\BOOKMARK [2][-]{subsection.53.1.1}{Sending Arrays.asList\(array\) to ArrayList constructor}{section.53.1}% 205
+\BOOKMARK [2][-]{subsection.53.1.2}{Using collections.addAll\(arrayList, array\).}{section.53.1}% 206
+\BOOKMARK [2][-]{subsection.53.1.3}{Arrays.asList\(array\)}{section.53.1}% 207
+\BOOKMARK [0][-]{chapter.54}{Random}{part.8}% 208
+\BOOKMARK [1][-]{section.54.1}{Math.random\(\)}{chapter.54}% 209
+\BOOKMARK [1][-]{section.54.2}{Random class}{chapter.54}% 210
+\BOOKMARK [1][-]{section.54.3}{Random class vs Math.random\(\)}{chapter.54}% 211
+\BOOKMARK [1][-]{section.54.4}{Comparable}{chapter.54}% 212
+\BOOKMARK [-1][-]{part.9}{IX Advanced Topics}{}% 213
+\BOOKMARK [0][-]{section.54.5}{Reflection}{part.9}% 214
+\BOOKMARK [1][-]{section.54.6}{Immutability}{section.54.5}% 215
+\BOOKMARK [2][-]{subsection.54.6.1}{Implementing Immutability}{section.54.6}% 216
+\BOOKMARK [1][-]{section.54.7}{Default Methods}{section.54.5}% 217
+\BOOKMARK [0][-]{chapter.55}{Data Parallelism}{part.9}% 218
+\BOOKMARK [1][-]{section.55.1}{Intro}{chapter.55}% 219
+\BOOKMARK [2][-]{subsection.55.1.1}{Notions}{section.55.1}% 220
+\BOOKMARK [1][-]{section.55.2}{Impact on Performance}{chapter.55}% 221
+\BOOKMARK [1][-]{section.55.3}{Parallel Stream Operations}{chapter.55}% 222
+\BOOKMARK [1][-]{section.55.4}{Caveats}{chapter.55}% 223
+\BOOKMARK [2][-]{subsection.55.4.1}{Parallel .reduce\(\)}{section.55.4}% 224
+\BOOKMARK [-1][-]{part.10}{X Idioms}{}% 225
+\BOOKMARK [0][-]{chapter.56}{Exceptions}{part.10}% 226
+\BOOKMARK [-1][-]{part.11}{XI UML modelling}{}% 227
+\BOOKMARK [0][-]{chapter.57}{Domain Modelling}{part.11}% 228
+\BOOKMARK [1][-]{section.57.1}{Inheritance}{chapter.57}% 229
+\BOOKMARK [1][-]{section.57.2}{Association}{chapter.57}% 230
+\BOOKMARK [0][-]{chapter.58}{Class Diagram}{part.11}% 231
+\BOOKMARK [-1][-]{part.12}{XII Design Concepts}{}% 232
+\BOOKMARK [0][-]{chapter.59}{Dependencies}{part.12}% 233
+\BOOKMARK [1][-]{section.59.1}{Overview}{chapter.59}% 234
+\BOOKMARK [1][-]{section.59.2}{Dependency as a Type of Relationship}{chapter.59}% 235
+\BOOKMARK [1][-]{section.59.3}{Types of dependencies}{chapter.59}% 236
+\BOOKMARK [1][-]{section.59.4}{Hidden Dependency}{chapter.59}% 237
+\BOOKMARK [1][-]{section.59.5}{Indirect Dependencies}{chapter.59}% 238
+\BOOKMARK [1][-]{section.59.6}{Local and Context Depedences}{chapter.59}% 239
+\BOOKMARK [-1][-]{part.13}{XIII Antipatterns, Code Smells}{}% 240
+\BOOKMARK [0][-]{chapter.60}{AutoBoxing, Unboxing}{part.13}% 241
+\BOOKMARK [0][-]{chapter.61}{Constructors}{part.13}% 242
+\BOOKMARK [1][-]{section.61.1}{Constructor Calls an Overridable Method}{chapter.61}% 243
+\BOOKMARK [-1][-]{part.14}{XIV Testing}{}% 244
+\BOOKMARK [0][-]{chapter.62}{JUnit}{part.14}% 245
+\BOOKMARK [1][-]{section.62.1}{Unit testing}{chapter.62}% 246
+\BOOKMARK [-1][-]{part.15}{XV Varia}{}% 247
+\BOOKMARK [0][-]{chapter.63}{Compact Strings}{part.15}% 248
+\BOOKMARK [-1][-]{part.16}{XVI Appendix}{}% 249
+\BOOKMARK [0][-]{chapter.64}{Vocabulary}{part.16}% 250
+\BOOKMARK [1][-]{section.64.1}{B}{chapter.64}% 251
+\BOOKMARK [2][-]{subsection.64.1.1}{binding}{section.64.1}% 252
+\BOOKMARK [1][-]{section.64.2}{C}{chapter.64}% 253
+\BOOKMARK [2][-]{subsection.64.2.1}{composition}{section.64.2}% 254
+\BOOKMARK [2][-]{subsection.64.2.2}{covariant}{section.64.2}% 255
+\BOOKMARK [1][-]{section.64.3}{D}{chapter.64}% 256
+\BOOKMARK [2][-]{subsection.64.3.1}{depedency}{section.64.3}% 257
+\BOOKMARK [2][-]{subsection.64.3.2}{dynamic binding}{section.64.3}% 258
+\BOOKMARK [1][-]{section.64.4}{E}{chapter.64}% 259
+\BOOKMARK [2][-]{subsection.64.4.1}{encapsulation}{section.64.4}% 260
+\BOOKMARK [1][-]{section.64.5}{H}{chapter.64}% 261
+\BOOKMARK [2][-]{subsection.64.5.1}{has-a relationship}{section.64.5}% 262
+\BOOKMARK [1][-]{section.64.6}{I}{chapter.64}% 263
+\BOOKMARK [2][-]{subsection.64.6.1}{interface}{section.64.6}% 264
+\BOOKMARK [2][-]{subsection.64.6.2}{invariant}{section.64.6}% 265
+\BOOKMARK [1][-]{section.64.7}{L}{chapter.64}% 266
+\BOOKMARK [2][-]{subsection.64.7.1}{late binding}{section.64.7}% 267
+\BOOKMARK [1][-]{section.64.8}{M}{chapter.64}% 268
+\BOOKMARK [2][-]{subsection.64.8.1}{members of class}{section.64.8}% 269
+\BOOKMARK [1][-]{section.64.9}{N}{chapter.64}% 270
+\BOOKMARK [2][-]{subsection.64.9.1}{non-interfering}{section.64.9}% 271
+\BOOKMARK [1][-]{section.64.10}{P}{chapter.64}% 272
+\BOOKMARK [2][-]{subsection.64.10.1}{polymorphism}{section.64.10}% 273
+\BOOKMARK [2][-]{subsection.64.10.2}{problem space}{section.64.10}% 274
+\BOOKMARK [1][-]{section.64.11}{R}{chapter.64}% 275
+\BOOKMARK [2][-]{subsection.64.11.1}{RTTI}{section.64.11}% 276
+\BOOKMARK [2][-]{subsection.64.11.2}{runtime binding}{section.64.11}% 277
+\BOOKMARK [1][-]{section.64.12}{S}{chapter.64}% 278
+\BOOKMARK [2][-]{subsection.64.12.1}{short circuiting}{section.64.12}% 279
+\BOOKMARK [2][-]{subsection.64.12.2}{solution space}{section.64.12}% 280
+\BOOKMARK [2][-]{subsection.64.12.3}{stateful}{section.64.12}% 281
+\BOOKMARK [2][-]{subsection.64.12.4}{stateless}{section.64.12}% 282
+\BOOKMARK [1][-]{section.64.13}{U}{chapter.64}% 283
+\BOOKMARK [2][-]{subsection.64.13.1}{upcasting}{section.64.13}% 284
+\BOOKMARK [0][-]{chapter.65}{Docs, Specs}{part.16}% 285
+\BOOKMARK [1][-]{section.65.1}{Java Doc}{chapter.65}% 286
