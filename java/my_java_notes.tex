@@ -1181,125 +1181,6 @@ So, we can:
 Clean \& elegant.
 
 
-\part{OOP} 
-
-
-
-\chapter{Resources}
-
-\begin{itemize}
-	\item UML Distilled textbook by Martin Fowler 
-	\item \textbf{is-a} relationship - inheritance
-	\item \textbf{has-a} relationship - association
-	\item \textbf{CRC} - Class-Responsibility-Collaboration (\url{http://agilemodeling.com/artifacts/crcModel.htm})
-	\begin{itemize}
-		\item \textbf{responsibility} - states and behaviours
-		\item \textbf{collaboration} - other classes that this class is somewhat awared of (association, aggregation,
-		composition).
-	\end{itemize}
-\end{itemize}
-
-\chapter{Abstraction}
-There are different meanning of abstractin. one of them is the ability to capture real world entities as classes.
-Two types of abstractions in Java:
-\begin{itemize}
-	\item \textbf{interfaces}, used to define expected behaviour.Implementation \textbf{is hidden from a client}.
-	\item \textbf{abstract classes}, used to define incomplete functionality.
-\end{itemize}
-
-\chapter{Inheritance}
-The ability of subclass to derive members (fields and methods) from ascendands. In java only single parent class is allowed. It is an \textbf{'is-a'} relationship.
-\textbf{Derived class inherits all members present in the base class. 
-However not all of them are accessible}. This is ruled by access modifiers used in the base class.
-
-\section{Accessing Members}
-It is valid to instantiate an object with a subtype. The instantiated reference variable allows an access to those members (and their variations) which are present in their type.
-It is still possible to access subtype members using cast:
-\begin{verbatim}
-Parent childParent = new Child();
-\\ access to a member as it is defined in the Parent class.
-childParent.field... 
-
-\\ access to a member as it is defined in the Child class
-((Child)childParent).field 
-\end{verbatim}
-\textbf{\textcolor{red}{Pay attention to the syntax of above cast!}}
-%
-%\begin{tabular}{i|l|l|l}
-%	types & fields & cast & method calls \\
-%	\hline
-%	Parent pc = new Child() & parent & \textbf{to child} & \textbf{child \textcolor{red}{(*)}}\\
-%	Parent p = new Parent() & parent & \textcolor{red}{\textbf{error!} & parent} \\
-%	Child c = new Child() & child & \textbf{to parent} & child \\
-%	Child c = new Parent() & \textcolor{red}{\textbf{error!}} & &\\
-%	\hline
-%\end{tabular}\\
-
-\par
-\textbf{\textcolor{red}{*  Those method which are overridden are accessible as usual.\\
-In order to call methods that are not overridden the reference variable 
-used to access the methods (here - \textit{pc}) must be cast to (Child)}}
-
-
-\section{Pitfalls}
-
-\subsection{Constructor Calls an Overridable Method}
-\begin{enumerate}
-	\item call to constructor in \textbf{child class}
-	\item it calls \textbf{parent class constructor} first
-	\item if there is a call to overridable method it calls \textcolor{red}{\textbf{textchild version of the method}}
-	\item \textbf{ERROR! }The call \textcolor{red}{\textbf{will fail}} if the method references some uninitialised variable.
-	\textcolor{red}{\textbf{The variable can be initialised only when the control returns to child constructor - in steps which will folow!}}
-\end{enumerate}
-
-
-\section{Liskov Substitution Principle}
-Whenever an instance of some class is expected in a program, 
-one can suply an instance  of subclass of the class
-
-
-
-\chapter{Encapsulation}
-Inner details of classes can be hidden by making them private and acceptible
-through public API only - getters (accessors) and setters (mutators).
-
-\chapter{Polymorphism , Method Overriding}
-\textit{'Many forms'}. implemented by
-\begin{itemize}
-	\item subclass specialisation (\textit{is-a'} relationship
-	\item Liskov substitution principle
-	\item virtual method invocation)
-\end{itemize}
-Polymorphism is usually achieved by method overriding. It utilises method dynamic binding.
-
-\section{Virtual method Invocation}
-Method calls are dynamically dispatched based on runtime type of the receiver object.
-
-\section{Method Overloading}
-Overloading means that two or more methods have the same name
- but different signature. They \textbf{must have different parameters} (number of them and/or types),
- they \textbf{may have different return type and access modifiers} (private, protected, etc) - see Rules.
- 
- 
-\section{Method Overriding}
-It means that new implementation is provided to an inherited method. This is annotated by @Override. The overridden method in a superclass can be still called 
-when invoked using \textbf{super.} keyword.
-
-\subsection*{Rules}
-\begin{itemize}
-	\item \textbf{final, static, private} methods can't be overridden.
-	\item access modifier of overriding method \textbf{must not be more restrictive}.
-	\item \textbf{no new checked exception} can be thrown
-	\item if return type is a reference type, then it can be original type or any descendant of this type (\textbf{covariant return type}).
-\end{itemize}
-
-\textbf{Private} methods can't be overriden because they are excluded from inheritance (not visible from within subclasses). \\
-\textbf{Static} methods reside in static context, they belong to class, not to objects. Therefore they are not inherited, too. Hence, they can't be overriden. \\
-However, they can be \textbf{shadowed} - subclass can have static method with the same name, as its parent class. A method call is bind to first method with a proper signature - starting 
-from the class in current context and going up the inheritance tree.
-
-
-
 \part{Lambda Expressions}
 \chapter{Lambda Expressions}
 \section{Motivation}
@@ -2444,36 +2325,10 @@ while(!terminateLoop){
 
 
 
-\part{UML modelling}
-
-\chapter{Domain Modelling}
-Focuses on \textbf{multiplicities} and \textbf{directionalities}:
-\begin{itemize}
-	\item no details about class content
-	\item details about inheritance direction
-	\item details about type of relationship - 1:1, 1:M, M:M
-\end{itemize}
-
-\section{Inheritance}
-\textbf{White} arrows pointing from children classes to parent class.
-
-\section{Association}
-\textbf{An arrow} pointing from \textit{knowing} class to \textit{known-about} class.
-
-\chapter{Class Diagram}
-More internal details about  classes. It includes:
-\begin{itemize}
-	\item attributes
-	\item behaviours
-	\item types
-	\item visibility -  public (+),
-	\item private( -), protected (\#)
-\end{itemize} attributes and behaviours.
 
 
 
 
-\part{Design Concepts}
 
 \chapter{Dependencies}
 \section{Overview}

@@ -18,7 +18,8 @@
 \contentsline {chapter}{\numberline {8}Strive for loosly coupled designs between objects that interact}{15}{chapter.8}
 \contentsline {part}{IV\hspace {1em}Design}{16}{part.4}
 \contentsline {chapter}{\numberline {9}Requiremments}{17}{chapter.9}
-\contentsline {section}{\numberline {9.1}Use Cases}{17}{section.9.1}
+\contentsline {section}{\numberline {9.1}Requirement}{17}{section.9.1}
+\contentsline {section}{\numberline {9.2}Use Cases}{17}{section.9.2}
 \contentsline {part}{V\hspace {1em}Creational Patterns}{18}{part.5}
 \contentsline {chapter}{\numberline {10}Singleton}{20}{chapter.10}
 \contentsline {section}{\numberline {10.1}Problem Descritpion}{20}{section.10.1}
