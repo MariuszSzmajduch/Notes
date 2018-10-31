@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.13)  22 OCT 2018 23:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.13)  31 OCT 2018 11:59
 entering extended mode
 **./my_java_notes.tex
 (my_java_notes.tex
@@ -232,37 +232,37 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.111 ...ne {26}Writing to a File}{39}{chapter.26}
+l.111 ...ne {26}Writing to a File}{40}{chapter.26}
                                                    [3]pdfTeX warning (ext4): de
 stination with the same identifier (name{page.}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.140 ...e {39}Lambda Expressions}{56}{chapter.39}
+l.142 ...Expressions - Overview}{56}{section.38.2}
                                                    [4]pdfTeX warning (ext4): de
 stination with the same identifier (name{page.}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.176 ...e {45}Streaming a String}{72}{chapter.45}
+l.176 ...e {44}Streaming a String}{72}{chapter.44}
                                                    [5]pdfTeX warning (ext4): de
 stination with the same identifier (name{page.}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.214 ...ne {53}java.utils.Arrays}{86}{chapter.53}
+l.214 ...ne {52}java.utils.Arrays}{86}{chapter.52}
                                                    [6]pdfTeX warning (ext4): de
 stination with the same identifier (name{page.}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.249 ...9.4}Hidden Dependency}{103}{section.59.4}
+l.249 ...8.4}Hidden Dependency}{103}{section.58.4}
                                                    [7]pdfTeX warning (ext4): de
 stination with the same identifier (name{page.}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.283 ...}non-interfering}{114}{subsection.64.9.1}
+l.283 ...}non-interfering}{114}{subsection.63.9.1}
                                                    [8])
 \tf@toc=\write4
 \openout4 = `my_java_notes.toc'.
@@ -464,117 +464,109 @@ Chapter 20.
 Chapter 21.
 [32
 
-]
+] [33]
 Chapter 22.
-[33
-
-]
-Chapter 23.
 [34
 
 ]
-Chapter 24.
+Chapter 23.
 [35
 
-] [36
+]
+Chapter 24.
+[36
 
-] [37]
+] [37
+
+] [38]
 Chapter 25.
-[38
+[39
 
 ]
 Chapter 26.
-[39
+[40
 
 ]
 Chapter 27.
 
-Overfull \hbox (60.48277pt too wide) in paragraph at lines 1078--1078
+Overfull \hbox (60.48277pt too wide) in paragraph at lines 1099--1099
 []\OT1/cmr/bx/n/14.4 Writing - Ob-jectOut-put-Stream.writeObject(Object
  []
 
 
-Overfull \hbox (101.24611pt too wide) in paragraph at lines 1083--1083
+Overfull \hbox (101.24611pt too wide) in paragraph at lines 1104--1104
 []\OT1/cmtt/m/n/10 try(ObjectOutputStream oos = new ObectOutputStream(new FileO
 utputStream("file-url))){[] 
  []
 
 
-Overfull \hbox (45.9745pt too wide) in paragraph at lines 1085--1085
+Overfull \hbox (45.9745pt too wide) in paragraph at lines 1106--1106
 []\OT1/cmr/bx/n/14.4 Reading - Ob-ject-In-put-Stream.readObject(Object
  []
 
 
-Overfull \hbox (85.49625pt too wide) in paragraph at lines 1092--1092
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 1113--1113
 []\OT1/cmtt/m/n/10 try(ObjectInputStream oos = new ObectInputStream(new FileInp
 utStream("file-url))){[] 
  []
 
-[40
+[41
 
-] [41
+] [42
 
 ]
 Chapter 28.
 LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10> not available
-(Font)              Font shape `OML/cmm/b/it' tried instead on input line 1099.
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 1120.
 
-[42
-
-]
-Chapter 29.
 [43
 
 ]
-Chapter 30.
+Chapter 29.
 [44
 
 ]
-Chapter 31.
+Chapter 30.
 [45
 
-] [46
+]
+Chapter 31.
+[46
+
+] [47
 
 ]
 Chapter 32.
 
-Overfull \hbox (0.99796pt too wide) in paragraph at lines 1173--1174
+Overfull \hbox (0.99796pt too wide) in paragraph at lines 1194--1195
 []\OT1/cmr/bx/n/10 CRC \OT1/cmr/m/n/10 - Class-Responsibility-Collaboration ([]
 $\OT1/cmtt/m/n/10 http : / / agilemodeling . com /
  []
 
-[47
-
-]
-Chapter 33.
 [48
 
 ]
-Chapter 34.
+Chapter 33.
 [49
 
-] [50]
-Chapter 35.
-[51
-
 ]
-Chapter 36.
+Chapter 34.
+[50
+
+] [51]
+Chapter 35.
 [52
 
 ]
-Chapter 37.
+Chapter 36.
 [53
 
-]
-Chapter 38.
-[54
-
-] [55
+] [54] [55
 
 ]
-Chapter 39.
+Chapter 37.
 
-Overfull \hbox (94.74641pt too wide) in paragraph at lines 1299--1299
+Overfull \hbox (94.74641pt too wide) in paragraph at lines 1331--1331
  []\OT1/cmtt/m/n/10 Runnable noArgument = () -> System.out.rintln("this lambda 
 takes no argument");[] 
  []
@@ -582,62 +574,62 @@ takes no argument");[]
 [56
 
 ]
-Overfull \hbox (89.49646pt too wide) in paragraph at lines 1314--1314
+Overfull \hbox (89.49646pt too wide) in paragraph at lines 1346--1346
  []\OT1/cmtt/m/n/10 ActionListener oneArgument = event - > System.out.println("
 this is an event");[] 
  []
 
 [57] [58]
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1415.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1447.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1415.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1447.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1416.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1448.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1416.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1448.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1417.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1449.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1417.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1449.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1418.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1450.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1418.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1450.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1419.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1451.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1419.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1451.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1420.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1452.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 1420.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 1452.
 
 [59] [60] [61] [62
 
 ]
-Chapter 40.
+Chapter 38.
 [63
 
 ]
-Chapter 41.
+Chapter 39.
 [64
 
 ]
-Chapter 42.
+Chapter 40.
 
-Overfull \hbox (6.3291pt too wide) in paragraph at lines 1536--1537
+Overfull \hbox (6.3291pt too wide) in paragraph at lines 1568--1569
 [][]\OT1/cmr/bx/n/10 BinaryOperator\OML/cmm/b/it/10 <\OT1/cmr/bx/n/10 T, V\OML/
 cmm/b/it/10 >\OT1/cmr/bx/n/10 reducer = (acc, item) $\OMS/cmsy/m/n/10 !$ \OT1/c
 mr/bx/n/10 func(acc,
@@ -646,46 +638,46 @@ mr/bx/n/10 func(acc,
 [65
 
 ]
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 1560--1560
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 1592--1592
 []\OT1/cmtt/m/n/10 .reduce((Person p1, Person p2) -> p1.getAge() > p2.getAge() 
 ? p1 : p2)[] 
  []
 
 
-Overfull \hbox (59.24648pt too wide) in paragraph at lines 1568--1568
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 1600--1600
 []\OT1/cmtt/m/n/10 .reduce(new Person(), (Person p1, Person p2) -> p1.getAge() 
  += p2.getAge());[] 
  []
 
 
-Overfull \hbox (59.24648pt too wide) in paragraph at lines 1578--1578
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 1610--1610
 []\OT1/cmtt/m/n/10 .reducent(0, (Person p1, Person p2) -> totalAge = p1.getAge(
 )  + p2.getAge(),[] 
  []
 
 [66]
-Underfull \hbox (badness 10000) in paragraph at lines 1626--1628
+Underfull \hbox (badness 10000) in paragraph at lines 1658--1660
 
  []
 
 [67]
-Overfull \hbox (12.75052pt too wide) in paragraph at lines 1645--1647
+Overfull \hbox (12.75052pt too wide) in paragraph at lines 1677--1679
 \OT1/cmr/m/n/10 We need to in-stan-ti-ate and use an ob-ject of Col-lec-tor in-
 ter-face type - see:"Aggregate
  []
 
 [68]
-Chapter 43.
+Chapter 41.
 [69
 
 ]
-Chapter 44.
+Chapter 42.
 [70
 
 ] [71]
-Chapter 45.
+Chapter 43.
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 1748--1748
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 1780--1780
 []\OT1/cmtt/m/n/10 strObject.chars()   \\ converts the string into an Integer s
 tream.[] 
  []
@@ -693,9 +685,9 @@ tream.[]
 [72
 
 ]
-Chapter 46.
+Chapter 44.
 
-Overfull \hbox (38.24666pt too wide) in paragraph at lines 1764--1764
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 1796--1796
 []         \OT1/cmtt/m/n/10 .toArray(T[]::new);      // converts the stream bac
 k to an array[] 
  []
@@ -703,50 +695,50 @@ k to an array[]
 [73
 
 ]
-Chapter 47.
+Chapter 45.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1771--1774
+Underfull \hbox (badness 10000) in paragraph at lines 1803--1806
 
  []
 
 [74
 
 ] [75] [76] [77]
-Chapter 48.
+Chapter 46.
 [78
 
 ] [79
 
 ]
-Chapter 49.
+Chapter 47.
 [80
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1972--1973
+Underfull \hbox (badness 10000) in paragraph at lines 2004--2005
 
  []
 
 [81]
-Chapter 50.
+Chapter 48.
 [82
 
 ]
-Chapter 51.
+Chapter 49.
 [83
 
 ] [84]
-Chapter 52.
+Chapter 50.
 [85
 
 ]
-Chapter 53.
+Chapter 51.
 
-Overfull \hbox (4.3057pt too wide) in paragraph at lines 2174--2174
+Overfull \hbox (4.3057pt too wide) in paragraph at lines 2206--2206
 []\OT1/cmr/bx/n/12 Sending Ar-rays.asList(array) to Ar-rayList con-struc-
  []
 
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 2177--2177
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 2209--2209
 []\OT1/cmtt/m/n/10 ArrayList<Element> arrList = new ArrayList<>(Arrays.asList(a
 rray))[] 
  []
@@ -754,7 +746,7 @@ rray))[]
 [86
 
 ] [87]
-Chapter 54.
+Chapter 52.
 [88
 
 ] [89] [90
@@ -762,20 +754,20 @@ Chapter 54.
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 2241.
+(hyperref)                than one, level fixed on input line 2273.
 
 [91] [92]
-Chapter 55.
+Chapter 53.
 [93
 
 ] [94]
-Overfull \hbox (363.74382pt too wide) in paragraph at lines 2395--2395
+Overfull \hbox (363.74382pt too wide) in paragraph at lines 2427--2427
 []  \OT1/cmtt/m/n/10 //new array holds runnung totals of the sums so far. Hence
 , sum of last n-items will be the difference between sum[i] and sum[i - n].[] 
  []
 
 
-Overfull \hbox (269.24464pt too wide) in paragraph at lines 2395--2395
+Overfull \hbox (269.24464pt too wide) in paragraph at lines 2427--2427
 []                    \OT1/cmtt/m/n/10 // 0 assigned to prefix initially, as st
 art - n equals (n - 1) - n = -1 out of the array boundary[] 
  []
@@ -783,94 +775,413 @@ art - n equals (n - 1) - n = -1 out of the array boundary[]
 [95] [96
 
 ]
-Chapter 56.
+Chapter 54.
 [97
 
 ] [98
 
 ]
-Chapter 57.
+Chapter 55.
 [99
 
 ]
-Chapter 58.
+Chapter 56.
 [100
 
 ] [101
 
 ]
-Chapter 59.
+Chapter 57.
 [102
 
 ] [103] [104
 
 ]
-Chapter 60.
+Chapter 58.
 [105
 
 ]
-Chapter 61.
+Chapter 59.
 [106
 
 ] [107
 
 ]
-Chapter 62.
+Chapter 60.
 [108
 
 ] [109
 
 ]
-Chapter 63.
+Chapter 61.
 [110
 
 ] [111
 
 ]
-Chapter 64.
+Chapter 62.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2611
+Underfull \hbox (badness 10000) in paragraph at lines 2641--2643
 
  []
 
 [112
 
 ] [113] [114] [115]
-Chapter 65.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2729.
+Chapter 63.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2761.
 [116
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2729.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2761.
  (my_java_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2729.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2729.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2761.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2761.
 
-Package rerunfilecheck Info: File `my_java_notes.out' has not changed.
-(rerunfilecheck)             Checksum: F2E6E2D744DD906EDCDD353308BDADCB;19184.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2729.
+
+
+Package rerunfilecheck Warning: File `my_java_notes.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `my_java_notes.out':
+(rerunfilecheck)             Before: 29887E9BB5A1CB88C073A5C0FFD3B1B8;19191
+(rerunfilecheck)             After:  BDD4E7ADB3812F6BC23AF2343148B074;19197.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2761.
  ) 
 Here is how much of TeX's memory you used:
- 5530 strings out of 492970
- 80565 string characters out of 3135863
+ 5634 strings out of 492970
+ 82090 string characters out of 3135863
  164212 words of memory out of 3000000
  8957 multiletter control sequences out of 15000+200000
  8214 words of font info for 29 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,6n,28p,432b,509s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on my_java_notes.pdf (131 pages, 506607 bytes).
+pdfTeX warning (dest): name{section.64.1} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter.64} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.13.1} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.13} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.12.4} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.12.3} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.12.2} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.12.1} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.12} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.11.2} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.11.1} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.11} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.10.2} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.10.1} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.10} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.9.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.9} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.8.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.8} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.7.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.7} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.6.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.6.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.6} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.5.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.5} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.4.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.4} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.3.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.3.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.2.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.2.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.63.1.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.61.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.58.6} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.58.5} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.58.4} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.58.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.58.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.58.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.56.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.56.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.54.4.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.54.4} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.54.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.54.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.54.1.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.54.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.53.7} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.53.6.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.53.6} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.53.5} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.52.1.3} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.52.1.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.52.1.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.51.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.51.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.48.4} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.3.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.46.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.2.6} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.2.5} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.2.4} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.2.3} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.2.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.2.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.46.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.1.5} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.1.4} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.1.3} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.1.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.46.1.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.46.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.44.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.43.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.43.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.4.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.4.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.41.4} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.3.3} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.3.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.3.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.41.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.2.3} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.2.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41.2.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.41.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.41.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.9} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.38.8.5} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.38.8.4} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.38.8.3} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.38.8.2} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.38.8.1} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.8} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.7} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.6} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.5} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.4} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.3} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.38.1} has been referenced but does not exis
+t, replaced by a fixed one
+
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on my_java_notes.pdf (131 pages, 518025 bytes).
 PDF statistics:
- 2162 PDF objects out of 2487 (max. 8388607)
- 443 named destinations out of 1000 (max. 500000)
+ 2287 PDF objects out of 2487 (max. 8388607)
+ 547 named destinations out of 1000 (max. 500000)
  2289 words of extra memory for PDF output out of 10000 (max. 10000000)
 

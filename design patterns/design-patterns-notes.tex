@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 
 
+
 \begin{document}
 \maketitle
 \pagenumbering{gobble}
@@ -16,12 +17,13 @@
 
 
 
-
+\pagenumbering{arabic}
 \part{Design Principles}
 
 
 \chapter{Separate What Vary from What Stays the Same}
-Extracting changing parts and encapsulating them separatly allows future changes without affecting existing parts of code.
+Extracting changing parts and encapsulating them separatly allows future//
+changes without affecting existing parts of code.
 
 
 \chapter{Program to an Interface, not an Implementation}
@@ -31,19 +33,20 @@ Here by 'an interface' an API is meant, not the java.
 Allows dynamic changes of behaviour in runtime. See: Strategy Pattern.
 
 
+\chapter{Strive for loosly coupled designs between objects that interact}
+Loosely coupled designs allow us to build flexible OO systems that can handle change 
+because they minimize the interdependency between objects.
 
 
-\part{Design Patterns}
-\pagenumbering{arabic}
 
+\part{Creational Patterns}
 
-\chapter{Creational}
 Those patterns specify how an object can be created.
 
 
-\section{Singleton}
+\chapter{Singleton}
 
-\subsection{Problem Descritpion}
+\section{Problem Descritpion}
 All cases, when \textbf{exactly one instance} is required:
 \begin{itemize}
 	\item network session
@@ -51,7 +54,7 @@ All cases, when \textbf{exactly one instance} is required:
 \end{itemize}
 There is a modification to the pattern possible to create a pool of fixed amount of objects.
 
-\subsection{Implementatio}
+\section{Implementation}
 The key is to:
 \begin{itemize}
 	\item make the \textbf{class final}
@@ -85,12 +88,12 @@ The final modifier prevents singleton from clonning.
 
 
 
-\chapter{Structural}
+\part{Structural}
 The way the objects are connected. It allows to implement particular project constraints. The overall idea is to implement such solutions
 that future changes to the system won't require changes to existing code.
 
 
-\section{Decorator}
+\chapter{Decorator}
 This is a use of layered objects to dynamically and transparently add responsibilities to individual objects. They preserve
 original API - we use them by invoking exacty the same methods. Decorator classes just adjust and modify existing interface.
 It is often used when large number of subclasses is required to solve al possibilities, like for instance servicing IO
@@ -98,17 +101,17 @@ operations. The drawback is that we must to creat multiple objects in order to g
 
 
 
-\chapter{Behavioural}
-Captures particular types of actions within a program.
+\part{Behavioural Patterns}
+Those patterns capture particular types of actions within a program.
 
 
-\section{Observer}
+\chapter{Observer}
 
-\subsection{Problem Description}
+\section{Problem Description}
 The requirement is that objects update their state in respond to changes which occur in some other object. As it is common problem
 the solution is supported by standard Java libraries - \textbf{Observer} and \textbf{Observable}.
 
-\subsection{Implementation}
+\section{Implementation}
 \begin{itemize}
 	\item \textbf{Observable} class 
 	\begin{itemize}
@@ -149,26 +152,26 @@ the solution is supported by standard Java libraries - \textbf{Observer} and \te
 \end{verbatim}
 
 
-\section{Strategy}
+\chapter{Strategy}
 
-\subsection{Problem Description}
+\section{Problem Description}
 Derived classes cherrypick behaviours(algorithms). Adding new behaviour in the parent class results
 that unwanted behaviour may appear in some child classes. 
  
-\subsection{Anti-Patterns}
-\subsubsection{Voiding by Overriding with Empty Methods}
+\section{Anti-Patterns}
+\subsection{Voiding by Overriding with Empty Methods}
 \begin{enumerate}
   \item code duplication (many empty methods)
   \item need to go over all subclasses each time new feature is added.
 \end{enumerate}
 
-\subsubsection{Tag Subclasses with Interfaces}
+\subsection{Tag Subclasses with Interfaces}
 Another maintenance nightmare:
 \begin{enumerate}
   \item terrible code duplication, extremaly bug-proned.
 \end{enumerate}
 
-\subsection{Impementation}
+\section{Impementation}
 \begin{enumerate}
   \item apply 'separate what vary from what stays the same' principle - extract away optional features.
   \item apply 'favour composition over inheritance' principle - root each tree of extracted features with an

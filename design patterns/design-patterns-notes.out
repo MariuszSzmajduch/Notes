@@ -2,18 +2,20 @@
 \BOOKMARK [0][-]{chapter.1}{Separate What Vary from What Stays the Same}{part.1}% 2
 \BOOKMARK [0][-]{chapter.2}{Program to an Interface, not an Implementation}{part.1}% 3
 \BOOKMARK [0][-]{chapter.3}{Favour Composition over Inheritance}{part.1}% 4
-\BOOKMARK [-1][-]{part.2}{II Design Patterns}{}% 5
-\BOOKMARK [0][-]{chapter.4}{Creational}{part.2}% 6
-\BOOKMARK [1][-]{section.4.1}{Singleton}{chapter.4}% 7
-\BOOKMARK [2][-]{subsection.4.1.1}{Problem Descritpion}{section.4.1}% 8
-\BOOKMARK [2][-]{subsection.4.1.2}{Implementatio}{section.4.1}% 9
-\BOOKMARK [0][-]{chapter.5}{Structural}{part.2}% 10
-\BOOKMARK [1][-]{section.5.1}{Decorator}{chapter.5}% 11
-\BOOKMARK [0][-]{chapter.6}{Behavioural}{part.2}% 12
-\BOOKMARK [1][-]{section.6.1}{Observer}{chapter.6}% 13
-\BOOKMARK [2][-]{subsection.6.1.1}{Problem Description}{section.6.1}% 14
-\BOOKMARK [2][-]{subsection.6.1.2}{Implementation}{section.6.1}% 15
-\BOOKMARK [1][-]{section.6.2}{Strategy}{chapter.6}% 16
-\BOOKMARK [2][-]{subsection.6.2.1}{Problem Description}{section.6.2}% 17
-\BOOKMARK [2][-]{subsection.6.2.2}{Anti-Patterns}{section.6.2}% 18
-\BOOKMARK [2][-]{subsection.6.2.3}{Impementation}{section.6.2}% 19
+\BOOKMARK [0][-]{chapter.4}{Strive for loosly coupled designs between objects that interact}{part.1}% 5
+\BOOKMARK [-1][-]{part.2}{II Creational Patterns}{}% 6
+\BOOKMARK [0][-]{chapter.5}{Singleton}{part.2}% 7
+\BOOKMARK [1][-]{section.5.1}{Problem Descritpion}{chapter.5}% 8
+\BOOKMARK [1][-]{section.5.2}{Implementation}{chapter.5}% 9
+\BOOKMARK [-1][-]{part.3}{III Structural}{}% 10
+\BOOKMARK [0][-]{chapter.6}{Decorator}{part.3}% 11
+\BOOKMARK [-1][-]{part.4}{IV Behavioural Patterns}{}% 12
+\BOOKMARK [0][-]{chapter.7}{Observer}{part.4}% 13
+\BOOKMARK [1][-]{section.7.1}{Problem Description}{chapter.7}% 14
+\BOOKMARK [1][-]{section.7.2}{Implementation}{chapter.7}% 15
+\BOOKMARK [0][-]{chapter.8}{Strategy}{part.4}% 16
+\BOOKMARK [1][-]{section.8.1}{Problem Description}{chapter.8}% 17
+\BOOKMARK [1][-]{section.8.2}{Anti-Patterns}{chapter.8}% 18
+\BOOKMARK [2][-]{subsection.8.2.1}{Voiding by Overriding with Empty Methods}{section.8.2}% 19
+\BOOKMARK [2][-]{subsection.8.2.2}{Tag Subclasses with Interfaces}{section.8.2}% 20
+\BOOKMARK [1][-]{section.8.3}{Impementation}{chapter.8}% 21
