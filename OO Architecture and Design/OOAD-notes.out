@@ -11,6 +11,27 @@
 \BOOKMARK [1][-]{section.4.1}{Virtual method Invocation}{chapter.4}% 11
 \BOOKMARK [1][-]{section.4.2}{Method Overloading}{chapter.4}% 12
 \BOOKMARK [1][-]{section.4.3}{Method Overriding}{chapter.4}% 13
-\BOOKMARK [-1][-]{part.3}{III Design}{}% 14
-\BOOKMARK [0][-]{chapter.5}{Requiremments}{part.3}% 15
-\BOOKMARK [1][-]{section.5.1}{Use Cases}{chapter.5}% 16
+\BOOKMARK [-1][-]{part.3}{III Design Principles}{}% 14
+\BOOKMARK [0][-]{chapter.5}{Separate What Vary from What Stays the Same}{part.3}% 15
+\BOOKMARK [0][-]{chapter.6}{Program to an Interface, not an Implementation}{part.3}% 16
+\BOOKMARK [0][-]{chapter.7}{Favour Composition over Inheritance}{part.3}% 17
+\BOOKMARK [0][-]{chapter.8}{Strive for loosly coupled designs between objects that interact}{part.3}% 18
+\BOOKMARK [-1][-]{part.4}{IV Design}{}% 19
+\BOOKMARK [0][-]{chapter.9}{Requiremments}{part.4}% 20
+\BOOKMARK [1][-]{section.9.1}{Use Cases}{chapter.9}% 21
+\BOOKMARK [-1][-]{part.5}{V Creational Patterns}{}% 22
+\BOOKMARK [0][-]{chapter.10}{Singleton}{part.5}% 23
+\BOOKMARK [1][-]{section.10.1}{Problem Descritpion}{chapter.10}% 24
+\BOOKMARK [1][-]{section.10.2}{Implementation}{chapter.10}% 25
+\BOOKMARK [-1][-]{part.6}{VI Structural}{}% 26
+\BOOKMARK [0][-]{chapter.11}{Decorator}{part.6}% 27
+\BOOKMARK [-1][-]{part.7}{VII Behavioural Patterns}{}% 28
+\BOOKMARK [0][-]{chapter.12}{Observer}{part.7}% 29
+\BOOKMARK [1][-]{section.12.1}{Problem Description}{chapter.12}% 30
+\BOOKMARK [1][-]{section.12.2}{Implementation}{chapter.12}% 31
+\BOOKMARK [0][-]{chapter.13}{Strategy}{part.7}% 32
+\BOOKMARK [1][-]{section.13.1}{Problem Description}{chapter.13}% 33
+\BOOKMARK [1][-]{section.13.2}{Anti-Patterns}{chapter.13}% 34
+\BOOKMARK [2][-]{subsection.13.2.1}{Voiding by Overriding with Empty Methods}{section.13.2}% 35
+\BOOKMARK [2][-]{subsection.13.2.2}{Tag Subclasses with Interfaces}{section.13.2}% 36
+\BOOKMARK [1][-]{section.13.3}{Impementation}{chapter.13}% 37
