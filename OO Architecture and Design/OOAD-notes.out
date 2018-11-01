@@ -20,19 +20,26 @@
 \BOOKMARK [0][-]{chapter.9}{Requiremments}{part.4}% 20
 \BOOKMARK [1][-]{section.9.1}{Requirement}{chapter.9}% 21
 \BOOKMARK [1][-]{section.9.2}{Use Cases}{chapter.9}% 22
-\BOOKMARK [-1][-]{part.5}{V Creational Patterns}{}% 23
-\BOOKMARK [0][-]{chapter.10}{Singleton}{part.5}% 24
-\BOOKMARK [1][-]{section.10.1}{Problem Descritpion}{chapter.10}% 25
-\BOOKMARK [1][-]{section.10.2}{Implementation}{chapter.10}% 26
-\BOOKMARK [-1][-]{part.6}{VI Structural}{}% 27
-\BOOKMARK [0][-]{chapter.11}{Decorator}{part.6}% 28
-\BOOKMARK [-1][-]{part.7}{VII Behavioural Patterns}{}% 29
-\BOOKMARK [0][-]{chapter.12}{Observer}{part.7}% 30
-\BOOKMARK [1][-]{section.12.1}{Problem Description}{chapter.12}% 31
-\BOOKMARK [1][-]{section.12.2}{Implementation}{chapter.12}% 32
-\BOOKMARK [0][-]{chapter.13}{Strategy}{part.7}% 33
-\BOOKMARK [1][-]{section.13.1}{Problem Description}{chapter.13}% 34
-\BOOKMARK [1][-]{section.13.2}{Anti-Patterns}{chapter.13}% 35
-\BOOKMARK [2][-]{subsection.13.2.1}{Voiding by Overriding with Empty Methods}{section.13.2}% 36
-\BOOKMARK [2][-]{subsection.13.2.2}{Tag Subclasses with Interfaces}{section.13.2}% 37
-\BOOKMARK [1][-]{section.13.3}{Impementation}{chapter.13}% 38
+\BOOKMARK [0][-]{chapter.10}{Class Diagram}{part.4}% 23
+\BOOKMARK [1][-]{section.10.1}{Design}{chapter.10}% 24
+\BOOKMARK [2][-]{subsection.10.1.1}{Each Noun in a Use Case or in the Requirements have a Potential to be a Class}{section.10.1}% 25
+\BOOKMARK [2][-]{subsection.10.1.2}{[Each Verb in a Use Case can be a Method]}{section.10.1}% 26
+\BOOKMARK [1][-]{section.10.2}{Building Blocks}{chapter.10}% 27
+\BOOKMARK [2][-]{subsection.10.2.1}{Associations}{section.10.2}% 28
+\BOOKMARK [2][-]{subsection.10.2.2}{Methods}{section.10.2}% 29
+\BOOKMARK [-1][-]{part.5}{V Creational Patterns}{}% 30
+\BOOKMARK [0][-]{chapter.11}{Singleton}{part.5}% 31
+\BOOKMARK [1][-]{section.11.1}{Problem Descritpion}{chapter.11}% 32
+\BOOKMARK [1][-]{section.11.2}{Implementation}{chapter.11}% 33
+\BOOKMARK [-1][-]{part.6}{VI Structural}{}% 34
+\BOOKMARK [0][-]{chapter.12}{Decorator}{part.6}% 35
+\BOOKMARK [-1][-]{part.7}{VII Behavioural Patterns}{}% 36
+\BOOKMARK [0][-]{chapter.13}{Observer}{part.7}% 37
+\BOOKMARK [1][-]{section.13.1}{Problem Description}{chapter.13}% 38
+\BOOKMARK [1][-]{section.13.2}{Implementation}{chapter.13}% 39
+\BOOKMARK [0][-]{chapter.14}{Strategy}{part.7}% 40
+\BOOKMARK [1][-]{section.14.1}{Problem Description}{chapter.14}% 41
+\BOOKMARK [1][-]{section.14.2}{Anti-Patterns}{chapter.14}% 42
+\BOOKMARK [2][-]{subsection.14.2.1}{Voiding by Overriding with Empty Methods}{section.14.2}% 43
+\BOOKMARK [2][-]{subsection.14.2.2}{Tag Subclasses with Interfaces}{section.14.2}% 44
+\BOOKMARK [1][-]{section.14.3}{Impementation}{chapter.14}% 45

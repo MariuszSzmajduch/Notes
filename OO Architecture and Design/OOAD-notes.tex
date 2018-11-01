@@ -197,6 +197,54 @@ Each use case has a single goal, but may provide one or more scenarios. Constitu
 
 
 
+\chapter{Class Diagram}
+
+
+\section{Design}
+
+\subsection{Each Noun in a Use Case or in the Requirements have
+a Potential to be a Class}
+
+\subsection{[Each Verb in a Use Case can be a Method]}
+
+
+\section{Building Blocks}
+
+\subsection{Associations}
+
+\subsubsection{Description} 
+This is each possible relation between classes:
+\begin{itemize}
+	\item delegation
+	\item generalisation
+	\item specialisation
+	\item composition
+	\item aggregation
+	\item implementation
+\end{itemize}
+
+\subsubsection{Building Block}
+\begin{itemize}
+  \item an arrow starting at source and ending at target side
+  \item target identifier by target side of the connection line
+  \item a multiplicity indicator at target side (1, 2, *)
+\end{itemize}
+
+\subsection{Methods}
+\subsubsection{Building Blocks}
+\begin{itemize}
+  \item method identifier
+  \item list of parameter types
+  \item return:
+  	\begin{itemize}
+  	  \item \textbf{void} - nothing
+  	  \item \textbf{[ ]} - indicates a multiple type.\\
+\textbf{[*]} - indicates an unlimited number of objects.
+	\end{itemize}
+\end{itemize}
+
+
+
 
 \part{Creational Patterns}
 
