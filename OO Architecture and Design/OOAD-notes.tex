@@ -145,7 +145,7 @@ from the class in current context and going up the inheritance tree.
 
 
 
-\chapter{Separate What Vary from What Stays the Same}
+\chapter{Separate (Encapsulate) What Vary from What Stays the Same}
 Extracting changing parts and encapsulating them separatly allows future//
 changes without affecting existing parts of code.
 
@@ -181,8 +181,19 @@ This a single need of a system. Details what system should \textbf{do} or
 
 
 \section{Use Cases}
-Describes what system does to acomplish a particular \textbf{customer goal}.
-
+Describes what system does to acomplish a particular \textbf{one particular 
+customer goal}. Each use case details exactly what a system should \textbf{do}.
+It captures potential requirements of a new system. It can discover what us
+\textbf{missing} in requirements. \textbf{Use cases and requirements should exhaustively match each other}.\\
+Each use case has a single goal, but may provide one or more scenarios. Constituents:
+\begin{itemize}
+  \item \textbf{clear value} - 
+  \item \textbf{start and stop condition}
+  \item \textbf{external initiator} - an actor outside the system
+  \item \textbf{main path}
+  \item \textbf{alternate path} - optional. May \textbf{branch} or \textbf{extend} 
+  existing path - main or alternate as well.
+\end{itemize}
 
 
 

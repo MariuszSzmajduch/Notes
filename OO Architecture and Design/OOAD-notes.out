@@ -12,7 +12,7 @@
 \BOOKMARK [1][-]{section.4.2}{Method Overloading}{chapter.4}% 12
 \BOOKMARK [1][-]{section.4.3}{Method Overriding}{chapter.4}% 13
 \BOOKMARK [-1][-]{part.3}{III Design Principles}{}% 14
-\BOOKMARK [0][-]{chapter.5}{Separate What Vary from What Stays the Same}{part.3}% 15
+\BOOKMARK [0][-]{chapter.5}{Separate \(Encapsulate\) What Vary from What Stays the Same}{part.3}% 15
 \BOOKMARK [0][-]{chapter.6}{Program to an Interface, not an Implementation}{part.3}% 16
 \BOOKMARK [0][-]{chapter.7}{Favour Composition over Inheritance}{part.3}% 17
 \BOOKMARK [0][-]{chapter.8}{Strive for loosly coupled designs between objects that interact}{part.3}% 18

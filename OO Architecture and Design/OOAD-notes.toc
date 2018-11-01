@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {4.2}Method Overloading}{9}{section.4.2}
 \contentsline {section}{\numberline {4.3}Method Overriding}{9}{section.4.3}
 \contentsline {part}{III\hspace {1em}Design Principles}{11}{part.3}
-\contentsline {chapter}{\numberline {5}Separate What Vary from What Stays the Same}{12}{chapter.5}
+\contentsline {chapter}{\numberline {5}Separate (Encapsulate) What Vary from What Stays the Same}{12}{chapter.5}
 \contentsline {chapter}{\numberline {6}Program to an Interface, not an Implementation}{13}{chapter.6}
 \contentsline {chapter}{\numberline {7}Favour Composition over Inheritance}{14}{chapter.7}
 \contentsline {chapter}{\numberline {8}Strive for loosly coupled designs between objects that interact}{15}{chapter.8}

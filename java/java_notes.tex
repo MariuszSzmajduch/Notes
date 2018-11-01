@@ -2285,18 +2285,22 @@ int[] parallelArrayinitialiser(int size){
 }
 \end{verbatim}
 
-Application of \textit{parallelPrefix()}. \textbf{simplemovingAverage} It takes 'rolling window' of n array items an replace values with an average of n previous values:
+Application of \textit{parallelPrefix()}. \textbf{simplemovingAverage} 
+It takes 'rolling window' of n array items an replace values with an average
+of n previous values:
 \begin{verbatim}
 double[] simplemovingAverage(double[] values, int size){
   double[] sums = Arays.copyOf(values, values.length);
   
-  //new array holds runnung totals of the sums so far. Hence, sum of last n-items will be the difference between sum[i] and sum[i - n].
+  //new array holds runnung totals of the sums so far. Hence, sum of last n-items will be 
+  the difference between sum[i] and sum[i - n].
   // sum[i - n] is hoeld in prefix. 
   Arrays.parallelPrefix(sums, Double :: sum);
   int start = n - 1;
   return IntStream.range(start, sums.length)
                   .mapToDouble(i -> {
-                    // 0 assigned to prefix initially, as start - n equals (n - 1) - n = -1 out of the array boundary
+                    // 0 assigned to prefix initially, as start - n equals (n - 1) - n = -1
+                     out of the array boundary
                     double prefix = i == start? 0 : sums;
                     return (sum[i] - prefix) / 2;
                   }
@@ -2309,7 +2313,7 @@ Is cleaner code possible?
 
 
 
-g
+
 \part{Idioms}
 
 
