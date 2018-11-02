@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{color}
 \usepackage{hyperref}
+\usepackage{breakurl}
+
 \usepackage{tabto}
 
 \begin{document}
@@ -167,6 +169,16 @@ because they minimize the interdependency between objects.
 
 
 
+\chapter{Abstract Away What Duplicates}
+
+
+
+\chapter{Each Class Should Have Only One Reason to Change}
+??? When a class has more reasons to chaange then this class probably
+\textbf{tries to do too much}.
+
+
+
 
 \part{Design}
 
@@ -200,7 +212,7 @@ Each use case has a single goal, but may provide one or more scenarios. Constitu
 \chapter{Class Diagram}
 
 
-\section{Design}
+\section{Design - Textual Analysis}
 
 \subsection{Each Noun in a Use Case or in the Requirements have
 a Potential to be a Class}
@@ -208,20 +220,34 @@ a Potential to be a Class}
 \subsection{[Each Verb in a Use Case can be a Method]}
 
 
-\section{Building Blocks}
+\section{Design - Building Blocks}
 
-\subsection{Associations}
+\subsection{Classes}
+\begin{itemize}
+  \item \textbf{abstract} classes are \textit{italicised}
+  \item \textbf{reference attributes} are ommited.
+\end{itemize}
+
+\subsection{Relationships}
 
 \subsubsection{Description} 
-This is each possible relation between classes:
+They are possible relations between classes:
 \begin{itemize}
-	\item delegation
-	\item generalisation
+	\item dependency - \textbf{dotted arrow}
+	\item association - \textbf{solid arrow}; association specialisations:
+	\begin{itemize}
+		\item composition - \textbf{solid diamond} at target side; the same lifetime, 
+		children dependent. Example - House and Rooms. Deleting House destroys its
+		Rooms as well
+		\item aggregation - \textbf{hollow diamond} at target side. Independent children
+		with independent lifycycle. Example: Team, Player. Delete the Team, Players can go
+		to another Team.
+	\end{itemize}
+	\item generalisation - \textbf{hollow arrow} at target side
 	\item specialisation
-	\item composition
-	\item aggregation
-	\item implementation
 \end{itemize}
+
+\paragraph{Association} - target element is a part of source element.
 
 \subsubsection{Building Block}
 \begin{itemize}
@@ -239,11 +265,16 @@ We don't model constructors!
   \item list of parameter types
   \item return:
   	\begin{itemize}
-  	  \item \textbf{void} - nothing
+  	  \item \textbf{void} - nothing 
   	  \item \textbf{[ ]} - indicates a multiple type.\\
 \textbf{[*]} - indicates an unlimited number of objects.
 	\end{itemize}
 \end{itemize}
+
+c\subsection{Interfaces}
+\begin{verbatim}
+<<interface>>
+\end{verbatim}
 
 
 
