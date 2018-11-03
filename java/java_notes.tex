@@ -1057,6 +1057,40 @@ perfect implementation hiding.
 	\item no need to instantiate the outer class
 \end{itemize}
 
+
+
+
+\part{OO}
+
+
+
+\class{Inheritance}
+
+
+\section{Variable Hiding vs Shadowing}
+\subsection{Shadowing}
+A variable shadows other variables with the same name but in differnet scope.
+if the variable is not present in current scope, then look-up goes up to outer scopes.
+
+\subsection{Hiding}
+Variable with the same identifier in parent and child class hide each other. Which 
+variable is chosen depends on:
+\begin{itemize}
+  \item variable \textbf{reference type}
+  \item current context
+\end{itemize}
+In general those version is chosen where current scope is present. Therefore, in order to avoid confusion
+conforming POJO is recommended:
+\begin{itemize}
+  \item all class variable make private
+  \item access them using public accessors.
+\end{itemize}
+
+
+
+
+
+
 \part{IO}
 
 General strategy is to wrap byte-wise IO acces  into Buffered objects (readers/writers)
