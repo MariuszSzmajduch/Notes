@@ -9,10 +9,7 @@
 \usepackage{tabto}
 
 \begin{document}
-\pagenumbering{gobble}
 \tableofcontents
-
-\pagenumbering{arabic}
 
 
 
@@ -128,7 +125,7 @@ Overloading means that two or more methods have the same name
 It means that new implementation is provided to an inherited method. This is annotated by @Override. The overridden method in a superclass can be still called 
 when invoked using \textbf{super.} keyword.
 
-\subsection*{Rules}
+\subsection{Rules}
 \begin{itemize}
 	\item \textbf{final, static, private} methods can't be overridden.
 	\item access modifier of overriding method \textbf{must not be more restrictive}.
