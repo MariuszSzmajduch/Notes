@@ -25,7 +25,6 @@
 	using UML and Java (second ed.), Lethbridge, Laganiere
 	\item Head First Object Oriented Analysis and Design, McLaughlin, Pollice, West
 	\item Head First Design Patterns, Freeman, Freeman 
-	\item \url{https://www.visual-paradigm.com/tutorials/}
 \end{itemize}
 
 
@@ -148,44 +147,6 @@ from the class in current context and going up the inheritance tree.
 
 
 
-\chapter{OCP, Open-Closed Principle}
-\textbf{Open classes for extensions, but close for modifications}.
-We allow changes but without modifying existing code. This can be achieved
-using inheritance or by composition and delegating some feature to an external class.
-
-
-
-\chapter{DRY, Don't Repear Yourself}
-ONE requirement in ONE place implemented ONE single time. No duplicated code.
-If any changes are required in the future then we will implement them
-just in ONE place only. No risk of loosing consistency.
-
-
-
-\chapter{Cohesion. SRP. Single Responsibility Principle. }.
-Each Class Should Have Only One Reason to Change. \textbf{Do one thing well
-and don't pretend to be something else}.
-When a class has more than on reason to change then this class probably
-\textbf{tries to do too much}.
-Cohesion measures the degree of connectiviness between elements of some component - class, module.
-The higher cohesion the more well-defined responsibilities of each class in a software. 
-Cohesive class means:
-\begin{itemize}
-  \item class focuses on one specific task
-  \item if something seems to be unrelated then it might belong to some other class.
-\end{itemize}
-Simple test:\\
-'The X Ys itself'  f.i. 'The Observer registers itself (by..).
-
-
-
-\chapter{LSP, Liskov Substitution Principle}
-\textbf{Subtypes must be substituable for their base class}.
-We must be able to use subclasses in all those places where we can use their base classes.
-Otherwise, it indicates the inheritance implemented in a wrong way.
-
-
-
 \chapter{Separate (Encapsulate) What Vary from What Stays the Same}
 Extracting changing parts and encapsulating them separatly allows future//
 changes without affecting existing parts of code.
@@ -208,9 +169,6 @@ because they minimize the interdependency between objects.
 
 
 
-<<<<<<< HEAD
-\chapter{Encapsulate Away Common Behaviour}
-=======
 \chapter{Abstract Away What Duplicates}
 
 
@@ -218,7 +176,6 @@ because they minimize the interdependency between objects.
 \chapter{Each Class Should Have Only One Reason to Change}
 ??? When a class has more reasons to chaange then this class probably
 \textbf{tries to do too much}.
->>>>>>> refs/remotes/origin/master
 
 
 
@@ -230,32 +187,9 @@ because they minimize the interdependency between objects.
 \chapter{Requiremments}
 
 
-\section{Terminology}
-
-\subsection{Commonalities}
-What does the system have in common with something already known?
-What do we know about the system for sure?
-
-\subsection{Variabilities}
-Something about the system that we are sure that the system is NOT. 
-Something the system is not like.
-
-\subsection{A Feature}
-A high-level description of what the system is supposed to do. Can be used to figure
- \textbf{requirements} neede to implement this feature.
-
-\subsection{Requirement}
+\section{Requirement}
 This a single need of a system. Details what system should \textbf{do} or
 \textbf{bbe}.
-
-
-\section{Use Case Diagram}
-Constituents:
-\begin{itemize}
-  \item \textbf{an actor} - a stickman
-  \item \textbf{a system} - big box
-  \item \textbf{use cases} - ovals inside the box. 
-\end{itemize}
 
 
 \section{Use Cases}
@@ -300,13 +234,7 @@ a Potential to be a Class}
 They are possible relations between classes:
 \begin{itemize}
 	\item dependency - \textbf{dotted arrow}
-<<<<<<< HEAD
-	\item association/delegation - \textbf{solid arrow}; 
-	this is the case when we use some functionality of an external class
-	without modifying it; association specialisations:
-=======
 	\item association - \textbf{solid arrow}; association specialisations:
->>>>>>> refs/remotes/origin/master
 	\begin{itemize}
 		\item composition - \textbf{solid diamond} at target side; the same lifetime, 
 		children dependent. Example - House and Rooms. Deleting House destroys its
