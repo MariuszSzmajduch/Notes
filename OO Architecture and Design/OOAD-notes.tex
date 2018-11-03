@@ -208,7 +208,17 @@ because they minimize the interdependency between objects.
 
 
 
+<<<<<<< HEAD
 \chapter{Encapsulate Away Common Behaviour}
+=======
+\chapter{Abstract Away What Duplicates}
+
+
+
+\chapter{Each Class Should Have Only One Reason to Change}
+??? When a class has more reasons to chaange then this class probably
+\textbf{tries to do too much}.
+>>>>>>> refs/remotes/origin/master
 
 
 
@@ -290,9 +300,13 @@ a Potential to be a Class}
 They are possible relations between classes:
 \begin{itemize}
 	\item dependency - \textbf{dotted arrow}
+<<<<<<< HEAD
 	\item association/delegation - \textbf{solid arrow}; 
 	this is the case when we use some functionality of an external class
 	without modifying it; association specialisations:
+=======
+	\item association - \textbf{solid arrow}; association specialisations:
+>>>>>>> refs/remotes/origin/master
 	\begin{itemize}
 		\item composition - \textbf{solid diamond} at target side; the same lifetime, 
 		children dependent. Example - House and Rooms. Deleting House destroys its
