@@ -147,15 +147,19 @@ from the class in current context and going up the inheritance tree.
 
 \chapter{OCP, Open-Closed Principle}
 \textbf{Open classes for extensions, but close for modifications}.
-We allow changes but without modifying existing code. This can be achieved
+We allow changes but without modifying existing code. This can be achieved by
 using inheritance or by composition and delegating some feature to an external class.
+Anytime sthe existing code doesn't meet our needs we \textbf{extend} it, not modify.
 
 
 
-\chapter{DRY, Don't Repear Yourself}
+\chapter{DRY, Don't Repeat Yourself}
 ONE requirement in ONE place implemented ONE single time. No duplicated code.
 If any changes are required in the future then we will implement them
-just in ONE place only. No risk of loosing consistency.
+just in ONE place only. No risk of loosing consistency.\\
+It is more than just avoiding duplication. It means also having a single source
+for particular berhaviour or information stored in a place that makes sense.
+\textbf{Encapsulate away common behaviour}.
 
 
 
@@ -179,7 +183,9 @@ Simple test:\\
 \chapter{LSP, Liskov Substitution Principle}
 \textbf{Subtypes must be substituable for their base class}.
 We must be able to use subclasses in all those places where we can use their base classes.
-Otherwise, it indicates the inheritance implemented in a wrong way.
+Otherwise, it indicates the inheritance implemented in a wrong way. A good
+indicator of \textbf{misused inheritance} are \textbf{unwanted methods in a
+subclass}.
 
 
 
@@ -200,12 +206,6 @@ Allows dynamic changes of behaviour in runtime. See: Strategy Pattern.
 
 
 \chapter{Strive for loosly coupled designs between objects that interact}
-Loosely coupled designs allow us to build flexible OO systems that can handle change 
-because they minimize the interdependency between objects.
-
-
-
-\chapter{Encapsulate Away Common Behaviour}
 
 
 
@@ -291,9 +291,9 @@ They are possible relations between classes:
 	this is the case when we use some functionality of an external class
 	without modifying it; association specialisations:
 	\begin{itemize}
-		\item composition - \textbf{solid diamond} at target side; the same lifetime, 
-		children dependent. Example - House and Rooms. Deleting House destroys its
-		Rooms as well
+		\item composition - \textbf{solid diamond} at target side; \textbf{the same
+		lifetime}, children dependent. Example - House and Rooms. Deleting House
+		destroys its Rooms as well
 		\item aggregation - \textbf{hollow diamond} at target side. Independent children
 		with independent lifycycle. Example: Team, Player. Delete the Team, Players can go
 		to another Team.
