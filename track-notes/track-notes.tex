@@ -15,5 +15,63 @@
 \section{Windows}
 \url{https://trac.edgewall.org/wiki/TracInstall}
 
+\begin{verbatim}
+easy_install Trac
+\end{verbatim}
+
+\chapter{Setup}
+\url{http://web.archive.org/web/20100324230430/
+http://how-to-solutions.com/how-to-install-trac-on-windows.html}
+
+\begin{verbatim}
+trac-admin C:\project_dir initenv
+\end{verbatim}
+ 
+In Windows open up the project folder and go into the \textit{conf} sub-directory. 
+There's a file called trac.ini - open it in an editor like Notepad. You need to copy 
+the following lines below and paste them into Notepad above the \textit{header\_logo} section.
+
+\begin{verbatim}
+[components]
+acct_mgr.admin.accountmanageradminpage = enabled
+acct_mgr.api.accountmanager = enabled
+acct_mgr.db.sessionstore = enabled
+acct_mgr.htfile.htdigeststore = enabled
+acct_mgr.pwhash.htdigesthashmethod = enabled
+acct_mgr.web_ui.accountmodule = enabled
+acct_mgr.web_ui.loginmodule = enabled
+acct_mgr.web_ui.registrationmodule = enabled
+trac.web.auth.loginmodule = disabled
+\end{verbatim}
+
+Go to project\_dir and create a new text file called passwd.txt - leave the file blank.
+
+Lastly let's give all anonymous users (those who aren't logged in) admin access. In the same 
+CLI window type the following and hit Enter.
+\begin{verbatim}
+trac-admin C:\project_dir permission add anonymous TRAC_ADMIN
+\end{verbatim}
+
+In CLI type the following and hit Enter.
+\begin{verbatim}
+tracd -p 8000 E:\project
+\end{verbatim}
+
+Open up browser and paste:
+\begin{verbatim}
+http://localhost:8000/. 
+\end{verbatim}
+
+In the top right there's a tab called Admin - click on it. On the menu on the right
+click on \textit{Configuration} and when the page loads select \textit{HtDigestStore}
+where the filename is $C:\backslash project\backslash passwd.txt$ and the realm is 'trac'.
+
+Below \textit{Configuration} is \textit{Users} - click on it. Create yourself 
+an admin account. Now using the menu go to \textit{Permissions}. On the right 
+of that page you will see the \textit{Grant Permission} section. Use the subject 
+field for the username you gave yourself on the Users page and select the \textit{TRAC\_ADMIN} as
+\textit{Action}. Click Add and you will see your username in the middle column of the page with 
+\textit{TRAC\_ADMIN} next to it. For the subject anonymous click on the \textit{TRAC\_ADMIN} 
+so it's ticked and then click on the \textit{Remove} selected items button.
 
 \end{document}
