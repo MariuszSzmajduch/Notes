@@ -20,8 +20,8 @@ easy_install Trac
 \end{verbatim}
 
 \chapter{Setup}
-\url{http://web.archive.org/web/20100324230430/
-http://how-to-solutions.com/how-to-install-trac-on-windows.html}
+\url{http://web.archive.org/web/20100324230430/http://how-to-solutions.com/
+how-to-install-trac-on-windows.html}
 
 \begin{verbatim}
 trac-admin C:\project_dir initenv
@@ -52,6 +52,8 @@ CLI window type the following and hit Enter.
 trac-admin C:\project_dir permission add anonymous TRAC_ADMIN
 \end{verbatim}
 
+\textbf{\textcolor{red}{Install AccountManager plugin now!}} - see section below.
+
 In CLI type the following and hit Enter.
 \begin{verbatim}
 tracd -p 8000 E:\project
@@ -73,5 +75,18 @@ field for the username you gave yourself on the Users page and select the \texti
 \textit{Action}. Click Add and you will see your username in the middle column of the page with 
 \textit{TRAC\_ADMIN} next to it. For the subject anonymous click on the \textit{TRAC\_ADMIN} 
 so it's ticked and then click on the \textit{Remove} selected items button.
+
+\section{AccountManager plugin}
+\begin{enumerate}
+  \item download from \url{https://trac-hacks.org/wiki/AccountManagerPlugin}
+  \item unpack
+  \item run track server:
+  \begin{verbatim}
+  tracd -p 8000 projecf_dir
+  \end{verbatim}
+  \item go to admin, plugins (left pane)
+  \item install from egg buton. egg file is in \textit{dist}
+  subdir of unpacked folder
+\end{enumerate}
 
 \end{document}
