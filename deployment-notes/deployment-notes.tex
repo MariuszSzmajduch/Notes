@@ -27,7 +27,282 @@
 \chapter{Overview}
 \textbf{Another Neat Tool.} Open and portable standard to automate 
 build and deploy processes. Build files are in XML format. By convention 
-they are called \textit{build.xml}
+they are called \textit{build.xml}.
+
+
+
+\chapter{Build File}
+
+
+\section{overview and a document structure}
+By convention they are called \textit{build.xml}. Structured wit following
+tags:
+\begin{itemize}
+  \item \textbf{preamble} (optional)
+  \item \textbf{project} - mandatory!
+  \item \textbf{target} - at least 1 mandatory
+\end{itemize}
+
+
+\section{preamble}
+\textbf{Optional!}
+
+  \begin{verbatim}
+  <?xml version = "1.0" ?>
+  \end{verbatim}
+  
+  There should be no tab, blank line or whitespace before!
+
+
+\section{tags}
+
+\subsection{project}
+This element is required! Attributes:
+\begin{itemize}
+  \item name (optional)
+  \item default (\textbf{mandatory!}). It specifies which target should be executed when command \textit{ant} is not suplied
+  with an argument. 
+  \item basedir; optional - location of the build file is taken as a root dir
+  if not specified
+  \item xmlns:ivy=``antlib:org.apache.ivy.ant defines an XML namespace for ivy. Mandatory in order to resolve dependencies with ivy.
+\end{itemize}
+
+\subsection{target}
+\begin{verbatim}
+ant -p
+\end{verbatim}
+lists all available targets.
+\textbf{At least one is mandatory!} Attributes:
+\begin{itemize}
+  \item name = mandatory
+  \item depends - optional; points to other targets that have to be execute as a perequisites in order to 
+  execute this target
+  \item description
+  \item if; a condition that has to be true in order to execute the task.
+  \item unless; adds the task to the dependency list of the specified Extension Point.
+\end{itemize}
+
+\subsection{task}
+It is a named tag that actually does something. There is about
+150 built-in tasks.
+
+
+\section{list of tasks}
+\url{http://ant.apache.org/manual/index.html}
+
+\subsection{delete}
+Deletes from a file system. Attributes:
+\begin{itemize}
+  \item dir - \textbf{mandatory}.
+\end{itemize}
+
+\subsection{echo}
+Prints to stdout.
+
+\subsection{ivy:retrieve}
+Executes ivy script. Needs XML namespace declaration in the project tag.
+\begin{verbatim}
+<project xmlns:ivy = "antlib:org.apache.ivy.ant" ...
+    ...
+    <target name = "resolve" ...>
+        <ivy:retrieve />
+    </target>
+    ...
+</project>
+\end{verbatim}
+
+\subsection{java}
+Runs java application. Example running executable jar:
+\begin{verbatim}
+<java jar = "dir-to/file.jar" fork = "true"/>
+\end{verbatim}
+
+\subsection{javac}
+Attributes:
+\begin{itemize}
+  \item srcdir - \textbf{mandatory}
+  \item destdir \textbf{mandatory}
+\end{itemize}
+
+\subsection{jar}
+Packages an application. For startable jar-package additional nested task \textit{manifest} is required
+Standard usage of \textit{basedir}. Exmaple:
+\begin{verbatim}
+<jar destfile = "dir-to/file.jar" basedir = "root-of/java.class">
+    <manifest>
+        <attribute name = "Main-Class" value = "package.address.of.MainClass"\>
+    </manifest>
+</jar>
+\end{verbatim}
+
+\subsection{javadoc}
+
+\subsection{mkdir}
+Attributes:
+\begin{itemize}
+  \item dir \textbf{mandatory}
+\end{itemize}
+
+\section{ant properties}
+
+\begin{verbatim}
+<property name = "prop_name" value = "prop_value"/>
+\end{verbatim}
+
+\begin{itemize}
+  \item There are 10 predefined, 
+  they can be also custom specified. 
+  \item \textbf{scope} - global.
+  \item \textbf{lifecycle} - the lifecycle of immediate surrounding tag.
+  If it is a project - then the property is set for all tasks. If it is within a task - the property
+  is set globally, but just for this particular task.
+  \item \textbf{modification and accessibility}
+  	\begin{itemize}
+  	  \item they are immutable
+  	  \item they value of any property can be used anywhere in the code using
+  	  following syntax:
+  	  \begin{verbatim}
+  	  ${prop_name}
+  	  \end{verbatim}
+  	  See: BuildFile.tags.tasks.ivy:retrieve
+  	  \end{itemize}
+\end{itemize}
+
+\subsection{predefined ant properties}
+
+\begin{itemize}
+  \item \textbf{ant.file}\\
+The full location of the build file.
+
+	\item \textbf{ant.version}\\
+The version of the Apache Ant installation.
+
+	\item \textbf{basedir}\\
+The basedir of the build, as specified in the basedir attribute of the project element.
+
+	\item \textbf{ant.java.version}\\
+The version of the JDK that is used by Ant.
+
+	\item \textbf{ant.project.name}\\
+The name of the project, as specified in the name atrribute of the project element.
+
+	\item \textbf{ant.project.default-target}\\
+The default target of the current project.
+
+	\item \textbf{ant.project.invoked-targets}\\
+Comma separated list of the targets that were invoked in the current project.
+
+	\item \textbf{ant.core.lib}\\
+The full location of the Ant jar file.
+
+	item \textbf{ant.home}\\
+The home directory of Ant installation.
+
+	\item \textbf{ant.library.dir}\\
+The home directory for Ant library files - typically ANT\_HOME/lib folder.
+
+\end{itemize}
+
+
+\section{ant-data types}
+They are predefined tags. They are kind of built-in services.
+
+\subsection{fileset}
+Is used as a filter to include or exclude files that match a particular pattern.
+Attributes:
+\begin{itemize}
+  \item id
+  \item dir - uri of the root folder
+  \item casesensitive
+\end{itemize}
+
+Tags:
+\begin{itemize}
+  \item include
+  \item exclude
+\end{itemize}
+They have an attribute \textit{name}.
+
+\begin{verbatim}
+<fileset dir = "${some_dir}" casesensitive = "yes">
+	<include name = "**/*.java"/>
+	<exclude name = "**/*.class"/>
+\end{verbatim}
+
+\subsection{filelist}
+Explicit list of files. 
+\begin{itemize}
+  \item no wild cards
+  \item can be applid to non-existing files, too 
+\end{itemize}
+\textit{fileset} \textbf{filters}
+files, \textit{filelist} names them explicitly:
+\begin{verbatim}
+<filelist id = "list_id" dir = "${base_url}">
+	<file name = "file1_name"\>
+	<file name = "file2_name"/>
+	...
+</filelist>
+\end{verbatim}
+
+\subsection{patternset}
+Meta characters:
+\begin{itemize}
+  \item ? - exactly one character
+  \item * - zero or more characters
+  \item ** - zero ore more dirs
+\end{itemize}
+
+Tags:
+\begin{itemize}
+  \item id - pattern identifier
+  \item include, exclude - pattern definitions
+  \item refid - actual use of pattern definition
+\end{itemize}
+
+\textbf{Example}. First a pattern is specified:
+\begin{verbatim}
+<patternset id = "java.src">
+	<include name = "**/*.java"/>
+	<exclude name = "**/*.class"/>
+</patternset>
+\end{verbatim}
+
+
+Then the pattern can be reused by its id:
+\begin{verbatim}
+<fileset dir = "${src} casesensitive = "yes">
+	<patternset refid = "java.src"/>
+</fileset>
+\end{verbatim}
+
+
+
+\chapter{Property File}
+By convention it is \textit{build.properties} or \textit{build.properties.ver},
+where \textit{ver} specifies a version, like \textit{prod}, \textit{test}.
+Should be placed at the same location as \textit{build.xml} file.
+Contains a list of key-value pairs \textbf{without quotes!}. Example:
+
+\begin{verbatim}
+# My Project Details
+location = local machine
+buildversion = 4.2
+\end{verbatim}
+
+Then we can use properties stored in the property file in \textit{build.xml}
+by specyfying the value of \textit{file} attribute in an ant property tag:
+\begin{verbatim}
+<property file = "build.property.test"/>
+\end{verbatim}
+
+\textbf{Comments:}
+\begin{verbatim}
+# This is a comment!
+# ...and this is another comment
+location = my local machine
+buildversion = 4.2
+\end{verbatim}
 
 
 
@@ -39,5 +314,116 @@ they are called \textit{build.xml}
 
 
 
+
+\part{Ivy}
+
+
+
+\chapter{Overview}
+\begin{itemize}
+  \item resolves dependencies
+  \item in XML
+  \item maven2 repository
+  \item \textit{ivy.xml} - conventional config file name
+  \item See: Ant.BuildFile.tags.tasks.ivy:retrieve for syntax how to refer from ant
+  build file.
+\end{itemize}
+
+
+
+\chapter{Syntax}
+
+
+\section{structure}
+Mandatory tags in bold, mandatory attributes in bold-red
+\begin{itemize}
+  \item \textbf{ivy-module} \textbf{\textcolor{red}{version}}
+  \begin{itemize}
+    \item \textbf{info} \textbf{\textcolor{red}{organisation module}}
+    \item \textbf{dependencies}
+    \begin{itemize}
+      \item \textbf{dependency} \textbf{\textcolor{red}{org name rev}}
+      \item \ldots
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+
+\section{ivy-module}
+
+\begin{verbatim}
+<ivy-module version = "2.0">
+   ...
+<\ivy-module>
+\end{verbatim}
+
+\textbf{Mandatory!} It's a preamble that states that this is ivy-file. 
+Attributes:
+\begin{itemize}
+  \item version \textbf{mandatory!}.
+\end{itemize}
+
+
+\section{info}
+
+\textbf{Mandatory}. Custom values that identify the project. Attributes \textbf{(mandatory!)}:
+\begin{itemize}
+  \item organisation - source owner, creator\ldots
+  \item module - usually application name or its part.
+\end{itemize}
+
+\begin{verbatim}
+<info organisation = "msz" module = "my-app"\>
+\end{verbatim}
+
+\section{dependencies}
+
+Contains set of \textit{dependency} tags.
+
+\subsection{dependency}
+Seperate entry for each dependency. Attributes (\textbf{mandatory}):
+\begin{itemize}
+  \item org
+  \item name
+  \item rev
+\end{itemize}
+Value for each attribute can be found here:\\
+\url{https://mvnrepository.com/}\\
+Information provided as POM. The way to convert:
+\begin{itemize}
+  \item groupID - org
+  \item artifactId - name
+  \item version - rev
+\end{itemize}
+
+
+
+
+\chapter{Resources}
+
+\url{http://ant.apache.org/ivy/history/2.3.0-rc2/tutorial.html}
+
+
+
+
+\part{Graddle}
+
+
+
+\chapter{Overview}
+
+\section{Project}
+This interface is the main API you use to interact with Gradle
+from your build file. From a Project, you have programmatic access 
+to all of Gradle's features. During build initialisation, Gradle assembles a
+Project object for each project which is to participate in the build.
+A project is essentially a collection of Task objects. Each task performs some
+basic piece of work, such as compiling classes, or running unit tests, or zipping up a WAR file
+
+
+
+\chapter{Resources}
+Official getting started tutorial:\\
+\url{https://guides.gradle.org/creating-new-gradle-builds/}
 
 \end{document}

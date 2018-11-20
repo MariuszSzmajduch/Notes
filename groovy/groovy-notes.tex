@@ -1,0 +1,360 @@
+\documentclass{report}
+\title{Groovy Notes}
+\author{msz}
+
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{breakurl}
+
+\usepackage{tabto}
+
+\begin{document}
+
+
+
+
+\part{basics}
+
+
+
+\chapter{Overview}
+
+
+\begin{itemize}
+  \item syntax very similar to java, and some fatures like in python
+  \item optionally typed
+\end{itemize}
+
+
+
+\chapter{Syntax}
+
+
+\section{def}
+Tutorialspoint introduces it in a very messy way. Find another source explaining
+exactly what is this.\\
+A keyword used to define an identifier.\\
+Can be also used as a method return type. But a method can be also void and
+type-parametarised. So, what the difference????
+
+
+\section{default parameters}
+They provide a default value. \textbf{Must be listed after non-default
+parameters}:
+\begin{verbatim}
+method(a, b, c - 3.0, d = "wortd"){
+    ...
+}
+\end{verbatim}
+
+
+\section{ranges}
+Inclusive and exclusive, using nambers or characters:
+\begin{verbatim}
+a..b
+a..<b   \\ exclusive
+'d'..'l'
+\end{verbatim}
+There are builtin methods to operate on ranges:
+contains(), get(), getFrom{}, getTo(), isReverse(), size(), subList().
+
+
+\section{string literals - triple quotes}
+Triple quotes can span multiple lines.
+
+
+\section{lists}
+\begin{verbatim}
+[a, b, c]
+\end{verbatim}
+\begin{itemize}
+  \item indexed
+  \item standard list methods (add, get, size, contains, isEmpty, etc)
+\end{itemize}
+
+
+\section{regex}
+\begin{verbatim}
+~'^a.b?c?d{2}.[eaouyi]e*[c-m]*f+[0-9]+g$'
+\end{verbatim}
+
+\begin{itemize}
+  \item a wildcard - \textbf{.}
+  \item quantifiers:
+  \begin{itemize}
+    \item types:
+    \begin{itemize}
+      	\item \textbf{\{x\}} - exactly \textit{x} times
+    	\item \textbf{?} - 0 or 1
+    	\item \textbf{*} - 0 or many
+    	\item \textbf{+} - 1 or many
+    \end{itemize}
+      
+   	\item usage:
+   	\begin{itemize}
+     	\item applies to preceding character. 
+     	\item applies to preceding set
+   	\end{itemize}
+   \end{itemize}
+   
+  \item sets
+  \begin{itemize}
+    \item explicit
+    \begin{verbatim}
+    [efh47]
+    \end{verbatim}
+    
+    \item using ranges
+    \begin{verbatim}
+    [d-k3-8] 
+    \end{verbatim}
+    
+    \item a quantifier can be applied after the set
+    \item default - exactly 1 element when no quantifier applied.
+  \end{itemize}
+
+  \item \$ and \^{} denotes beginning and end of the line respectively
+  \end{itemize}
+\end{itemize}
+
+
+\section{traits}
+Not sure, but it looks like an interface, but with concrete methods and global
+variables.
+Then a trait can be implemented in the same way like a regular interface:
+\begin{verbatim}
+trait abc{
+   var = 15
+   traitMethod(){
+   		doSomething();
+   }
+   
+class MyClass implements abc{}
+// and now var and the method doSomething are the parts of MyClass
+\end{verbatim}
+
+
+\section{closures}
+The anonymous methods,  a lambdaexpression.
+Can be used as parameters or assigned to variables. Mind the syntax for
+parameter injected to a string and being standalone and that the closure is
+called with \textbf{.call()}:
+\begin{verbatim}
+def closure = {a -> 10 + a};
+def b = closure.call(2);
+println(b);                 // prints '12'
+
+// it's just a lambda but with 0 parameters
+def closure2 = {println "Hi"};   
+closure2.call();            // prints 'Hi'
+
+// no brackets after println
+// a parameter marked with $
+def closure3 = {s -> println "Hi ${s}" };
+closure3.call("Joe");        // prints 'Hi Joe'
+\end{verbatim}
+
+
+\subsection{usage with collections}
+The method \textbf{.each} returns a stream of the collection items, similar to
+foreach in java. They are passed to a closure as a parameter (multiple calls).
+\begin{verbatim}
+def list = [1, 2];
+// this is 'x -> println(x)' under the hood
+// x's are suplied by the each() method
+list.each(println x);          
+\end{verbatim}
+This prints:\\
+1\\
+2
+
+
+
+
+\part{XML}
+
+
+
+\chapter(Generating XML)
+MarkupBuilder library provides a support for XML:
+
+\begin{verbatim}
+import groovy.xml.MarkupBuilder 
+
+class Example {
+   static void main(String[] args) {
+      def mp = [1 : ['Enemy Behind', 'War, Thriller','DVD','2003', 
+         'PG', '10','Talk about a US-Japan war'],
+         2 : ['Transformers','Anime, Science Fiction','DVD','1989', 
+         'R', '8','A scientific fiction'],
+         3 : ['Trigun','Anime, Action','DVD','1986', 
+         'PG', '10','Vash the Stam pede'],
+         4 : ['Ishtar','Comedy','VHS','1987', 'PG', 
+         '2','Viewable boredom ']] 
+			
+      def mB = new MarkupBuilder()  
+		
+      // Compose the builder
+      def MOVIEDB = mB.collection('shelf': 'New Arrivals') {
+         mp.each {
+            sd -> 
+            mB.movie('title': sd.value[0]) {  
+               type(sd.value[1])
+               format(sd.value[2])
+               year(sd.value[3]) 
+               rating(sd.value[4])
+               stars(sd.value[4]) 
+               description(sd.value[5]) 
+            }
+         }
+      }
+   } 
+}
+\end{verbatim}
+
+outputs:
+\begin{verbatim}
+<collection shelf = 'New Arrivals'> 
+   <movie title = 'Enemy Behind'> 
+      <type>War, Thriller</type> 
+      <format>DVD</format> 
+      <year>2003</year> 
+      <rating>PG</rating> 
+      <stars>PG</stars> 
+      <description>10</description> 
+   </movie> 
+   <movie title = 'Transformers'> 
+      <type>Anime, Science Fiction</type> 
+      <format>DVD</format> 
+      <year>1989</year>
+	  <rating>R</rating> 
+      <stars>R</stars> 
+      <description>8</description> 
+   </movie> 
+   <movie title = 'Trigun'> 
+      <type>Anime, Action</type> 
+      <format>DVD</format> 
+      <year>1986</year> 
+      <rating>PG</rating> 
+      <stars>PG</stars> 
+      <description>10</description> 
+   </movie> 
+   <movie title = 'Ishtar'> 
+      <type>Comedy</type> 
+      <format>VHS</format> 
+      <year>1987</year> 
+      <rating>PG</rating> 
+      <stars>PG</stars> 
+      <description>2</description> 
+   </movie> 
+</collection> 
+\end{verbatim}
+
+
+
+\chapter{Parsing XML}
+Supported by builtin \textbf{XmlParser} class (in groovy.util library) and its
+\textbf{parse()} method.
+Using XML files generated in previous chapter:
+\begin{verbatim}
+import groovy.xml.MarkupBuilder 
+import groovy.util.*
+
+class Example {
+
+   static void main(String[] args) { 
+	
+      def parser = new XmlParser()
+      def doc = parser.parse("D:\\Movies.xml");
+		
+      doc.movie.each{
+         bk->
+         print("Movie Name:")
+         println "${bk['@title']}"
+			
+         print("Movie Type:")
+         println "${bk.type[0].text()}"
+			
+         print("Movie Format:")
+         println "${bk.format[0].text()}"
+			
+         print("Movie year:")
+         println "${bk.year[0].text()}"
+			
+         print("Movie rating:")
+         println "${bk.rating[0].text()}"
+			
+         print("Movie stars:")
+         println "${bk.stars[0].text()}"
+			
+         print("Movie description:")
+         println "${bk.description[0].text()}"
+         println("*******************************")
+      }
+   }
+}
+\end{verbatim}
+
+This produces:
+\begin{verbatim}
+Movie Name:Enemy Behind 
+Movie Type:War, Thriller 
+Movie Format:DVD 
+Movie year:2003 
+Movie rating:PG 
+Movie stars:10 
+Movie description:Talk about a US-Japan war 
+******************************* 
+Movie Name:Transformers 
+Movie Type:Anime, Science Fiction 
+Movie Format:DVD 
+Movie year:1989 
+Movie rating:R 
+Movie stars:8 
+Movie description:A schientific fiction 
+******************************* 
+Movie Name:Trigun 
+Movie Type:Anime, Action
+Movie Format:DVD 
+Movie year:1986 
+Movie rating:PG 
+Movie stars:10 
+Movie description:Vash the Stam pede! 
+******************************* 
+Movie Name:Ishtar 
+Movie Type:Comedy 
+Movie Format:VHS 
+Movie year:1987 
+Movie rating:PG 
+Movie stars:2 
+Movie description:Viewable boredom
+\end{verbatim}
+ 
+ 
+ 
+\part{JSON}
+Groove contains builtin libraries supporting JASON parsing and creation:
+\begin{itemize}
+  \item \textbf{JsonSlurper} class supports parsing. Methods:
+  \begin{itemize}
+    \item \textbf{parseText()}. We need JsonSLurper instance to use it.
+  \end{itemize}
+  
+  \item \textbf{JsonOutput} class supports generating. Methods:
+  \begin{itemize}
+    \item static JsonOutput.\textbf{toJson}()
+  \end{itemize}
+\end{itemize}
+
+
+
+\part{resurces}
+
+
+
+This one is terrible poor, try to find something else:\\
+\url{https://www.tutorialspoint.com/groovy/index.htm}
+
+
+\end{document}
